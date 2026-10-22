@@ -1,0 +1,19 @@
+{
+  "recorded_utc": "2026-10-20T12:05:33+00:00",
+  "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct-AWQ",
+  "synthetic_prompt": true,
+  "results": [
+    {
+      "n_diminta": 1,
+      "n_diterima": 1,
+      "detik": 6.05,
+      "prompt_tokens": 888,
+      "completion_tokens": 194,
+      "finish_reasons": [
+        "stop"
+      ],
+      "vram_used_mib_sebelum": 6521,
+      "vram_used_mib_sesudah": 6575
+    }
+  ]
+}

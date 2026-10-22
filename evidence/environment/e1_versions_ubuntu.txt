@@ -1,0 +1,21 @@
+2026-10-20T19:18:00+07:00
+Linux LAPTOP-OT2ET2K4 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec  1 20:46:23 UTC 2025 x86_64 GNU/Linux
+PRETTY_NAME="Ubuntu 26.04 LTS"
+NAME="Ubuntu"
+VERSION_ID="26.04"
+git version 2.53.0
+GNU Make 4.4.1
+Python 3.11.17
+uv 0.13.3 (x86_64-unknown-linux-gnu)
+Name: vllm
+Version: 0.32.0
+Name: torch
+Version: 2.13.0
+Command 'node' not found, but can be installed with:
+sudo apt install nodejs
+Command 'docker' not found, but can be installed with:
+sudo snap install docker         # version 29.8.0, or
+sudo snap install docker         # version 29.8.0
+sudo apt  install docker.io      # version 29.1.3-0ubuntu4.1
+sudo apt  install podman-docker  # version 5.7.0+ds2-3build1
+See 'snap info <snapname>' for additional versions.

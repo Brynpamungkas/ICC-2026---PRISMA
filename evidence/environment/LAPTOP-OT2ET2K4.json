@@ -1,0 +1,51 @@
+{
+  "recorded_utc": "2026-10-20T12:07:38+00:00",
+  "hostname": "LAPTOP-OT2ET2K4",
+  "os": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "wsl": true,
+  "python": "3.11.17",
+  "tools": {
+    "git": "git version 2.53.0",
+    "make": "GNU Make 4.4.1\nBuilt for x86_64-pc-linux-gnu\nCopyright (C) 1988-2023 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.",
+    "node": null,
+    "npm": "11.6.2",
+    "docker": null,
+    "ollama": null,
+    "llama-server": null
+  },
+  "packages": {
+    "vllm": "0.32.0",
+    "torch": "2.13.0",
+    "transformers": "5.19.0",
+    "pydantic": "2.14.1",
+    "sqlglot": "30.23.0",
+    "pandas": "3.0.6",
+    "pyyaml": "6.0.3",
+    "requests": "2.34.2",
+    "fastapi": "0.136.3",
+    "pytest": "9.1.1"
+  },
+  "sqlite3_python_lib": "3.53.1",
+  "gpu": {
+    "nvidia_smi_found": true,
+    "gpus": [
+      {
+        "name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "driver": "617.42",
+        "vram_total_mib": 8188,
+        "vram_used_mib": 6617,
+        "vram_free_mib": 1340
+      }
+    ]
+  },
+  "model_files_sha256": {
+    "config.json": "0ff9b875b1ab614fe2a860aa85e00200ddf1bde77c754a231865202d35fc0390",
+    "generation_config.json": "2add3af07b2356b0c13c185707905f80a70f79aec78e9ed67d06e215581b946c",
+    "merges.txt": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+    "model.safetensors": "cee832dcc5d9389549598d38dc48506bd89ecfc9b31064929b5bd744fd1cdad9",
+    "tokenizer.json": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+    "tokenizer_config.json": "5d1306521c87587bc231a65ff64383327fe402bd03257d95113dcec0f5a1b44f",
+    "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+  },
+  "notes": "Bukti statis mesin ini. Python target proyek = 3.11; CUDA 'Version' di nvidia-smi bukan bukti toolkit."
+}

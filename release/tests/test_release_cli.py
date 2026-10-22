@@ -5,6 +5,7 @@ import importlib.util
 import json
 from pathlib import Path
 import pytest
+from types import SimpleNamespace
 
 spec = importlib.util.spec_from_file_location(
     "release_cli", Path(__file__).resolve().parents[2] / "tools/release_cli.py"
@@ -69,3 +70,33 @@ def test_frontend_imported_styles_and_fonts_are_packaged():
         for asset in re.findall(r"url\(['\"]?([^)'\"]+)", path.read_text()):
             if not asset.startswith(("data:", "http:", "https:")):
                 assert (path.parent / asset).is_file(), asset
+
+
+def test_reuse_build_requires_explicit_source():
+    with pytest.raises(RuntimeError, match="memerlukan --reuse"):
+        cli.setup(SimpleNamespace(reuse_build=True, reuse=None))
+
+
+def test_reuse_cannot_target_the_release_itself():
+    with pytest.raises(RuntimeError, match="harus berbeda"):
+        cli.setup(SimpleNamespace(reuse_build=False, reuse=str(cli.ROOT)))
+
+
+def test_incompatible_frontend_build_is_rejected_before_copy(tmp_path, monkeypatch):
+    origin = tmp_path / "original"
+    release = tmp_path / "release-copy"
+    (origin / "frontend/.next").mkdir(parents=True)
+    (origin / "frontend/.next/BUILD_ID").write_text("old-build")
+    (origin / "frontend/app").mkdir()
+    (origin / "frontend/app/page.tsx").write_text("different UI")
+    (release / "release").mkdir(parents=True)
+    (release / "frontend/.next").mkdir(parents=True)
+    target = release / "frontend/.next/BUILD_ID"
+    target.write_text("keep-this-build")
+    (release / "release/source_manifest.json").write_text(
+        json.dumps({"files": [{"path": "frontend/app/page.tsx", "sha256": "0" * 64}]})
+    )
+    monkeypatch.setattr(cli, "ROOT", release)
+    with pytest.raises(RuntimeError, match="Source frontend build berbeda"):
+        cli.reuse_frontend_build(origin)
+    assert target.read_text() == "keep-this-build"

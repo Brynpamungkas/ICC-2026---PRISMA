@@ -1,0 +1,71 @@
+{
+  "recorded_utc": "2026-10-20T12:06:35+00:00",
+  "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct-AWQ",
+  "synthetic_prompt": true,
+  "results": [
+    {
+      "n_diminta": 1,
+      "n_diterima": 1,
+      "detik": 3.82,
+      "prompt_tokens": 888,
+      "completion_tokens": 194,
+      "finish_reasons": [
+        "stop"
+      ],
+      "vram_used_mib_sebelum": 6575,
+      "vram_used_mib_sesudah": 6575
+    },
+    {
+      "n_diminta": 8,
+      "n_diterima": 8,
+      "detik": 7.99,
+      "prompt_tokens": 888,
+      "completion_tokens": 1838,
+      "finish_reasons": [
+        "length",
+        "stop"
+      ],
+      "vram_used_mib_sebelum": 6575,
+      "vram_used_mib_sesudah": 6577
+    },
+    {
+      "n_diminta": 16,
+      "n_diterima": 16,
+      "detik": 5.95,
+      "prompt_tokens": 888,
+      "completion_tokens": 3655,
+      "finish_reasons": [
+        "length",
+        "stop"
+      ],
+      "vram_used_mib_sebelum": 6577,
+      "vram_used_mib_sesudah": 6577
+    },
+    {
+      "n_diminta": 32,
+      "n_diterima": 32,
+      "detik": 5.57,
+      "prompt_tokens": 888,
+      "completion_tokens": 7364,
+      "finish_reasons": [
+        "length",
+        "stop"
+      ],
+      "vram_used_mib_sebelum": 6577,
+      "vram_used_mib_sesudah": 6579
+    },
+    {
+      "n_diminta": 64,
+      "n_diterima": 64,
+      "detik": 6.53,
+      "prompt_tokens": 888,
+      "completion_tokens": 14320,
+      "finish_reasons": [
+        "length",
+        "stop"
+      ],
+      "vram_used_mib_sebelum": 6579,
+      "vram_used_mib_sesudah": 6617
+    }
+  ]
+}

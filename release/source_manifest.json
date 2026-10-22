@@ -1023,6 +1023,62 @@
       "sha256": "0c697014a1e2a640915185af30897a89444a670ab473dcd4587443beff5e27a3",
       "source_path": "eval/runs/test_K1K2K3_20261022T053331Z/metrik_K3.json",
       "source_commit": "c1e0900b26dfcd1f86c439cc96724d30ac0b45aa"
+    },
+    {
+      "path": "evidence/environment/LAPTOP-OT2ET2K4.json",
+      "source_path": "docs/env/LAPTOP-OT2ET2K4.json",
+      "source_commit": "c1e0900b26dfcd1f86c439cc96724d30ac0b45aa",
+      "sha256": "a9bcf0e2da7e0ac2c40bb5e510b8f6eb29d32559f05de0b55d02995c40c01e03",
+      "type": "historical_environment_evidence"
+    },
+    {
+      "path": "evidence/environment/e1_versions_ubuntu.txt",
+      "source_path": "docs/env/e1_versions_ubuntu.txt",
+      "source_commit": "c1e0900b26dfcd1f86c439cc96724d30ac0b45aa",
+      "sha256": "b6d3cea2313a9815ce3a0c5f4ad44abcbafc77ba8e43b9a3a830c9f314bad117",
+      "type": "historical_environment_evidence"
+    },
+    {
+      "path": "evidence/environment/e3_nvidia_smi_ubuntu.txt",
+      "source_path": "docs/env/e3_nvidia_smi_ubuntu.txt",
+      "source_commit": "c1e0900b26dfcd1f86c439cc96724d30ac0b45aa",
+      "sha256": "a6ec1a6419d45e2b2755e8c1c42da94c96ef0e943c58c15561e0e08d8d5d8996",
+      "type": "historical_environment_evidence"
+    },
+    {
+      "path": "evidence/environment/e3_nvidia_smi_windows.txt",
+      "source_path": "docs/env/e3_nvidia_smi_windows.txt",
+      "source_commit": "c1e0900b26dfcd1f86c439cc96724d30ac0b45aa",
+      "sha256": "cb2d106172ba6a8881e7704a020a7236c953f8a6f9788a795719f4dac96eaee6",
+      "type": "historical_environment_evidence"
+    },
+    {
+      "path": "evidence/environment/e4_smoke_n1.json",
+      "source_path": "docs/env/e4_smoke_n1.json",
+      "source_commit": "c1e0900b26dfcd1f86c439cc96724d30ac0b45aa",
+      "sha256": "f4f94d6e5b18f0416eb132033bda59eb625b17d682939413e73c8414f44eeecf",
+      "type": "historical_environment_evidence"
+    },
+    {
+      "path": "evidence/environment/e5_smoke_n1-64.json",
+      "source_path": "docs/env/e5_smoke_n1-64.json",
+      "source_commit": "c1e0900b26dfcd1f86c439cc96724d30ac0b45aa",
+      "sha256": "c96d2d8883544d5b9d6e9648cf9f67f6e912d12f606d5ee3451fb63340563fae",
+      "type": "historical_environment_evidence"
+    },
+    {
+      "path": "evidence/environment/e8_model_sha256.txt",
+      "source_path": "docs/env/e8_model_sha256.txt",
+      "source_commit": "c1e0900b26dfcd1f86c439cc96724d30ac0b45aa",
+      "sha256": "820e509de2092c1bf7bd257dee153f82311a31f391d483f282b3b8029ba51fda",
+      "type": "historical_environment_evidence"
+    },
+    {
+      "path": "evidence/environment/smoke_LAPTOP-OT2ET2K4.json",
+      "source_path": "docs/env/smoke_LAPTOP-OT2ET2K4.json",
+      "source_commit": "c1e0900b26dfcd1f86c439cc96724d30ac0b45aa",
+      "sha256": "c96d2d8883544d5b9d6e9648cf9f67f6e912d12f606d5ee3451fb63340563fae",
+      "type": "historical_environment_evidence"
     }
   ],
   "export_type": "selected files; no production code merged or rewritten",
