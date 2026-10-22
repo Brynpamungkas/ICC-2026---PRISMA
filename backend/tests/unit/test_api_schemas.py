@@ -66,3 +66,13 @@ def test_all_candidates_preserved_and_tahan_nulls_explicit():
                                 decision=ApiDecision(decision="TAHAN", reason_code="T1", suggestion="contoh"))
     assert response.model_dump()["decision"]["answer"] is None
     assert response.model_dump()["decision"]["period_used"] is None
+
+
+def test_number_result_allows_text_row_labels_but_not_text_values():
+    """21 Okt (Tabel VII): pencarian nilai berstruktur NUMBER boleh membawa label wilayah/periode berupa teks."""
+    ev = evidence()
+    ev["result"].update(columns=["wilayah", "nilai"], rows=[["SYNTHETIC", 1.0]])
+    assert ApiDecision.model_validate({"decision": "JAWAB", "answer": ev, "period_used": "2099-01"})
+    ev["result"]["rows"] = [["SYNTHETIC", "1,0"]]
+    with pytest.raises(ValidationError):
+        ApiDecision.model_validate({"decision": "JAWAB", "answer": ev, "period_used": "2099-01"})

@@ -1,19 +1,17 @@
 # Semua parameter ada di sini. Kode membaca file ini, bukan menulis konstanta.
 # Perubahan parameter: perbarui file ini, loader, dokumen terkait, dan satu entri docs/13_DECISION_LOG.md.
 model:
-  backend: vllm                     # PAPER baseline; fallback must be selected explicitly
+  backend: vllm                     # K-16: vLLM utama (sesuai paper). Ganti ke "ollama" HANYA lewat entri DECISION_LOG
   name: Qwen/Qwen2.5-Coder-1.5B-Instruct-AWQ   # verifikasi nama repo persis di huggingface.co
   url: http://localhost:8000/v1/chat/completions
-  digest: null                      # isi: sha256 berkas bobot setelah unduh
+  digest: cee832dcc5d9389549598d38dc48506bd89ecfc9b31064929b5bd744fd1cdad9   # sha256 model.safetensors, HF revision 867d050da8a1af36b04fde627402656b3f918511
   fallback:                         # cadangan bila vLLM gagal G-ENV atau saat demo darurat
-    backend: llama_cpp
-    name: Qwen2.5-Coder-1.5B-Instruct-Q4_K_M
-    url: http://127.0.0.1:8000/v1/chat/completions
-    n_samples: 8                    # existing candidate N retained for trial; not research-frozen
-    digest: null                    # actual downloaded hash, not the expected hash below
+    backend: ollama
+    name: qwen2.5-coder:1.5b
+    url: http://localhost:11434/api/chat
+    n_samples: 8                    # laporkan terpisah bila dipakai
 vllm:
   quantization: awq
-  dtype: half                      # same value as the original serve_vllm command
   max_model_len: 4096               # ukur; turunkan bila memori kurang
   gpu_memory_utilization: 0.80      # ukur; turunkan bila "insufficient free memory"
   enforce_eager: true
@@ -26,9 +24,9 @@ sampling:
   seed: 42
   ablation_n: [1, 8, 16, 32, 64]    # diambil dari sampel tersimpan pada N=64
 prompt:
-  version: 0.3.0-cpu.1-no-reviewed-examples  # M5 template; examples remain pending human review
+  version: 0.3.0                    # 0.3.0 (21 Okt): 4 contoh dev TAK_AMBIGU di eval/annotations/contoh_dev.json; 0.2.x: SYS-SQL-A + USR-SQL-A (D06 PRM-05); 0.2.2 bentuk SQL dari S1; 0.2.3 wilayah=kode, nilai final; dev examples still empty
   few_shot_k: 4                     # contoh hanya dari data dev
-  examples_file: null               # enable eval/annotations/contoh_dev.json only after human review
+  examples_file: eval/annotations/contoh_dev.json   # 0.3.0; null = tanpa contoh (perilaku 0.2.3)
 execution:
   db_path: data/prisma.sqlite
   mode: ro
@@ -36,7 +34,7 @@ execution:
   max_rows: 1000
 decision:
   default_period: latest_intersection   # K-01
-  year_only_period: latest_in_year_intersection  # M5 K-18 PROPOSED; local trial, not research-frozen
+  year_only_period: latest_in_year_intersection   # USULAN K-18 (21 Okt): "tahun 2025" -> periode terbaru di 2025 pada irisan K; bulan tidak dikarang
   vote_tie_break: first_seen            # K-05
   k2_basis: K                           # K-08: K2 bertanya bila |K(q)| > 1
   tau_u_file: config/tau_u.yaml
@@ -45,15 +43,11 @@ catalog:
   operation_lexicon: data/katalog/operasi.csv   # K-02
   non_additive_units: ["%"]         # satuan yang tidak sah dijumlahkan (paper A-4: SUM persen); dasar sigma(c)
 evaluation:
-  test_set_size: 180                # PAPER Table VIII; aligns with team C-01
+  test_set_size: 180                # keputusan tim 20 Okt 2026: ikut paper (Tabel VIII); P-08 lama (60) dibatalkan
   dev_fraction: 0.30
   split_seed: 42
   latency_percentiles: [50, 95]
-  annotation_protocol: eval/annotations/protocol.json
-  annotation_method: llm_draft_human_review  # User-approved M5 alternative; disclose deviation from paper
-  annotation_review: eval/annotations/review_final.json
-  freeze_file: eval/freeze/cpu-freeze.json
-  user_study_participants: 15       # PAPER III-F; no study result claimed
+  user_study_participants: 15       # paper III-F; P-10 lama (8) belum diputuskan ulang, lihat D13
   tau_grid:                         # K-07 keputusan tim 20 Okt 2026: kandidat tau per satuan; dipilih HANYA di dev (replay)
     "%": [0.0, 0.01, 0.05, 0.1, 0.5, 1.0]
     "ribu jiwa": [0.0, 0.1, 1.0, 10.0, 100.0]
@@ -61,22 +55,6 @@ evaluation:
   tau_objective: max_F1_TANYA_lalu_min_TKS_lalu_min_tau   # ditetapkan sebelum dev dibuka
 logging:
   path: eval/runs/log.jsonl
-  trace_dir: null                   # optional private sidecar; CPU profile enables it explicitly
-# Operational settings copied from the existing HTTP timeout; not research calibration.
-transport:
-  timeout_s: 120.0
-  trace_dir: null                   # smoke/local profile enables private HTTP evidence
-llama_cpp:
-  binary: .local/llama/bin/llama-server
-  model_file: .local/models/qwen2.5-coder-1.5b-instruct-q4_k_m.gguf
-  model_url: https://huggingface.co/Qwen/Qwen2.5-Coder-1.5B-Instruct-GGUF/resolve/main/qwen2.5-coder-1.5b-instruct-q4_k_m.gguf
-  # Published by Qwen; only a local hash match proves downloaded bytes (E8).
-  expected_sha256: cc324af070c2ecbfd324a30884d2f951a7ff756aba85cb811a6ec436933bb046
-  host: 127.0.0.1
-  port: 8000
-  gpu_layers: 0                     # D12 FB-01/FB-03 CPU-only startup
-local_setup:
-  node_version: 24.11.0             # reproduce the reported M4 Windows Node version on Linux
 extraction:                         # M2.1 — rincian K-12/K-02 masih USULAN; catat di docs/13_DECISION_LOG.md
   strip_enclitic_nya: true          # USULAN K-12 (21 Okt): "kemiskinannya" -> "kemiskinan" HANYA bila bentuk dasarnya kata kamus (bukan stemming umum)
   suppress_covered_terms: true      # K-12: istilah yang seluruhnya berada di dalam istilah lebih panjang (mis. "apm" dalam "apm sma") tidak dihitung

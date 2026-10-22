@@ -27,6 +27,6 @@ def sample_skeletons(question: str, extraction: ExtractionResult, n: int, *, llm
     for raw in llm.generate(prompt, n):
         sql = parse_output(raw)
         ok, why = validate_sql(sql, forbidden_literals=codes, region_count=len(extraction.regions),
-                               shape=(extraction.operation, extraction.rank_direction, extraction.top_n))
+                            shape=(extraction.operation, extraction.rank_direction, extraction.top_n))
         out.append(SqlSkeleton(sql=sql, valid=ok, reject_reason=why))
     return out

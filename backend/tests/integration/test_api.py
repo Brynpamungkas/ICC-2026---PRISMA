@@ -38,6 +38,9 @@ def env(tmp_path):
         if question == "ambigu":
             d = Decision(decision="TANYA", evidence=[ev("SYN_A"), ev("SYN_B"), ev("SYN_C")],
                          period_used="2099-01")
+        elif question == "tau kosong":
+            from backend.app.config import ConfigError
+            raise ConfigError("tau_u untuk satuan '%' belum dikalibrasi")
         elif question.startswith("T"):
             d = Decision(decision="TAHAN", reason_code=question, suggestion="SYNTHETIC")
         else:
@@ -272,3 +275,10 @@ def test_get_has_no_body_and_unexpected_error_is_safe(env):
     response = ask(client, "jawab")
     assert response.status_code == 500
     assert "Traceback" not in response.text and "/private" not in response.text
+
+
+def test_uncalibrated_tau_is_503_with_code_not_500(env):
+    """21 Okt: ConfigError (tau null sebelum dev) dulu lolos sebagai 500 tanpa pesan."""
+    client, *_ = env
+    r = client.post("/api/tanya", json={"pertanyaan": "tau kosong", "id_sesi": str(uuid4())})
+    assert r.status_code == 503 and "CONFIG_INCOMPLETE" in r.text

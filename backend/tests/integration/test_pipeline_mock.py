@@ -21,7 +21,10 @@ SUM6 = ("SELECT SUM(n.nilai) AS nilai FROM nilai_indikator n WHERE n.kode_indika
         "AND n.kode_provinsi IN (:wilayah_0,:wilayah_1,:wilayah_2,:wilayah_3,:wilayah_4,:wilayah_5)")
 ONE = ("SELECT n.nilai AS nilai FROM nilai_indikator n WHERE n.kode_indikator=:indikator AND n.periode=:periode "
        "AND n.kode_provinsi = :wilayah_0")
-EMPTY = "SELECT n.nilai AS nilai FROM nilai_indikator n WHERE n.kode_indikator=:indikator AND n.nilai > 1e12 ORDER BY nilai DESC LIMIT 1"
+ONE_W = ("SELECT p.nama AS wilayah, n.nilai AS nilai FROM nilai_indikator n JOIN provinsi p ON p.kode=n.kode_provinsi "
+         "WHERE n.kode_indikator=:indikator AND n.periode=:periode AND n.kode_provinsi = :wilayah_0")   # bentuk prompt v0.2.3
+EMPTY = ("SELECT n.nilai AS nilai FROM nilai_indikator n WHERE n.kode_indikator=:indikator AND n.nilai > 1e12 "
+         "ORDER BY n.nilai DESC LIMIT 1")      # bentuk RANK (validator menegakkan bentuk S1 sejak 21 Okt)
 TAU = {"%": 0.0, "ribu jiwa": 0.0, "orang": 0.0}     # hanya agar tes berjalan; kalibrasi sungguhan = M5
 
 
@@ -79,7 +82,7 @@ def test_abbreviation_questions_resolve_after_kamus_fix(db):
 
 
 def test_unknown_place_is_t2_not_all_provinces(db):
-    d, _ = ask("kemiskinan di Bandung", RANK, db)  # M5 adds Jakarta as a known province alias.
+    d, _ = ask("kemiskinan di Bandung", RANK, db)          # kota, bukan provinsi ("jakarta" kini alias DKI Jakarta)
     assert (d.decision, d.reason_code) == ("TAHAN", "T2") and "bandung" in d.suggestion.lower()
 
 
@@ -168,3 +171,24 @@ def test_llm_client_vllm_payload_and_failures(monkeypatch):
     monkeypatch.setattr(mod.requests, "post", boom)
     with pytest.raises(LlmUnavailable):
         LlmClient().generate("p", 4)
+
+
+def test_lookup_with_region_label_column_compares_numbers_not_names(db):
+    """Perbaikan 21 Okt (Tabel VII): kolom wilayah pada pencarian nilai hanya label; persen vs ribu jiwa -> TANYA, bukan JAWAB."""
+    d, _ = ask("Kemiskinan di Gorontalo pada Maret 2025?", ONE_W, db)
+    assert d.decision == "TANYA" and {e.candidate.code for e in d.evidence} == {"KMS_PERSEN", "KMS_JUMLAH"}
+    assert all(e.result.structure == "NUMBER" for e in d.evidence)
+    d, _ = ask("Persentase penduduk miskin di Gorontalo pada Maret 2025?", ONE_W, db)
+    assert d.decision == "JAWAB" and d.answer.result.rows[0][0] == "Gorontalo"
+
+
+def test_validator_enforces_s1_shape_so_wrong_rank_direction_cannot_win(db):
+    """21 Okt: model menulis SUM ... ORDER BY DESC LIMIT 1 untuk "paling tidak miskin"; kini ditolak, kerangka benar menang."""
+    wrong = ("SELECT p.nama AS wilayah, SUM(n.nilai) AS nilai FROM nilai_indikator n JOIN provinsi p ON p.kode=n.kode_provinsi "
+             "WHERE n.kode_indikator=:indikator AND n.periode=:periode AND n.kode_provinsi IN (:wilayah_0, :wilayah_1) "
+             "GROUP BY p.nama ORDER BY nilai DESC LIMIT 1")
+    right = ("SELECT p.nama AS wilayah, n.nilai AS nilai FROM nilai_indikator n JOIN provinsi p ON p.kode=n.kode_provinsi "
+             "WHERE n.kode_indikator=:indikator AND n.periode=:periode AND n.kode_provinsi IN (:wilayah_0, :wilayah_1) "
+             "ORDER BY nilai ASC LIMIT 1")
+    d, rec = ask("Mana yang paling tidak miskin, Bali atau Banten?", [wrong, wrong, wrong, right], db)
+    assert sum(s.valid for s in rec.skeletons) == 16 and d.decision == "JAWAB" and d.answer.result.rows[0][0] == "Bali"

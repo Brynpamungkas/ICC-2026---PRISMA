@@ -322,7 +322,7 @@ def write_csv(path: Path, rows: list[dict], cols: list[str]) -> None:
         w.writerows(rows)
 
 
-# ---------- supplementary draft-correction report; not a replacement for D11 kappa ----------
+# ---------- laporan koreksi draf LLM oleh manusia (keputusan tim 21 Okt, pengganti kappa) ----------
 def _signature(items: list[dict]) -> dict:
     return {"decision": items[0]["decision_reference"], "group": items[0]["question_group"],
             "interps": sorted((r["indicator_code"], ";".join(sorted(x for x in r["region_codes"].split(";") if x)),

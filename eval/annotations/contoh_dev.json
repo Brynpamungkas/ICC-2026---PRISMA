@@ -1,7 +1,7 @@
 {
   "_catatan": "Contoh few-shot prompt v0.3.0 (PRM-09/PRM-10). Hanya soal DEV kelompok TAK_AMBIGU (tanpa tau); satu per bentuk SQL. Konteks ekstraksi dihitung ulang oleh S1 saat dimuat (format sama dengan EXTRACTION_CONTEXT). SQL ditulis mengikuti RESOLVED_SQL_CONTRACT dan lolos validate_sql dengan bentuk S1-nya (dicek tes). Ditinjau manusia: BELUM — isi nama peninjau sebelum eval_lengkap.sh dev.",
   "split": "eval/testset/split_seed-prisma-21okt.json",
-  "ditinjau_oleh": "",
+  "ditinjau_oleh": "neysa",
   "contoh": [
     {
       "id": "KMS-TA-09",

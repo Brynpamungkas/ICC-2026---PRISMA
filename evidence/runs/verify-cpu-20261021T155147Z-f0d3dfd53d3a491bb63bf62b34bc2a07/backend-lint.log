@@ -1,2 +1,0 @@
-/home/bryan/prisma-icc2026/.venv/bin/python -m ruff check backend scripts
-All checks passed!

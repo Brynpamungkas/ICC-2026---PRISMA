@@ -1,6 +1,6 @@
 {
   "status": "FINAL-CANDIDATE",
-  "started_utc": "2026-10-18T04:43:01+00:00",
+  "started_utc": "2026-10-21T12:24:09+00:00",
   "errors": [],
   "warnings": [],
   "sources": [
@@ -81,19 +81,19 @@
     "algorithm": "sha256",
     "files": {
       "indikator.csv": "96dbf8e3f25253b8bbbaed903d788d0568e41b050358976ff953df156f668dfb",
-      "kamus_istilah.csv": "fd10740b5bee5d18618cb6e3f21eccfc29a60c088c895600429a4051aaec2923",
+      "kamus_istilah.csv": "a22be4d54ecc62b197e0a1bc22462ead82dbf0bce8c0345cb6f18cb359068db9",
       "operasi.csv": "2019c29bb6b400f1175850acd36dd297668c708570d00bf2e377ea21b49b2aa0",
       "provinsi.csv": "2ab48e36e0c11d8cdd3ed9aa602d532800ffb69c6831d35a2311c2d197dbd521"
     },
-    "catalog_hash": "e8c837dd009c85f6584cfd2fcf3e96ceb75131fa105309d888327f0cd42b12e4"
+    "catalog_hash": "8b111d78c89a43bbf24f5304e898512e41a123168cdb8afcc3a3ee77545f3d8c"
   },
   "catalog_rows": {
     "provinsi": 38,
     "indikator": 13,
-    "kamus_istilah": 114
+    "kamus_istilah": 150
   },
   "fact_rows": 684,
-  "logical_hash": "f04d7137dd25cc48ff9ad1e9145a67f7297ca1e81e31505ed2874c07da416dda",
+  "logical_hash": "c5d3f5f84ce353642ef6116467d9033c70aee0ae3711e83fd6aed77ec62deb39",
   "observed_coverage": {
     "APK_SD": {
       "n_provinsi": 38,

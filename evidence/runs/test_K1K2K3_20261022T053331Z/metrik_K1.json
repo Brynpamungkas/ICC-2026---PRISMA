@@ -1,0 +1,1044 @@
+{
+  "semua": {
+    "Q": 126,
+    "U": 38,
+    "y_JAWAB": 44,
+    "y_TANYA": 82,
+    "missing_records": [],
+    "TKS": {
+      "num": 18,
+      "den": 126,
+      "value": 0.14285714285714285,
+      "note": null
+    },
+    "PBT": {
+      "num": 0,
+      "den": 44,
+      "value": 0.0,
+      "note": null
+    },
+    "precision_TANYA": {
+      "num": 0,
+      "den": 0,
+      "value": null,
+      "note": "N/A: penyebut 0"
+    },
+    "recall_TANYA": {
+      "num": 0,
+      "den": 82,
+      "value": 0.0,
+      "note": null
+    },
+    "F1_TANYA": {
+      "num": 0,
+      "den": 82,
+      "value": 0.0,
+      "note": null
+    },
+    "confusion_positive_TANYA": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 82,
+      "TN": 44
+    },
+    "EX": {
+      "num": 1,
+      "den": 38,
+      "value": 0.02631578947368421,
+      "note": null
+    },
+    "linking_any": {
+      "num": 126,
+      "den": 126,
+      "value": 1.0,
+      "note": null
+    },
+    "linking_all": {
+      "num": 126,
+      "den": 126,
+      "value": 1.0,
+      "note": null
+    },
+    "decisions": {
+      "JAWAB": {
+        "num": 19,
+        "den": 126,
+        "value": 0.15079365079365079,
+        "note": null
+      },
+      "TANYA": {
+        "num": 0,
+        "den": 126,
+        "value": 0.0,
+        "note": null
+      },
+      "TAHAN": {
+        "num": 107,
+        "den": 126,
+        "value": 0.8492063492063492,
+        "note": null
+      },
+      "tanpa_decision": {
+        "num": 0,
+        "den": 126,
+        "value": 0.0,
+        "note": null
+      }
+    },
+    "TAHAN_per_kode": {
+      "T0": {
+        "num": 0,
+        "den": 126,
+        "value": 0.0,
+        "note": null
+      },
+      "T1": {
+        "num": 0,
+        "den": 126,
+        "value": 0.0,
+        "note": null
+      },
+      "T2": {
+        "num": 0,
+        "den": 126,
+        "value": 0.0,
+        "note": null
+      },
+      "T3": {
+        "num": 0,
+        "den": 126,
+        "value": 0.0,
+        "note": null
+      },
+      "T4": {
+        "num": 107,
+        "den": 126,
+        "value": 0.8492063492063492,
+        "note": null
+      },
+      "T5": {
+        "num": 0,
+        "den": 126,
+        "value": 0.0,
+        "note": null
+      }
+    },
+    "latency_ms": {
+      "n": 126,
+      "p50": 1908.75,
+      "p95": 4271.075
+    }
+  },
+  "group=AMBIGU_ANGKA_BEDA": {
+    "Q": 28,
+    "U": 0,
+    "y_JAWAB": 0,
+    "y_TANYA": 28,
+    "missing_records": [],
+    "TKS": {
+      "num": 10,
+      "den": 28,
+      "value": 0.35714285714285715,
+      "note": null
+    },
+    "PBT": {
+      "num": 0,
+      "den": 0,
+      "value": null,
+      "note": "N/A: penyebut 0"
+    },
+    "precision_TANYA": {
+      "num": 0,
+      "den": 0,
+      "value": null,
+      "note": "N/A: penyebut 0"
+    },
+    "recall_TANYA": {
+      "num": 0,
+      "den": 28,
+      "value": 0.0,
+      "note": null
+    },
+    "F1_TANYA": {
+      "num": 0,
+      "den": 28,
+      "value": 0.0,
+      "note": null
+    },
+    "confusion_positive_TANYA": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 28,
+      "TN": 0
+    },
+    "EX": {
+      "num": 0,
+      "den": 0,
+      "value": null,
+      "note": "N/A: penyebut 0"
+    },
+    "linking_any": {
+      "num": 28,
+      "den": 28,
+      "value": 1.0,
+      "note": null
+    },
+    "linking_all": {
+      "num": 28,
+      "den": 28,
+      "value": 1.0,
+      "note": null
+    },
+    "decisions": {
+      "JAWAB": {
+        "num": 10,
+        "den": 28,
+        "value": 0.35714285714285715,
+        "note": null
+      },
+      "TANYA": {
+        "num": 0,
+        "den": 28,
+        "value": 0.0,
+        "note": null
+      },
+      "TAHAN": {
+        "num": 18,
+        "den": 28,
+        "value": 0.6428571428571429,
+        "note": null
+      },
+      "tanpa_decision": {
+        "num": 0,
+        "den": 28,
+        "value": 0.0,
+        "note": null
+      }
+    },
+    "TAHAN_per_kode": {
+      "T0": {
+        "num": 0,
+        "den": 28,
+        "value": 0.0,
+        "note": null
+      },
+      "T1": {
+        "num": 0,
+        "den": 28,
+        "value": 0.0,
+        "note": null
+      },
+      "T2": {
+        "num": 0,
+        "den": 28,
+        "value": 0.0,
+        "note": null
+      },
+      "T3": {
+        "num": 0,
+        "den": 28,
+        "value": 0.0,
+        "note": null
+      },
+      "T4": {
+        "num": 18,
+        "den": 28,
+        "value": 0.6428571428571429,
+        "note": null
+      },
+      "T5": {
+        "num": 0,
+        "den": 28,
+        "value": 0.0,
+        "note": null
+      }
+    },
+    "latency_ms": {
+      "n": 28,
+      "p50": 1887.85,
+      "p95": 2082.8500000000004
+    }
+  },
+  "group=AMBIGU_ANGKA_SAMA": {
+    "Q": 21,
+    "U": 0,
+    "y_JAWAB": 0,
+    "y_TANYA": 21,
+    "missing_records": [],
+    "TKS": {
+      "num": 0,
+      "den": 21,
+      "value": 0.0,
+      "note": null
+    },
+    "PBT": {
+      "num": 0,
+      "den": 0,
+      "value": null,
+      "note": "N/A: penyebut 0"
+    },
+    "precision_TANYA": {
+      "num": 0,
+      "den": 0,
+      "value": null,
+      "note": "N/A: penyebut 0"
+    },
+    "recall_TANYA": {
+      "num": 0,
+      "den": 21,
+      "value": 0.0,
+      "note": null
+    },
+    "F1_TANYA": {
+      "num": 0,
+      "den": 21,
+      "value": 0.0,
+      "note": null
+    },
+    "confusion_positive_TANYA": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 21,
+      "TN": 0
+    },
+    "EX": {
+      "num": 0,
+      "den": 0,
+      "value": null,
+      "note": "N/A: penyebut 0"
+    },
+    "linking_any": {
+      "num": 21,
+      "den": 21,
+      "value": 1.0,
+      "note": null
+    },
+    "linking_all": {
+      "num": 21,
+      "den": 21,
+      "value": 1.0,
+      "note": null
+    },
+    "decisions": {
+      "JAWAB": {
+        "num": 0,
+        "den": 21,
+        "value": 0.0,
+        "note": null
+      },
+      "TANYA": {
+        "num": 0,
+        "den": 21,
+        "value": 0.0,
+        "note": null
+      },
+      "TAHAN": {
+        "num": 21,
+        "den": 21,
+        "value": 1.0,
+        "note": null
+      },
+      "tanpa_decision": {
+        "num": 0,
+        "den": 21,
+        "value": 0.0,
+        "note": null
+      }
+    },
+    "TAHAN_per_kode": {
+      "T0": {
+        "num": 0,
+        "den": 21,
+        "value": 0.0,
+        "note": null
+      },
+      "T1": {
+        "num": 0,
+        "den": 21,
+        "value": 0.0,
+        "note": null
+      },
+      "T2": {
+        "num": 0,
+        "den": 21,
+        "value": 0.0,
+        "note": null
+      },
+      "T3": {
+        "num": 0,
+        "den": 21,
+        "value": 0.0,
+        "note": null
+      },
+      "T4": {
+        "num": 21,
+        "den": 21,
+        "value": 1.0,
+        "note": null
+      },
+      "T5": {
+        "num": 0,
+        "den": 21,
+        "value": 0.0,
+        "note": null
+      }
+    },
+    "latency_ms": {
+      "n": 21,
+      "p50": 1784.9,
+      "p95": 2286.7
+    }
+  },
+  "group=AMBIGU_TEKS": {
+    "Q": 39,
+    "U": 0,
+    "y_JAWAB": 6,
+    "y_TANYA": 33,
+    "missing_records": [],
+    "TKS": {
+      "num": 8,
+      "den": 39,
+      "value": 0.20512820512820512,
+      "note": null
+    },
+    "PBT": {
+      "num": 0,
+      "den": 6,
+      "value": 0.0,
+      "note": null
+    },
+    "precision_TANYA": {
+      "num": 0,
+      "den": 0,
+      "value": null,
+      "note": "N/A: penyebut 0"
+    },
+    "recall_TANYA": {
+      "num": 0,
+      "den": 33,
+      "value": 0.0,
+      "note": null
+    },
+    "F1_TANYA": {
+      "num": 0,
+      "den": 33,
+      "value": 0.0,
+      "note": null
+    },
+    "confusion_positive_TANYA": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 33,
+      "TN": 6
+    },
+    "EX": {
+      "num": 0,
+      "den": 0,
+      "value": null,
+      "note": "N/A: penyebut 0"
+    },
+    "linking_any": {
+      "num": 39,
+      "den": 39,
+      "value": 1.0,
+      "note": null
+    },
+    "linking_all": {
+      "num": 39,
+      "den": 39,
+      "value": 1.0,
+      "note": null
+    },
+    "decisions": {
+      "JAWAB": {
+        "num": 8,
+        "den": 39,
+        "value": 0.20512820512820512,
+        "note": null
+      },
+      "TANYA": {
+        "num": 0,
+        "den": 39,
+        "value": 0.0,
+        "note": null
+      },
+      "TAHAN": {
+        "num": 31,
+        "den": 39,
+        "value": 0.7948717948717948,
+        "note": null
+      },
+      "tanpa_decision": {
+        "num": 0,
+        "den": 39,
+        "value": 0.0,
+        "note": null
+      }
+    },
+    "TAHAN_per_kode": {
+      "T0": {
+        "num": 0,
+        "den": 39,
+        "value": 0.0,
+        "note": null
+      },
+      "T1": {
+        "num": 0,
+        "den": 39,
+        "value": 0.0,
+        "note": null
+      },
+      "T2": {
+        "num": 0,
+        "den": 39,
+        "value": 0.0,
+        "note": null
+      },
+      "T3": {
+        "num": 0,
+        "den": 39,
+        "value": 0.0,
+        "note": null
+      },
+      "T4": {
+        "num": 31,
+        "den": 39,
+        "value": 0.7948717948717948,
+        "note": null
+      },
+      "T5": {
+        "num": 0,
+        "den": 39,
+        "value": 0.0,
+        "note": null
+      }
+    },
+    "latency_ms": {
+      "n": 39,
+      "p50": 2181.3,
+      "p95": 5380.29
+    }
+  },
+  "group=TAK_AMBIGU": {
+    "Q": 38,
+    "U": 38,
+    "y_JAWAB": 38,
+    "y_TANYA": 0,
+    "missing_records": [],
+    "TKS": {
+      "num": 0,
+      "den": 38,
+      "value": 0.0,
+      "note": null
+    },
+    "PBT": {
+      "num": 0,
+      "den": 38,
+      "value": 0.0,
+      "note": null
+    },
+    "precision_TANYA": {
+      "num": 0,
+      "den": 0,
+      "value": null,
+      "note": "N/A: penyebut 0"
+    },
+    "recall_TANYA": {
+      "num": 0,
+      "den": 0,
+      "value": null,
+      "note": "N/A: penyebut 0"
+    },
+    "F1_TANYA": {
+      "num": 0,
+      "den": 0,
+      "value": null,
+      "note": "N/A: penyebut 0"
+    },
+    "confusion_positive_TANYA": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 0,
+      "TN": 38
+    },
+    "EX": {
+      "num": 1,
+      "den": 38,
+      "value": 0.02631578947368421,
+      "note": null
+    },
+    "linking_any": {
+      "num": 38,
+      "den": 38,
+      "value": 1.0,
+      "note": null
+    },
+    "linking_all": {
+      "num": 38,
+      "den": 38,
+      "value": 1.0,
+      "note": null
+    },
+    "decisions": {
+      "JAWAB": {
+        "num": 1,
+        "den": 38,
+        "value": 0.02631578947368421,
+        "note": null
+      },
+      "TANYA": {
+        "num": 0,
+        "den": 38,
+        "value": 0.0,
+        "note": null
+      },
+      "TAHAN": {
+        "num": 37,
+        "den": 38,
+        "value": 0.9736842105263158,
+        "note": null
+      },
+      "tanpa_decision": {
+        "num": 0,
+        "den": 38,
+        "value": 0.0,
+        "note": null
+      }
+    },
+    "TAHAN_per_kode": {
+      "T0": {
+        "num": 0,
+        "den": 38,
+        "value": 0.0,
+        "note": null
+      },
+      "T1": {
+        "num": 0,
+        "den": 38,
+        "value": 0.0,
+        "note": null
+      },
+      "T2": {
+        "num": 0,
+        "den": 38,
+        "value": 0.0,
+        "note": null
+      },
+      "T3": {
+        "num": 0,
+        "den": 38,
+        "value": 0.0,
+        "note": null
+      },
+      "T4": {
+        "num": 37,
+        "den": 38,
+        "value": 0.9736842105263158,
+        "note": null
+      },
+      "T5": {
+        "num": 0,
+        "den": 38,
+        "value": 0.0,
+        "note": null
+      }
+    },
+    "latency_ms": {
+      "n": 38,
+      "p50": 1978.0500000000002,
+      "p95": 4227.244999999999
+    }
+  },
+  "domain=kemiskinan": {
+    "Q": 42,
+    "U": 14,
+    "y_JAWAB": 16,
+    "y_TANYA": 26,
+    "missing_records": [],
+    "TKS": {
+      "num": 9,
+      "den": 42,
+      "value": 0.21428571428571427,
+      "note": null
+    },
+    "PBT": {
+      "num": 0,
+      "den": 16,
+      "value": 0.0,
+      "note": null
+    },
+    "precision_TANYA": {
+      "num": 0,
+      "den": 0,
+      "value": null,
+      "note": "N/A: penyebut 0"
+    },
+    "recall_TANYA": {
+      "num": 0,
+      "den": 26,
+      "value": 0.0,
+      "note": null
+    },
+    "F1_TANYA": {
+      "num": 0,
+      "den": 26,
+      "value": 0.0,
+      "note": null
+    },
+    "confusion_positive_TANYA": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 26,
+      "TN": 16
+    },
+    "EX": {
+      "num": 1,
+      "den": 14,
+      "value": 0.07142857142857142,
+      "note": null
+    },
+    "linking_any": {
+      "num": 42,
+      "den": 42,
+      "value": 1.0,
+      "note": null
+    },
+    "linking_all": {
+      "num": 42,
+      "den": 42,
+      "value": 1.0,
+      "note": null
+    },
+    "decisions": {
+      "JAWAB": {
+        "num": 10,
+        "den": 42,
+        "value": 0.23809523809523808,
+        "note": null
+      },
+      "TANYA": {
+        "num": 0,
+        "den": 42,
+        "value": 0.0,
+        "note": null
+      },
+      "TAHAN": {
+        "num": 32,
+        "den": 42,
+        "value": 0.7619047619047619,
+        "note": null
+      },
+      "tanpa_decision": {
+        "num": 0,
+        "den": 42,
+        "value": 0.0,
+        "note": null
+      }
+    },
+    "TAHAN_per_kode": {
+      "T0": {
+        "num": 0,
+        "den": 42,
+        "value": 0.0,
+        "note": null
+      },
+      "T1": {
+        "num": 0,
+        "den": 42,
+        "value": 0.0,
+        "note": null
+      },
+      "T2": {
+        "num": 0,
+        "den": 42,
+        "value": 0.0,
+        "note": null
+      },
+      "T3": {
+        "num": 0,
+        "den": 42,
+        "value": 0.0,
+        "note": null
+      },
+      "T4": {
+        "num": 32,
+        "den": 42,
+        "value": 0.7619047619047619,
+        "note": null
+      },
+      "T5": {
+        "num": 0,
+        "den": 42,
+        "value": 0.0,
+        "note": null
+      }
+    },
+    "latency_ms": {
+      "n": 42,
+      "p50": 2018.9,
+      "p95": 3958.8749999999955
+    }
+  },
+  "domain=ketenagakerjaan": {
+    "Q": 42,
+    "U": 14,
+    "y_JAWAB": 15,
+    "y_TANYA": 27,
+    "missing_records": [],
+    "TKS": {
+      "num": 9,
+      "den": 42,
+      "value": 0.21428571428571427,
+      "note": null
+    },
+    "PBT": {
+      "num": 0,
+      "den": 15,
+      "value": 0.0,
+      "note": null
+    },
+    "precision_TANYA": {
+      "num": 0,
+      "den": 0,
+      "value": null,
+      "note": "N/A: penyebut 0"
+    },
+    "recall_TANYA": {
+      "num": 0,
+      "den": 27,
+      "value": 0.0,
+      "note": null
+    },
+    "F1_TANYA": {
+      "num": 0,
+      "den": 27,
+      "value": 0.0,
+      "note": null
+    },
+    "confusion_positive_TANYA": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 27,
+      "TN": 15
+    },
+    "EX": {
+      "num": 0,
+      "den": 14,
+      "value": 0.0,
+      "note": null
+    },
+    "linking_any": {
+      "num": 42,
+      "den": 42,
+      "value": 1.0,
+      "note": null
+    },
+    "linking_all": {
+      "num": 42,
+      "den": 42,
+      "value": 1.0,
+      "note": null
+    },
+    "decisions": {
+      "JAWAB": {
+        "num": 9,
+        "den": 42,
+        "value": 0.21428571428571427,
+        "note": null
+      },
+      "TANYA": {
+        "num": 0,
+        "den": 42,
+        "value": 0.0,
+        "note": null
+      },
+      "TAHAN": {
+        "num": 33,
+        "den": 42,
+        "value": 0.7857142857142857,
+        "note": null
+      },
+      "tanpa_decision": {
+        "num": 0,
+        "den": 42,
+        "value": 0.0,
+        "note": null
+      }
+    },
+    "TAHAN_per_kode": {
+      "T0": {
+        "num": 0,
+        "den": 42,
+        "value": 0.0,
+        "note": null
+      },
+      "T1": {
+        "num": 0,
+        "den": 42,
+        "value": 0.0,
+        "note": null
+      },
+      "T2": {
+        "num": 0,
+        "den": 42,
+        "value": 0.0,
+        "note": null
+      },
+      "T3": {
+        "num": 0,
+        "den": 42,
+        "value": 0.0,
+        "note": null
+      },
+      "T4": {
+        "num": 33,
+        "den": 42,
+        "value": 0.7857142857142857,
+        "note": null
+      },
+      "T5": {
+        "num": 0,
+        "den": 42,
+        "value": 0.0,
+        "note": null
+      }
+    },
+    "latency_ms": {
+      "n": 42,
+      "p50": 1902.4,
+      "p95": 5332.279999999997
+    }
+  },
+  "domain=pendidikan": {
+    "Q": 42,
+    "U": 10,
+    "y_JAWAB": 13,
+    "y_TANYA": 29,
+    "missing_records": [],
+    "TKS": {
+      "num": 0,
+      "den": 42,
+      "value": 0.0,
+      "note": null
+    },
+    "PBT": {
+      "num": 0,
+      "den": 13,
+      "value": 0.0,
+      "note": null
+    },
+    "precision_TANYA": {
+      "num": 0,
+      "den": 0,
+      "value": null,
+      "note": "N/A: penyebut 0"
+    },
+    "recall_TANYA": {
+      "num": 0,
+      "den": 29,
+      "value": 0.0,
+      "note": null
+    },
+    "F1_TANYA": {
+      "num": 0,
+      "den": 29,
+      "value": 0.0,
+      "note": null
+    },
+    "confusion_positive_TANYA": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 29,
+      "TN": 13
+    },
+    "EX": {
+      "num": 0,
+      "den": 10,
+      "value": 0.0,
+      "note": null
+    },
+    "linking_any": {
+      "num": 42,
+      "den": 42,
+      "value": 1.0,
+      "note": null
+    },
+    "linking_all": {
+      "num": 42,
+      "den": 42,
+      "value": 1.0,
+      "note": null
+    },
+    "decisions": {
+      "JAWAB": {
+        "num": 0,
+        "den": 42,
+        "value": 0.0,
+        "note": null
+      },
+      "TANYA": {
+        "num": 0,
+        "den": 42,
+        "value": 0.0,
+        "note": null
+      },
+      "TAHAN": {
+        "num": 42,
+        "den": 42,
+        "value": 1.0,
+        "note": null
+      },
+      "tanpa_decision": {
+        "num": 0,
+        "den": 42,
+        "value": 0.0,
+        "note": null
+      }
+    },
+    "TAHAN_per_kode": {
+      "T0": {
+        "num": 0,
+        "den": 42,
+        "value": 0.0,
+        "note": null
+      },
+      "T1": {
+        "num": 0,
+        "den": 42,
+        "value": 0.0,
+        "note": null
+      },
+      "T2": {
+        "num": 0,
+        "den": 42,
+        "value": 0.0,
+        "note": null
+      },
+      "T3": {
+        "num": 0,
+        "den": 42,
+        "value": 0.0,
+        "note": null
+      },
+      "T4": {
+        "num": 42,
+        "den": 42,
+        "value": 1.0,
+        "note": null
+      },
+      "T5": {
+        "num": 0,
+        "den": 42,
+        "value": 0.0,
+        "note": null
+      }
+    },
+    "latency_ms": {
+      "n": 42,
+      "p50": 1846.25,
+      "p95": 2949.3549999999996
+    }
+  },
+  "run": "test_K1K2K3_20261022T053331Z",
+  "split": "test"
+}

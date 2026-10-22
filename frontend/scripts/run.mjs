@@ -8,10 +8,7 @@ import { parse } from "yaml";
 
 /** @returns {{apiOrigin: string, host: string, port: number, telemetry: boolean}} */
 export function loadSettings() {
-  const configPath = process.env.PRISMA_CONFIG
-    ? resolve(fileURLToPath(new URL("../../", import.meta.url)), process.env.PRISMA_CONFIG)
-    : new URL("../../config/config.yaml", import.meta.url);
-  const config = parse(readFileSync(configPath, "utf8"));
+  const config = parse(readFileSync(new URL("../../config/config.yaml", import.meta.url), "utf8"));
   const frontend = config?.frontend, api = config?.api;
   for (const service of [frontend, api]) {
     if (!service || typeof service.host !== "string" || !/^[a-zA-Z0-9.:-]+$/.test(service.host) ||

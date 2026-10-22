@@ -1,18 +1,18 @@
-# PRISMA — llama.cpp CPU
+# PRISMA — vLLM NVIDIA
 
 Aplikasi lokal tanya jawab data BPS berbahasa Indonesia. Keluaran JAWAB, TANYA dan TAHAN; Next.js + FastAPI + SQLite read-only.
 
-Branch ini **release/llama**, diekspor dari `4d8dfaa64cb2efff3e59239e6515365e4fd88f5c`. Versi lain tersedia pada branch `release/vllm`. Dua versi dipisah karena prompt, SQL guard, T5, trace dan evaluator berbeda. Kode inti masing-masing dipertahankan; tidak ada penggabungan metode.
+Branch ini **release/vllm**, diekspor dari `c1e0900b26dfcd1f86c439cc96724d30ac0b45aa`. Versi lain tersedia pada branch `release/llama`. Dua versi dipisah karena prompt, SQL guard, T5, trace dan evaluator berbeda. Kode inti masing-masing dipertahankan; tidak ada penggabungan metode.
 
 ## Cepat di laptop Bryan yang sudah terpasang
 
 ```bash
-cd /home/bryan/prisma-release
-bash setup.sh --reuse /home/bryan/prisma-icc2026
-bash run.sh
+cd /home/bryan/prisma-release-vllm
+bash setup.sh --reuse /home/bryan/prisma-icc2026 --app-only
+bash run.sh --external-model
 ```
 
-Reuse memverifikasi GGUF dan commit llama.cpp, memakai environment/Node lokal melalui symlink yang diabaikan Git, menyalin dependensi frontend agar repo lama tidak disentuh, lalu membuat build baru.
+Branch vLLM di laptop tanpa NVIDIA hanya dapat memeriksa API/UI/offline. --external-model tidak menyediakan model; model asli harus dilayani tersendiri pada alamat config. Health akan menyatakan tidak tersedia bila model belum hidup.
 
 Buka **http://127.0.0.1:3000**. Tunggu model dan database tersedia lalu klik **Periksa lagi**. Ctrl+C menghentikan proses yang dimulai sesi launcher ini. Jangan menjalankan kedua versi sekaligus pada port yang sama.
 
@@ -28,7 +28,7 @@ bash run.sh
 
 `/path/ke/python3.11` diganti path interpreter 3.11 yang benar. Setup tidak memakai sudo atau mengganti Python sistem. DB resmi yang cocok manifest sudah disertakan. Model dan environment tidak disertakan dalam Git; model diunduh/dibangun oleh setup saat diperlukan. Kegagalan hash menghentikan proses.
 
-CPU: llama.cpp dipatok commit 620d2225cc436ab0b001e3200e590e3b286ef9ab, GGUF Q4_K_M hash yang sama dengan run, N8 dan tau 0 dari dev. Hasilnya dilaporkan terpisah dari baseline vLLM.
+GPU: vLLM 0.32.0 dari snapshot lock model; AWQ revision 867d050da8a1af36b04fde627402656b3f918511, N64, empat contoh dev dan tau 0 sesuai run sumber. Setup lengkap/model hanya untuk mesin NVIDIA.
 
 Pemisahan dependensi: `requirements-api.lock` adalah snapshot API/ETL/test Linux Python 3.11 yang diperiksa pada laptop ini; `requirements-model.lock` hanya ada pada branch GPU. Snapshot asal tim di `release/environment/` disimpan untuk penelusuran. `requirements-core.lock` historis Windows bukan lock lintas platform dan tidak dipakai entrypoint setup baru.
 

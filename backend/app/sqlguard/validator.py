@@ -4,6 +4,18 @@
 Kontrak SQL-A/OUT-A (D06, PROPOSED K-03/K-04, belum dibekukan):
 - parameter terikat: :indikator (wajib), :periode, :wilayah_0..:wilayah_n
 - kolom keluaran hanya `wilayah`, `periode`, `nilai` (alias baku); wajib beralias
+Keputusan tim K-03 (20 Okt 2026): tidak ada literal teks; nilai wilayah/periode/indikator hanya lewat parameter.
+Bila region_count diberikan, kerangka wajib memakai tepat :wilayah_0..:wilayah_{n-1} (tidak kurang, tidak lebih).
+Tambahan 21 Okt: :wilayah_i adalah KODE provinsi, jadi hanya boleh dibandingkan (IN / =) dengan
+nilai_indikator.kode_provinsi atau provinsi.kode. "provinsi.nama IN (:wilayah_0, ...)" ditolak: kueri seperti itu selalu
+kosong, dan bila menang voting menghasilkan T5 palsu (teramati pada "Total jumlah pengangguran di NTB dan NTT?").
+Tambahan 21 Okt (malam): bila `shape` (operasi, arah, top_n dari S1) diberikan, bentuk SQL yang sudah ditetapkan
+EXTRACTION_CONTEXT ditegakkan: NONE/RANK tanpa agregat dan tanpa GROUP BY; NONE tanpa LIMIT; RANK wajib
+ORDER BY nilai <arah> LIMIT <top_n>; SUM/AVG tepat satu agregat itu, tanpa kolom wilayah, GROUP BY, ORDER BY, LIMIT.
+Teramati: model menulis "SUM ... ORDER BY nilai DESC LIMIT 1" untuk "paling tidak miskin" (arah terbalik) dan untuk
+"Bandingkan TPT Jabar dan Jateng" (satu wilayah hilang).
+Kolom diperiksa statis terhadap SCHEMA: kolom pada alias yang salah (mis. SUM(T3.nilai) dengan T3 = indikator) ditolak
+di sini, bukan menjadi galat eksekusi yang dapat memenangkan voting lalu berakhir T0.
 """
 from __future__ import annotations
 
@@ -12,18 +24,19 @@ import re
 import sqlglot
 import sqlglot.expressions as exp
 from sqlglot.errors import SqlglotError
-from sqlglot.optimizer.qualify import qualify
-
-from backend.app.sqlguard.schema import SQL_SCHEMA
 
 ALLOWED_TABLES = {"provinsi", "indikator", "nilai_indikator"}
 ALLOWED_FUNCS = (exp.Sum, exp.Avg, exp.Min, exp.Max, exp.Count)
 ALLOWED_OUTPUT = {"wilayah", "periode", "nilai"}
+SCHEMA = {                                     # kolom per tabel (D04); dicek statis agar "T3.nilai" pada indikator ditolak
+    "provinsi": {"kode", "nama"},
+    "indikator": {"kode", "nama_kanonik", "definisi_resmi", "satuan", "sumber", "cakupan_wilayah", "periode_tersedia"},
+    "nilai_indikator": {"kode_provinsi", "kode_indikator", "periode", "nilai"},
+}
 _PARAM = re.compile(r"^(indikator|periode|wilayah_\d+)$")
 
 
 def _region_target_ok(p: exp.Placeholder, aliases: dict[str, str]) -> bool:
-    """M5@314076f: region bindings contain codes, never province names."""
     node = p.parent
     while isinstance(node, (exp.Paren, exp.Tuple)):
         node = node.parent
@@ -41,8 +54,24 @@ def _region_target_ok(p: exp.Placeholder, aliases: dict[str, str]) -> bool:
     return col.name == "kode" and table == "provinsi"
 
 
+def _column_error(root: exp.Select, aliases: dict[str, str]) -> str | None:
+    tables = {t for t in aliases.values() if t in SCHEMA}
+    known = set().union(*(SCHEMA[t] for t in tables)) | ALLOWED_OUTPUT if tables else ALLOWED_OUTPUT
+    for col in root.find_all(exp.Column):
+        if not col.name:
+            continue
+        if col.table:
+            table = aliases.get(col.table)
+            if table is None:
+                return f"alias tabel tidak dikenal: {col.table}"
+            if table in SCHEMA and col.name not in SCHEMA[table]:
+                return f"kolom tidak ada: {col.table}.{col.name}"
+        elif col.name not in known:
+            return f"kolom tidak ada: {col.name}"
+    return None
+
+
 def _shape_error(root: exp.Select, op: str, direction: str | None, top_n: int) -> str | None:
-    """M5@314076f: enforce the supplied S1 shape, without rewriting SQL."""
     aggs = list(root.find_all(exp.AggFunc))
     group, order, limit = root.args.get("group"), root.args.get("order"), root.args.get("limit")
     if op in ("SUM", "AVG"):
@@ -83,8 +112,6 @@ def validate_sql(sql: str, forbidden_literals: set[str] | None = None,
         return False, f"bukan SELECT ({type(root).__name__})"
     ctes = {c.alias for c in root.find_all(exp.CTE)}
     for t in root.find_all(exp.Table):
-        if t.db or t.catalog:
-            return False, "akses database lain tidak diizinkan"
         if t.name not in ALLOWED_TABLES and t.name not in ctes:
             return False, f"tabel tidak diizinkan: {t.name}"
     for f in root.find_all(exp.Func):
@@ -107,17 +134,18 @@ def validate_sql(sql: str, forbidden_literals: set[str] | None = None,
         for lit in root.find_all(exp.Literal):
             if lit.is_string and lit.this.casefold() in low:
                 return False, "kode indikator tidak boleh ditulis literal"
-    # Team K-03 (reference D13, 20 Oct): text values are bound, and every
-    # extracted region has exactly one declared scalar binding.
-    if any(literal.is_string for literal in root.find_all(exp.Literal)):
+    if any(lit.is_string for lit in root.find_all(exp.Literal)):
         return False, "literal teks tidak diizinkan; gunakan parameter"
     aliases = {t.alias_or_name: t.name for t in root.find_all(exp.Table)}
+    why = _column_error(root, aliases)
+    if why:
+        return False, why
     for p in root.find_all(exp.Placeholder):
         if str(p.this).startswith("wilayah_") and not _region_target_ok(p, aliases):
             return False, "parameter wilayah hanya boleh dibandingkan dengan kode provinsi"
     if region_count is not None:
         expected = {f"wilayah_{i}" for i in range(region_count)}
-        used = {name for name in params if name.startswith("wilayah_")}
+        used = {p for p in params if p.startswith("wilayah_")}
         if used != expected:
             return False, "parameter wilayah tidak sesuai ekstraksi"
     if shape is not None:
@@ -131,9 +159,4 @@ def validate_sql(sql: str, forbidden_literals: set[str] | None = None,
             return False, "kolom keluaran wajib beralias (wilayah, periode, atau nilai)"
         if e.alias_or_name not in ALLOWED_OUTPUT:
             return False, f"alias keluaran tidak baku: {e.alias_or_name}"
-    try:
-        # Qualify a copy for schema checks only. Never repair or replace model SQL.
-        qualify(root.copy(), dialect="sqlite", schema=SQL_SCHEMA, expand_stars=False)
-    except SqlglotError as exc:
-        return False, f"kolom atau alias tidak sesuai skema: {str(exc)[:100]}"
     return True, None

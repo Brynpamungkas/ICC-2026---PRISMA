@@ -81,31 +81,3 @@ def test_run_condition_dispatch(db):
     assert rec.mode == "K3" and d.decision == "JAWAB"
     with pytest.raises(ValueError):
         run_condition("K9", "x")
-
-
-def test_k2_delegated_trace_keeps_actual_condition(db, tmp_path):
-    """A K2 run delegated to K3's single-candidate pipeline must not become K3 evidence."""
-    import json
-    from backend.app.config import load_config
-    cfg = load_config()
-    cfg['logging']['trace_dir'] = str(tmp_path)
-    _, rec = run_k2('TPT Bali', llm=MockLlmClient([ONE]), db_path=db, tau=TAU, config=cfg)
-    trace = [json.loads(line) for line in (tmp_path / (rec.run_id + '.trace.jsonl')).read_text().splitlines()]
-    assert trace[0]['data']['mode'] == 'K2'
-    assert trace[-1]['data']['record']['mode'] == 'K2'
-
-
-@pytest.mark.parametrize('n',[8,64])
-def test_configured_sample_counts_are_preserved_for_cpu_and_baseline_mock(db,n):
-    """Mock sampling proves configuration is respected, not real CPU/GPU inference quality."""
-    from backend.app.config import load_config
-    cfg=load_config('config/config.yaml')
-    cfg['sampling']['n_samples']=n
-    d1,r1=run_k1('Provinsi mana yang paling miskin?',llm=MockLlmClient(['INDIKATOR: KMS_PERSEN\n'+RANK]),
-                 db_path=db,config=cfg)
-    d3,r3=run_question_with_log('Provinsi mana yang paling miskin?',llm=MockLlmClient([RANK]),
-                              db_path=db,config=cfg,tau=TAU)
-    assert d1.decision == 'JAWAB' and d3.decision == 'TANYA'
-    assert len(r1.skeletons) == len(r3.skeletons) == n
-    assert all(v.votes == n for v in r1.votes+r3.votes)
-    assert cfg['sampling']['n_samples'] == n

@@ -1,5 +1,5 @@
-# Ambang toleransi per satuan. SENGAJA KOSONG: diisi dari kalibrasi pada data dev, lalu dibekukan
-# sebelum himpunan uji dibuka. Kode tidak boleh punya nilai bawaan (aturan R7).
-"%": null
-"ribu jiwa": null
-"orang": null
+# Dikalibrasi pada dev (dev_K3_20261022T052525Z, 54 pertanyaan), tujuan max_F1_TANYA_lalu_min_TKS_lalu_min_tau.
+# BEKU sebelum test dibuka (D10 CAL-05). Jangan diubah setelah melihat test.
+"%": 0.0
+"orang": 0.0
+"ribu jiwa": 0.0

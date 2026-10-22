@@ -1,0 +1,34 @@
+{
+  "draft_questions": 180,
+  "verified_questions": 180,
+  "unverified": [],
+  "changed_any": {
+    "num": 0,
+    "den": 180,
+    "value": 0.0,
+    "ids": []
+  },
+  "changed_decision": {
+    "num": 0,
+    "den": 180,
+    "value": 0.0,
+    "ids": []
+  },
+  "changed_group": {
+    "num": 0,
+    "den": 180,
+    "value": 0.0,
+    "ids": []
+  },
+  "changed_interps": {
+    "num": 0,
+    "den": 180,
+    "value": 0.0,
+    "ids": []
+  },
+  "inputs": {
+    "label_draf_llm.csv": "420a094c3438434c74c9a00aaf2a42211e336c3cdc967233ab3e4ea92057c17c",
+    "label_final.csv": "7db25704e0736ea65492f9323fc2ad7150db7fdd331db8b315c4445dbdd8fc75"
+  },
+  "computed_utc": "2026-10-21T15:56:00+00:00"
+}

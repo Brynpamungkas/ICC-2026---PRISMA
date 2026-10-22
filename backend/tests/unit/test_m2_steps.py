@@ -261,3 +261,83 @@ def test_s7_execution_error_is_not_empty_or_equal():
 
 def test_s7_different_shapes_not_equal():                               # EDGE-33 (PROPOSED K-17)
     assert decide([_vote("A", [[1.0]]), _vote("B", [[1.0], [2.0]])], TAU).decision == "TANYA"
+
+
+# ---------- Perbaikan katalog/ekstraksi 21 Okt (USULAN K-12/K-18; data SYNTHETIC) ----------
+def test_s1_enclitic_nya_only_when_base_is_kamus_token(cat, cfg):
+    assert extract("provinsi yang ukuran anya tertinggi", catalog=cat, config=cfg).terms == ["ukuran a"]
+    assert extract("ukuran a di betanya", catalog=cat, config=cfg).regions == ["02"]
+    assert extract("hanya ukuran a", catalog=cat, config=cfg).terms == ["ukuran a"]       # "hanya" -> "ha" bukan kata kamus
+    cfg2 = copy.deepcopy(cfg)
+    cfg2["extraction"]["strip_enclitic_nya"] = False
+    assert extract("provinsi yang ukuran anya tertinggi", catalog=cat, config=cfg2).terms == []
+
+
+def test_s1_number_words_set_top_n_and_lebih_is_rank(cat, cfg):
+    e = extract("tiga provinsi dengan ukuran a tertinggi", catalog=cat, config=cfg)
+    assert (e.operation, e.rank_direction, e.top_n) == ("RANK", "highest", 3)
+    e = extract("alfa atau beta, mana yang ukuran a lebih rendah", catalog=cat, config=cfg)
+    assert (e.operation, e.rank_direction, e.top_n, e.regions) == ("RANK", "lowest", 1, ["01", "02"])
+
+
+def test_s1_di_antara_is_not_an_unknown_place(cat, cfg):
+    e = extract("di antara alfa dan beta, mana yang ukuran a tertinggi", catalog=cat, config=cfg)
+    assert e.unresolved == [] and e.regions == ["01", "02"]
+
+
+def test_s3_year_only_uses_latest_period_of_that_year_in_intersection(cat, cfg):
+    k = resolve(_ext(), catalog=cat)                                   # A_PCT {2025-03, 2025-09}, A_NUM {2025-03}
+    out = check_candidates(_ext(period="2025"), k, catalog=cat, config=cfg)
+    assert out.period == "2025-03" and out.reason is None              # irisan K, bukan 2025-09 milik A_PCT saja
+    e = _ext(terms=["ukuran a persen"], period="2025")
+    assert check_candidates(e, resolve(e, catalog=cat), catalog=cat, config=cfg).period == "2025-09"
+    out = check_candidates(_ext(period="2026"), k, catalog=cat, config=cfg)
+    assert out.reason == "T2" and out.period == "2026"                 # tahun tanpa data: tidak pindah ke tahun lain
+    cfg2 = copy.deepcopy(cfg)
+    cfg2["decision"]["year_only_period"] = "none"
+    assert check_candidates(_ext(period="2025"), k, catalog=cat, config=cfg2).reason == "T2"   # perilaku lama
+
+
+@pytest.mark.parametrize("cond,ok", [
+    ("n.kode_provinsi IN (:wilayah_0, :wilayah_1)", True),
+    ("p.kode IN (:wilayah_0, :wilayah_1)", True),
+    (":wilayah_0 = n.kode_provinsi AND n.kode_provinsi = :wilayah_1", True),
+    ("p.nama IN (:wilayah_0, :wilayah_1)", False),          # teramati 21 Okt: selalu kosong -> T5 palsu bila menang voting
+    ("p.nama = :wilayah_0 AND n.kode_provinsi = :wilayah_1", False),
+    ("n.kode_provinsi > :wilayah_0 AND n.kode_provinsi < :wilayah_1", False),
+])
+def test_validator_region_params_only_against_province_code(cond, ok):
+    sql = ("SELECT SUM(n.nilai) AS nilai FROM nilai_indikator n JOIN provinsi p ON p.kode = n.kode_provinsi "
+           f"WHERE n.kode_indikator = :indikator AND n.periode = :periode AND {cond}")
+    assert validate_sql(sql, region_count=2)[0] is ok
+
+
+def test_s1_negated_and_comparative_poverty_rank_phrases(cat, cfg):
+    """21 Okt: "paling tidak miskin" sebelumnya terbaca "paling" = tertinggi (arah terbalik, JAWAB salah)."""
+    assert extract("alfa atau beta, mana yang paling tidak miskin", catalog=cat, config=cfg).rank_direction == "lowest"
+    assert extract("alfa atau beta, mana yang kurang miskin", catalog=cat, config=cfg).rank_direction == "lowest"
+    assert extract("alfa atau beta, mana yang lebih miskin", catalog=cat, config=cfg).rank_direction == "highest"
+    assert extract("alfa atau beta, mana yang paling miskin", catalog=cat, config=cfg).rank_direction == "highest"
+
+
+
+@pytest.mark.parametrize("shape,tail,ok", [
+    (("RANK", "highest", 3), "ORDER BY nilai DESC LIMIT 3", True),
+    (("RANK", "highest", 3), "ORDER BY nilai ASC LIMIT 3", False),          # arah terbalik
+    (("RANK", "lowest", 1), "ORDER BY nilai ASC LIMIT 2", False),           # top_n salah
+    (("RANK", "lowest", 1), "", False),                                     # tanpa ORDER BY
+    (("NONE", None, 1), "", True),
+    (("NONE", None, 1), "ORDER BY nilai DESC LIMIT 1", False),              # LIMIT memotong wilayah
+])
+def test_validator_enforces_rank_and_lookup_shape(shape, tail, ok):
+    sql = ("SELECT p.nama AS wilayah, n.nilai AS nilai FROM nilai_indikator n JOIN provinsi p ON p.kode = n.kode_provinsi "
+           f"WHERE n.kode_indikator = :indikator AND n.periode = :periode {tail}")
+    assert validate_sql(sql, shape=shape)[0] is ok
+
+
+def test_validator_enforces_aggregate_shape():
+    base = "FROM nilai_indikator n WHERE n.kode_indikator = :indikator AND n.periode = :periode"
+    assert validate_sql(f"SELECT SUM(n.nilai) AS nilai {base}", shape=("SUM", None, 1))[0]
+    assert not validate_sql(f"SELECT AVG(n.nilai) AS nilai {base}", shape=("SUM", None, 1))[0]
+    assert not validate_sql(f"SELECT SUM(n.nilai) AS nilai {base} LIMIT 1", shape=("SUM", None, 1))[0]
+    assert not validate_sql(f"SELECT n.nilai AS nilai {base}", shape=("AVG", None, 1))[0]

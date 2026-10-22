@@ -135,9 +135,7 @@ def test_llm_source_allowed_and_student_count_is_reported_not_blocking():
     assert errs == [] and T.composition_complete(stats) and stats["mahasiswa"] == [0, 60]
 
 
-def test_split_before_labels_uses_target_group_and_matches_d10_quotas(tmp_path, monkeypatch):
-    monkeypatch.setattr(T, "ROOT", tmp_path)
-    (tmp_path / "eval" / "testset").mkdir(parents=True)
+def test_split_before_labels_uses_target_group_and_matches_d10_quotas(tmp_path):
     qs = _questions()
     path = tmp_path / "q.csv"
     T.write_csv(path, qs, T.Q_COLS)

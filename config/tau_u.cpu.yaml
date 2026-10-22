@@ -1,7 +1,0 @@
-# CPU/GGUF N=8: disahkan pengguna setelah kalibrasi dev54; bukan parameter vLLM.
-# Dev run: dev_K3_20261021T164852Z_54298
-# Semua150 kandidat seri; minimum leksikografis menurut objective yang sudah dipakai.
-# Persetujuan chat: oke gaskan; recorded_at: 2026-10-21T17:21:42.002493+00:00
-"%": 0.0
-"orang": 0.0
-"ribu jiwa": 0.0

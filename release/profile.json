@@ -1,17 +1,18 @@
 {
-  "profile": "llama",
-  "source_commit": "4d8dfaa64cb2efff3e59239e6515365e4fd88f5c",
-  "config": "config/cpu.eval.yaml",
+  "profile": "vllm",
+  "source_commit": "c1e0900b26dfcd1f86c439cc96724d30ac0b45aa",
+  "config": "config/config.yaml",
   "python_version": "3.11",
   "node_version": "24.11.0",
   "shutdown_timeout_s": 10,
   "model": {
-    "backend": "llama_cpp",
-    "sha256": "cc324af070c2ecbfd324a30884d2f951a7ff756aba85cb811a6ec436933bb046",
-    "file": ".local/models/qwen2.5-coder-1.5b-instruct-q4_k_m.gguf",
-    "binary": ".local/llama/bin/llama-server",
-    "llama_commit": "620d2225cc436ab0b001e3200e590e3b286ef9ab",
-    "url": "https://huggingface.co/Qwen/Qwen2.5-Coder-1.5B-Instruct-GGUF/resolve/main/qwen2.5-coder-1.5b-instruct-q4_k_m.gguf"
+    "backend": "vllm",
+    "repository": "Qwen/Qwen2.5-Coder-1.5B-Instruct-AWQ",
+    "revision": "867d050da8a1af36b04fde627402656b3f918511",
+    "sha256": "cee832dcc5d9389549598d38dc48506bd89ecfc9b31064929b5bd744fd1cdad9",
+    "file": ".local/models/qwen-awq/model.safetensors",
+    "directory": ".local/models/qwen-awq",
+    "dtype": "half"
   },
-  "historical_test": "evidence/runs/test_K1K2K3_20261021T202747Z_5534"
+  "historical_test": "evidence/runs/test_K1K2K3_20261022T053331Z"
 }

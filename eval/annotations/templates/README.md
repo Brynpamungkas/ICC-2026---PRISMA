@@ -1,9 +1,6 @@
 # Templat dataset evaluasi (D10 C3–C4, D11 D3–D8)
 
-**Status terbaru — 21 Oktober 2026:** pengguna memilih jalur M5 draf LLM ditinjau/disetujui manusia menurut pernyataannya. `../label_final.csv` berisi404 interpretasi VERIFIED atas180 soal, dengan SQL rujukan mekanis dan hasil read-only pada `../label_final.answers.jsonl`; rekam persetujuan dan hash `../review_final.json`. KerangkaA/B dan drafLLM asli tetap disimpan. Tidak ada label awal independen/kappa yang diklaim. Bagian dua penilai di bawah menjelaskan baseline paper dan pilihan sebelumnya, bukan bukti bahwa proses itu sudah dilakukan. VERIFIED lokal ini tidak otomatis berarti seluruh protokol paper terpenuhi.
-
-
-Salin templat CSV ke berkas kerja penilai yang terpisah lalu isi. Templat JSON berisi nilai kosong dan bukan bukti. **Pertanyaan dan label ditulis manusia, bukan AI** (D11 D1: AI sebagai anotator = DI LUAR BASELINE). Berkas di folder ini adalah templat, bukan data atau bukti penelitian.
+Salin templat ke `eval/annotations/` lalu isi. **Pertanyaan dan label ditulis manusia, bukan AI** (D11 D1: AI sebagai anotator = DI LUAR BASELINE). Berkas di folder ini hanya header, bukan data.
 
 ## 1. `pertanyaan.csv` — satu baris per pertanyaan (180 baris)
 
@@ -74,28 +71,26 @@ python scripts/dataset_tools.py kappa eval/annotations/label_A.csv eval/annotati
 # setelah rekonsiliasi -> label_final.csv; seed disepakati tim dulu dan dicatat di D13
 python scripts/dataset_tools.py split eval/annotations/pertanyaan.csv eval/annotations/label_final.csv --seed <seed>
 # atau langkah 4-7 sekaligus (vLLM menyala):
-PRISMA_CONFIG=config/local.cpu.yaml bash scripts/eval_lengkap.sh dev <seed> # setelah label/protokol sah; hanya kandidat kalibrasi
-PRISMA_CONFIG=config/local.cpu.yaml bash scripts/eval_lengkap.sh test <seed> # setelah pembekuan manusia dan hash sah
+bash scripts/eval_lengkap.sh dev <seed>     # split, run dev K3, kalibrasi tau, commit beku
+bash scripts/eval_lengkap.sh test <seed>    # run test K1 K2 K3 + metrik
 ```
 
 Label awal A dan B **tidak ditimpa** saat rekonsiliasi; buat `label_final.csv` baru.
 
-## 4. Protokol dua penilai paper (pilihan sebelumnya; tetap tersedia)
+## 4. Verifikasi draf LLM (keputusan tim 21 Okt)
 
-Dua manusia mengerjakan label awal secara independen, tanpa melihat draf LLM, keluaran PRISMA, atau label rekannya. Kunci kedua berkas awal; hitung kappa keputusan sebelum rekonsiliasi. Draf LLM hanya boleh dibuka sesudah tahap itu untuk membantu diskusi. Keputusan akhir tetap berdasarkan manusia, definisi resmi, dan hasil kueri rujukan, bukan keluaran sistem.
+`label_final.csv` berisi draf LLM (180 soal). Kolom `hasil_draf` menampilkan hasil kueri tiap tafsir. Untuk setiap soal:
 
-Berkas `label_A.csv`, `label_B.csv`, `label_final.csv`, dan `label_draf_llm.csv` yang diimpor dari M5 belum membuktikan penilaian independen. Nama A/B pada berkas tidak membuktikan ada dua manusia. Pada saat impor semua label final masih DRAFT; status terkini mengikuti catatan jalur M5 di atas. Persetujuan dokumen tidak mengubah status itu menjadi VERIFIED.
+1. Baca `question_text`. Apakah tafsir (baris I1, I2, ...) lengkap dan masuk akal? Tambah/hapus baris bila perlu.
+2. Periksa `indicator_code`, `region_codes`, `period`, `operation` tiap baris. Bila mengubah salah satunya, **kosongkan `reference_sql`** (biasanya sudah kosong).
+3. Periksa `decision_reference` (JAWAB/TANYA) dan `question_group`, sama di semua baris soal itu.
+4. Bila sudah benar, ubah `verification_status` semua baris soal itu menjadi `VERIFIED`.
 
-Jika penilai sudah terpapar draf, catat paparan tersebut; jangan menyatakan independensi awal secara retrospektif. Tim perlu menyelesaikan dampaknya sebelum evaluasi final.
+Jangan mengubah `label_draf_llm.csv` (dipakai untuk laporan koreksi). Setelah verifikasi:
 
-Salin `protocol.json` ke lokasi yang ditetapkan profil evaluasi hanya setelah bukti nyata tersedia. Isikan peninjau, urutan kerja yang benar, path dan SHA-256 dua label awal, laporan kappa awal, serta log rekonsiliasi. `scripts/eval_protocol.py` memeriksa hash dan menghitung ulang kesepakatan. Independensi manusia tetap memerlukan audit tim; pemeriksaan berkas tidak dapat membuktikannya sendiri.
+```bash
+python scripts/dataset_tools.py buat-sql eval/annotations/label_final.csv
+python scripts/dataset_tools.py cek-label eval/annotations/label_final.csv --pertanyaan eval/annotations/pertanyaan.csv
+python scripts/dataset_tools.py laporan-koreksi eval/annotations/label_draf_llm.csv eval/annotations/label_final.csv > eval/annotations/laporan_koreksi.json
+```
 
-Setiap perubahan label mencatat question_id, penilai/reviewer, nilai sebelum/sesudah, alasan, sumber, dan waktu. Simpan label awal terpisah. Jangan mengubah DRAFT secara massal untuk melewati pemeriksaan runner.
-
-## 5. Pembekuan dan batas evaluasi
-
-`freeze.json` adalah templat kosong. Setelah review dan commit yang diotorisasi terpisah, catat reviewer, commit bersih dan hash profil konfigurasi yang dipakai, tau, pertanyaan, split, label final, protokol anotasi dan prompt. Jalur test menolak prasyarat yang tidak lengkap. Skrip lokal tidak melakukan commit atau pembekuan otomatis.
-
-180 pertanyaan impor saat ini bersumber `llm`, bukan 60 pertanyaan mahasiswa yang diminta paper. Komposisi 180 dan split 54/126 saja tidak membuktikan keabsahan sumber. Empat contoh dev tetap nonaktif karena reviewer sumber kosong; review contoh berbeda dari verifikasi label seluruh corpus.
-
-Checker jawaban adaptasi mempertahankan kebijakan M5: teks diperiksa pada RANK, selain itu hanya angka. Kebijakan ini masih berisiko menerima pasangan wilayah/nilai yang tertukar pada hasil multiwilayah. Jangan memakai hasil checker sebagai label manusia atau mengklaim evaluasi final siap sebelum review batas tersebut.

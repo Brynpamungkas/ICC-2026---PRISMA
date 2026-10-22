@@ -189,7 +189,7 @@ def create_router() -> APIRouter:
                                               session_id=body.id_sesi, log_path=None)
         except ConfigError as exc:                 # mis. tau_u belum dikalibrasi (sebelum eval_lengkap.sh dev): 503, bukan 500
             raise ApiError(HTTPStatus.SERVICE_UNAVAILABLE, "CONFIG_INCOMPLETE",
-                           "Konfigurasi layanan belum lengkap. Hubungi pengelola PRISMA.") from exc
+                           "Konfigurasi belum lengkap (tau belum dikalibrasi). Jalankan kalibrasi dev terlebih dahulu.") from exc
         if (record.session_id != body.id_sesi or record.question != body.pertanyaan or record.decision is None
                 or record.decision.model_dump() != decision.model_dump()):
             raise ValueError("pipeline record correlation failed")

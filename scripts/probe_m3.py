@@ -1,4 +1,4 @@
-"""Probe M3: ukur tingkat SQL valid dan keputusan pipeline K3 dengan model NYATA (penyaji model profil aktif harus berjalan).
+"""Probe M3: ukur tingkat SQL valid dan keputusan pipeline K3 dengan model NYATA (vLLM harus jalan: make serve).
 
   python scripts/probe_m3.py                 # pertanyaan probe bawaan
   python scripts/probe_m3.py "Pertanyaan 1" "Pertanyaan 2"
@@ -10,7 +10,6 @@ tau dibaca dari config; bila belum dikalibrasi, keputusan yang butuh tau dicatat
 import collections
 import json
 import sys
-import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -69,12 +68,11 @@ def main() -> int:
                       f"kolom={v.result.columns} baris={v.result.rows[:5]}{' ...' if len(v.result.rows) > 5 else ''}")
     rate = f"{valid}/{total} ({100 * valid / total:.1f}%)" if total else "tidak ada pemanggilan model"
     print(f"\nRINGKASAN prompt v{cfg['prompt']['version']}: SQL valid {rate}")
-    out = ROOT / "eval" / "runs" / "probe" / f"{datetime.now(timezone.utc):%Y%m%dT%H%M%SZ}_{uuid.uuid4().hex}_v{cfg['prompt']['version']}.json"
+    out = ROOT / "eval" / "runs" / "probe" / f"{datetime.now(timezone.utc):%Y%m%dT%H%M%SZ}_v{cfg['prompt']['version']}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
-    with out.open("x", encoding="utf-8") as stream:
-        stream.write(json.dumps({"prompt_version": str(cfg["prompt"]["version"]), "model": cfg["model"]["name"],
+    out.write_text(json.dumps({"prompt_version": str(cfg["prompt"]["version"]), "model": cfg["model"]["name"],
                                "probe_not_test_set": True, "valid": valid, "samples": total, "results": rows},
-                              ensure_ascii=False, indent=2) + "\n")
+                              ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Disimpan: {out}")
     return 0
 

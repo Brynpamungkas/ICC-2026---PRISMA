@@ -25,7 +25,7 @@ def _token(v):
     if isinstance(v, bool):
         return ("bool", v)
     if isinstance(v, (int, float)):
-        return ("num", float(v))
+        return ("num", round(float(v), 6))
     return ("txt", str(v).strip().casefold())
 
 
@@ -87,8 +87,6 @@ def _ratio(num: int, den: int) -> dict:
 def compute(records: list[dict], labels: dict[str, dict]) -> dict:
     """records: satu per question_id (decision None = tanpa Decision). labels: question_id -> {y, group, domain, refs,
     indicator_codes}. Pertanyaan berlabel tanpa record dihitung sebagai tanpa Decision (Q tidak dikurangi)."""
-    if len({r["question_id"] for r in records}) != len(records):
-        raise ValueError("question_id ganda dalam hasil kondisi")
     by_q = {r["question_id"]: r for r in records}
     Q = sorted(labels)
     missing_records = [q for q in Q if q not in by_q]

@@ -66,7 +66,7 @@ def run_k1(question: str, *, llm=None, catalog: Catalog | None = None, db_path: 
     rec.model_name = getattr(client, "model_name", type(client).__name__)
     codes = set(cat.indicators)
     listing = [(c, m.name, m.unit) for c, m in cat.indicators.items()]
-    prompt = build_k1_prompt(question, listing, extraction_context(ext), load_examples(cfg, catalog=cat))
+    prompt = build_k1_prompt(question, listing, extraction_context(ext), load_examples(cfg))   # contoh sama dengan K3 (K-08)
     t = time.perf_counter()
     try:
         raw = client.generate(prompt, cfg["sampling"]["n_samples"], system=K1_SYSTEM_PROMPT)
@@ -155,7 +155,7 @@ def run_k2(question: str, *, llm=None, catalog: Catalog | None = None, db_path: 
         d = Decision(decision="TANYA", evidence=[])
         return d, _finish(rec, d)
     d, rec = run_question_with_log(question, "K3", llm=llm, catalog=cat, db_path=db_path, config=cfg,
-                                   session_id=session_id, tau=tau, examples=examples, _record_mode="K2")
+                                   session_id=session_id, tau=tau, examples=examples)
     rec.mode = "K2"
     return d, rec
 
