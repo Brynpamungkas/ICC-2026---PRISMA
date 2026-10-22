@@ -1010,6 +1010,62 @@
       "source_commit": null,
       "sha256": "f85ebad0d2c72dc88273222639be8570b7a3ada2649c769fa1959d1a64779d1c",
       "type": "measured_existing_snapshot"
+    },
+    {
+      "path": "frontend/dist/fonts.css",
+      "source_path": "frontend/dist/fonts.css",
+      "source_commit": "4d8dfaa64cb2efff3e59239e6515365e4fd88f5c",
+      "sha256": "d296ca34bcf632505b6bebce747259540238048ad6585f4761ad1da2f2afd1b7",
+      "type": "unchanged_required_frontend_asset"
+    },
+    {
+      "path": "frontend/dist/fonts/plus-jakarta-sans-latin-400-normal.woff2",
+      "source_path": "frontend/dist/fonts/plus-jakarta-sans-latin-400-normal.woff2",
+      "source_commit": "4d8dfaa64cb2efff3e59239e6515365e4fd88f5c",
+      "sha256": "221a4135d06a4b33abbd535e9a0da4e565d19545ddd9267c4e678a916d54d9b6",
+      "type": "unchanged_required_frontend_asset"
+    },
+    {
+      "path": "frontend/dist/fonts/plus-jakarta-sans-latin-500-normal.woff2",
+      "source_path": "frontend/dist/fonts/plus-jakarta-sans-latin-500-normal.woff2",
+      "source_commit": "4d8dfaa64cb2efff3e59239e6515365e4fd88f5c",
+      "sha256": "bad081c8dbc15aed6c5e4cde5461914f7b3bdc295b7a7aed177e4beddb79bffa",
+      "type": "unchanged_required_frontend_asset"
+    },
+    {
+      "path": "frontend/dist/fonts/plus-jakarta-sans-latin-600-normal.woff2",
+      "source_path": "frontend/dist/fonts/plus-jakarta-sans-latin-600-normal.woff2",
+      "source_commit": "4d8dfaa64cb2efff3e59239e6515365e4fd88f5c",
+      "sha256": "8872bb5c9111df9bd3162c2394aee6354d782b13408a4dd5bbf65c48207206e6",
+      "type": "unchanged_required_frontend_asset"
+    },
+    {
+      "path": "frontend/dist/fonts/plus-jakarta-sans-latin-700-normal.woff2",
+      "source_path": "frontend/dist/fonts/plus-jakarta-sans-latin-700-normal.woff2",
+      "source_commit": "4d8dfaa64cb2efff3e59239e6515365e4fd88f5c",
+      "sha256": "2050755bf475817c96ac7d914c7f07cc3c2d11ff4b3fb4747b8d41de584aad17",
+      "type": "unchanged_required_frontend_asset"
+    },
+    {
+      "path": "frontend/dist/fonts/plus-jakarta-sans-latin-800-normal.woff2",
+      "source_path": "frontend/dist/fonts/plus-jakarta-sans-latin-800-normal.woff2",
+      "source_commit": "4d8dfaa64cb2efff3e59239e6515365e4fd88f5c",
+      "sha256": "5f301a8ef9c266c8b596e6793d3cc826daeff9849c5af035f5386439137955ad",
+      "type": "unchanged_required_frontend_asset"
+    },
+    {
+      "path": "frontend/dist/tailwind.css",
+      "source_path": "frontend/dist/tailwind.css",
+      "source_commit": "4d8dfaa64cb2efff3e59239e6515365e4fd88f5c",
+      "sha256": "57a1983e7bad51549c39c472e3e2e8fca694407d4052bf5bca69c2dcef3f9049",
+      "type": "unchanged_required_frontend_asset"
+    },
+    {
+      "path": "frontend/src/style.css",
+      "source_path": "frontend/src/style.css",
+      "source_commit": "4d8dfaa64cb2efff3e59239e6515365e4fd88f5c",
+      "sha256": "993ef2cfe1faab09c3033e8ea41a25ea19ce6fc3eaf3918e1b3946753a9d4598",
+      "type": "unchanged_required_frontend_asset"
     }
   ],
   "excluded_source_paths": [
@@ -1046,15 +1102,8 @@
     "eval/testset/.gitkeep",
     "frontend/README.md",
     "frontend/dist/app.js",
-    "frontend/dist/fonts.css",
-    "frontend/dist/fonts/plus-jakarta-sans-latin-400-normal.woff2",
-    "frontend/dist/fonts/plus-jakarta-sans-latin-500-normal.woff2",
-    "frontend/dist/fonts/plus-jakarta-sans-latin-600-normal.woff2",
-    "frontend/dist/fonts/plus-jakarta-sans-latin-700-normal.woff2",
-    "frontend/dist/fonts/plus-jakarta-sans-latin-800-normal.woff2",
     "frontend/dist/index.html",
     "frontend/dist/prisma.css",
-    "frontend/dist/tailwind.css",
     "frontend/dist/vendor/react-dom.production.min.js",
     "frontend/dist/vendor/react.production.min.js",
     "frontend/jalankan_frontend.bat",
@@ -1063,7 +1112,6 @@
     "frontend/src/in.css",
     "frontend/src/package-lock.json",
     "frontend/src/package.json",
-    "frontend/src/style.css",
     "frontend/src/tw.config.js",
     "requirements-core.lock",
     "requirements-gpu.txt",

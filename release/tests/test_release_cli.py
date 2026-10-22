@@ -55,3 +55,17 @@ def test_profile_matches_export_source_and_real_runtime():
     assert prof["source_commit"] == manifest["source_commit"]
     assert prof["model"]["backend"] in {"llama_cpp", "vllm"}
     assert len(prof["model"]["sha256"]) == 64
+
+
+def test_frontend_imported_styles_and_fonts_are_packaged():
+    import re
+
+    layout = cli.ROOT / "frontend/app/layout.tsx"
+    styles = re.findall(r'import\s+["\']([^"\']+\.css)["\']', layout.read_text())
+    assert styles
+    for name in styles:
+        path = (layout.parent / name).resolve()
+        assert path.is_file(), name
+        for asset in re.findall(r"url\(['\"]?([^)'\"]+)", path.read_text()):
+            if not asset.startswith(("data:", "http:", "https:")):
+                assert (path.parent / asset).is_file(), asset
