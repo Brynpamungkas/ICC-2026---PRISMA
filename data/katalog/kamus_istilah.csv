@@ -1,0 +1,151 @@
+istilah,jenis,kode
+miskin,indikator,KMS_PERSEN
+miskin,indikator,KMS_JUMLAH
+kemiskinan,indikator,KMS_PERSEN
+kemiskinan,indikator,KMS_JUMLAH
+pengangguran,indikator,TPT_PERSEN
+pengangguran,indikator,PGR_JUMLAH
+penganggur,indikator,TPT_PERSEN
+penganggur,indikator,PGR_JUMLAH
+partisipasi sekolah,indikator,APK_SD
+partisipasi sekolah,indikator,APK_SMP
+partisipasi sekolah,indikator,APK_SMA
+partisipasi sekolah,indikator,APM_SD
+partisipasi sekolah,indikator,APM_SMP
+partisipasi sekolah,indikator,APM_SMA
+partisipasi sekolah,indikator,APS_7_12
+partisipasi sekolah,indikator,APS_13_15
+partisipasi sekolah,indikator,APS_16_18
+persentase penduduk miskin,indikator,KMS_PERSEN
+jumlah penduduk miskin,indikator,KMS_JUMLAH
+tingkat pengangguran terbuka,indikator,TPT_PERSEN
+jumlah pengangguran,indikator,PGR_JUMLAH
+angka partisipasi kasar apk sd,indikator,APK_SD
+angka partisipasi kasar apk smp,indikator,APK_SMP
+angka partisipasi kasar apk sma,indikator,APK_SMA
+angka partisipasi murni apm sd,indikator,APM_SD
+angka partisipasi murni apm smp,indikator,APM_SMP
+angka partisipasi murni apm sma,indikator,APM_SMA
+angka partisipasi sekolah aps umur 7 12 tahun,indikator,APS_7_12
+angka partisipasi sekolah aps umur 13 15 tahun,indikator,APS_13_15
+angka partisipasi sekolah aps umur 16 18 tahun,indikator,APS_16_18
+aceh,wilayah,11
+sumatera utara,wilayah,12
+sumatera barat,wilayah,13
+riau,wilayah,14
+jambi,wilayah,15
+sumatera selatan,wilayah,16
+bengkulu,wilayah,17
+lampung,wilayah,18
+kepulauan bangka belitung,wilayah,19
+kepulauan riau,wilayah,21
+dki jakarta,wilayah,31
+jawa barat,wilayah,32
+jawa tengah,wilayah,33
+di yogyakarta,wilayah,34
+jawa timur,wilayah,35
+banten,wilayah,36
+bali,wilayah,51
+nusa tenggara barat,wilayah,52
+nusa tenggara timur,wilayah,53
+kalimantan barat,wilayah,61
+kalimantan tengah,wilayah,62
+kalimantan selatan,wilayah,63
+kalimantan timur,wilayah,64
+kalimantan utara,wilayah,65
+sulawesi utara,wilayah,71
+sulawesi tengah,wilayah,72
+sulawesi selatan,wilayah,73
+sulawesi tenggara,wilayah,74
+gorontalo,wilayah,75
+sulawesi barat,wilayah,76
+maluku,wilayah,81
+maluku utara,wilayah,82
+papua,wilayah,91
+papua barat,wilayah,92
+papua selatan,wilayah,93
+papua tengah,wilayah,94
+papua pegunungan,wilayah,95
+papua barat daya,wilayah,96
+pulau jawa,wilayah,31
+pulau jawa,wilayah,32
+pulau jawa,wilayah,33
+pulau jawa,wilayah,34
+pulau jawa,wilayah,35
+pulau jawa,wilayah,36
+tpt,indikator,TPT_PERSEN
+angka partisipasi kasar sd,indikator,APK_SD
+angka partisipasi kasar,indikator,APK_SD
+apk sd,indikator,APK_SD
+apk,indikator,APK_SD
+angka partisipasi kasar smp,indikator,APK_SMP
+angka partisipasi kasar,indikator,APK_SMP
+apk smp,indikator,APK_SMP
+apk,indikator,APK_SMP
+angka partisipasi kasar sma,indikator,APK_SMA
+angka partisipasi kasar,indikator,APK_SMA
+apk sma,indikator,APK_SMA
+apk,indikator,APK_SMA
+angka partisipasi murni sd,indikator,APM_SD
+angka partisipasi murni,indikator,APM_SD
+apm sd,indikator,APM_SD
+apm,indikator,APM_SD
+angka partisipasi murni smp,indikator,APM_SMP
+angka partisipasi murni,indikator,APM_SMP
+apm smp,indikator,APM_SMP
+apm,indikator,APM_SMP
+angka partisipasi murni sma,indikator,APM_SMA
+angka partisipasi murni,indikator,APM_SMA
+apm sma,indikator,APM_SMA
+apm,indikator,APM_SMA
+angka partisipasi sekolah umur 7 12 tahun,indikator,APS_7_12
+angka partisipasi sekolah,indikator,APS_7_12
+aps umur 7 12 tahun,indikator,APS_7_12
+aps 7 12,indikator,APS_7_12
+aps,indikator,APS_7_12
+angka partisipasi sekolah umur 13 15 tahun,indikator,APS_13_15
+angka partisipasi sekolah,indikator,APS_13_15
+aps umur 13 15 tahun,indikator,APS_13_15
+aps 13 15,indikator,APS_13_15
+aps,indikator,APS_13_15
+angka partisipasi sekolah umur 16 18 tahun,indikator,APS_16_18
+angka partisipasi sekolah,indikator,APS_16_18
+aps umur 16 18 tahun,indikator,APS_16_18
+aps 16 18,indikator,APS_16_18
+aps,indikator,APS_16_18
+tingkat kemiskinan,indikator,KMS_PERSEN
+persentase kemiskinan,indikator,KMS_PERSEN
+persentase orang miskin,indikator,KMS_PERSEN
+orang miskin,indikator,KMS_JUMLAH
+jumlah orang miskin,indikator,KMS_JUMLAH
+termiskin,indikator,KMS_PERSEN
+termiskin,indikator,KMS_JUMLAH
+tingkat pengangguran,indikator,TPT_PERSEN
+persentase pengangguran,indikator,TPT_PERSEN
+jumlah penganggur,indikator,PGR_JUMLAH
+sumut,wilayah,12
+sumbar,wilayah,13
+sumsel,wilayah,16
+babel,wilayah,19
+bangka belitung,wilayah,19
+kepri,wilayah,21
+jakarta,wilayah,31
+jabar,wilayah,32
+jateng,wilayah,33
+diy,wilayah,34
+yogyakarta,wilayah,34
+daerah istimewa yogyakarta,wilayah,34
+jatim,wilayah,35
+ntb,wilayah,52
+ntt,wilayah,53
+kalbar,wilayah,61
+kalteng,wilayah,62
+kalsel,wilayah,63
+kaltim,wilayah,64
+kaltara,wilayah,65
+sulut,wilayah,71
+sulteng,wilayah,72
+sulsel,wilayah,73
+sultra,wilayah,74
+sulbar,wilayah,76
+malut,wilayah,82

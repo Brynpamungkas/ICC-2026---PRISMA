@@ -1,0 +1,72 @@
+{
+  "sequence": 5,
+  "method": "POST",
+  "url": "http://127.0.0.1:3000/api/tanya",
+  "body": {
+    "pertanyaan": "Provinsi mana yang paling miskin?",
+    "id_sesi": "cde7c5f8-7c65-475d-ba1d-fafd875ca548"
+  },
+  "headers": null,
+  "status_code": 200,
+  "response_text": "{\"id_sesi\":\"cde7c5f8-7c65-475d-ba1d-fafd875ca548\",\"id_log\":\"e5eacca7-dd2c-4df1-b0f5-490e5e72757c\",\"decision\":{\"decision\":\"TANYA\",\"answer\":null,\"evidence\":[{\"candidate\":{\"code\":\"KMS_PERSEN\",\"canonical_name\":\"Persentase Penduduk Miskin\",\"unit\":\"%\"},\"result\":{\"candidate_code\":\"KMS_PERSEN\",\"columns\":[\"wilayah\",\"nilai\"],\"rows\":[[\"Papua Tengah\",29.45]],\"structure\":\"TEXT\",\"unit\":\"%\",\"error\":null}},{\"candidate\":{\"code\":\"KMS_JUMLAH\",\"canonical_name\":\"Jumlah Penduduk Miskin\",\"unit\":\"ribu jiwa\"},\"result\":{\"candidate_code\":\"KMS_JUMLAH\",\"columns\":[\"wilayah\",\"nilai\"],\"rows\":[[\"Jawa Timur\",3804.29]],\"structure\":\"TEXT\",\"unit\":\"ribu jiwa\",\"error\":null}}],\"reason_code\":null,\"suggestion\":null,\"period_used\":\"2025-09\"}}",
+  "response_json": {
+    "id_sesi": "cde7c5f8-7c65-475d-ba1d-fafd875ca548",
+    "id_log": "e5eacca7-dd2c-4df1-b0f5-490e5e72757c",
+    "decision": {
+      "decision": "TANYA",
+      "answer": null,
+      "evidence": [
+        {
+          "candidate": {
+            "code": "KMS_PERSEN",
+            "canonical_name": "Persentase Penduduk Miskin",
+            "unit": "%"
+          },
+          "result": {
+            "candidate_code": "KMS_PERSEN",
+            "columns": [
+              "wilayah",
+              "nilai"
+            ],
+            "rows": [
+              [
+                "Papua Tengah",
+                29.45
+              ]
+            ],
+            "structure": "TEXT",
+            "unit": "%",
+            "error": null
+          }
+        },
+        {
+          "candidate": {
+            "code": "KMS_JUMLAH",
+            "canonical_name": "Jumlah Penduduk Miskin",
+            "unit": "ribu jiwa"
+          },
+          "result": {
+            "candidate_code": "KMS_JUMLAH",
+            "columns": [
+              "wilayah",
+              "nilai"
+            ],
+            "rows": [
+              [
+                "Jawa Timur",
+                3804.29
+              ]
+            ],
+            "structure": "TEXT",
+            "unit": "ribu jiwa",
+            "error": null
+          }
+        }
+      ],
+      "reason_code": null,
+      "suggestion": null,
+      "period_used": "2025-09"
+    }
+  },
+  "duration_s": 10.60036873900026
+}

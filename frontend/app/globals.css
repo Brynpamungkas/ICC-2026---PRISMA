@@ -1,0 +1,45 @@
+/* Presentation remains owned by the team's original src/style.css and dist/tailwind.css.
+   Additions below are scoped to actual API results and accessible process details. */
+html, body { min-width: 0; }
+[hidden] { display: none !important; }
+.prisma-question { max-height: 200px; overflow-y: auto; }
+.startup-activity { width: 35%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); animation: startup-scan 1.5s ease-in-out infinite alternate; }
+@keyframes startup-scan { from { transform: translateX(-100%); } to { transform: translateX(300%); } }
+.muted { color: var(--ink-2); font-size: .875rem; }
+.code { font-family: ui-monospace, monospace; overflow-wrap: anywhere; }
+.lead { font-size: 1.05rem; color: var(--ink-2); line-height: 1.65; }
+.evidence-card { display: grid; gap: .65rem; min-width: 0; border-radius: 22px; padding: 1rem; }
+.evidence-card h3 { font-size: .95rem; font-weight: 600; }
+.evidence-card p { line-height: 1.6; }
+.metadata, .question-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .75rem; }
+.result-scroll { max-width: 100%; overflow-x: auto; }
+.result-table { width: 100%; border-collapse: collapse; text-align: left; font-variant-numeric: tabular-nums; }
+.result-table th, .result-table td { border-bottom: 1px solid var(--line); padding: .7rem; min-width: 7rem; vertical-align: top; }
+.result-table th { color: var(--ink-2); font-size: .8rem; font-weight: 600; }
+.result-table td { font-family: "Plus Jakarta Sans", sans-serif; font-size: 1.15rem; font-weight: 700; }
+.raw-value { font-family: inherit; font-size: .7rem; font-weight: 400; color: var(--ink-2); margin-top: .25rem; }
+.raw-value summary, summary { cursor: pointer; }
+.candidate { min-width: 0; border: 2px solid transparent; border-radius: 24px; padding: .2rem; }
+.candidate-selected { border-color: var(--accent); }
+.candidate-label { display: flex; align-items: center; gap: .6rem; font-size: .9rem; font-weight: 700; padding: .6rem; cursor: pointer; }
+.candidate-label input { flex-shrink: 0; width: 1.1rem; height: 1.1rem; accent-color: var(--accent); }
+.original-evidence > div { display: grid; gap: .7rem; padding-top: .7rem; }
+.dialog-backdrop { position: fixed; inset: 0; z-index: 60; background: rgba(10,10,30,.25); backdrop-filter: blur(6px); }
+.log-dialog { position: absolute; inset: 12px 12px 12px auto; width: min(440px, calc(100% - 24px)); overflow: auto; border-radius: 28px; padding: 1.25rem; margin-top: env(safe-area-inset-top, 0px); margin-right: env(safe-area-inset-right, 0px); margin-bottom: env(safe-area-inset-bottom, 0px); }
+@media (max-width: 639px) { .log-dialog { inset: auto 8px 8px; width: auto; max-height: 86dvh; } }
+.section-heading { display: flex; justify-content: space-between; align-items: center; gap: .6rem; margin-bottom: 1rem; }
+.section-heading h2 { font-weight: 700; font-size: 1.2rem; }
+.log-content { display: grid; gap: 1rem; min-width: 0; }
+.log-content h3 { font-weight: 700; }
+.log-content pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: .85rem; padding: 1rem; }
+.log-content li { margin-left: 1.3rem; list-style: disc; }
+.log-meta { display: grid; grid-template-columns: minmax(7rem,1fr) minmax(0,2fr); gap: .5rem 1rem; }
+.log-meta dt { color: var(--ink-2); }
+@media (max-width: 480px) { .log-meta { grid-template-columns: 1fr; } .log-meta dd { margin-bottom: .5rem; } }
+@media (prefers-reduced-motion: reduce) { .startup-activity { animation: none; transform: none; } }
+
+/* Preserve the original hidden-on-mobile intent after the button base rule. */
+.prisma-profile-button { display: none; }
+@media (min-width: 768px) { .prisma-profile-button { display: inline-flex; } }
+.domain-pilih { min-width: 0; }
+.domain-pilih > span { max-width: 100%; overflow-wrap: anywhere; }

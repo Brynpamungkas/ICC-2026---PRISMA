@@ -1,0 +1,5 @@
+# Ambang toleransi per satuan. SENGAJA KOSONG: diisi dari kalibrasi pada data dev, lalu dibekukan
+# sebelum himpunan uji dibuka. Kode tidak boleh punya nilai bawaan (aturan R7).
+"%": null
+"ribu jiwa": null
+"orang": null

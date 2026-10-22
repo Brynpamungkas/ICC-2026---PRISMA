@@ -1,0 +1,32 @@
+# CONTOH FORMAT manifest ETL — bukan data BPS. Salin ke manifest.yaml lalu sesuaikan dengan berkas ASLI yang diunduh.
+# Cara cepat: `python scripts/etl.py --inspect data/raw_bps/<berkas>.xlsx` untuk melihat baris/kolom + indeksnya (mulai dari 0).
+
+null_symbols: ["-", "...", "…"]   # simbol "tidak tersedia" PADA BERKAS ASLI -> NULL (bukan 0). Kosongkan bila tidak ada; K-16 masih OPEN.
+decimal: ","                       # "," bila angka ditulis 1.234,5 ; "." bila 1234.5
+skip_names: ["INDONESIA"]          # baris total nasional (tidak masuk tabel provinsi)
+province_aliases:                  # nama di berkas -> nama persis di data/katalog/provinsi.csv
+  "Kep. Bangka Belitung": "Kepulauan Bangka Belitung"
+  "Kep. Riau": "Kepulauan Riau"
+  "Daerah Istimewa Yogyakarta": "DI Yogyakarta"
+
+sources:
+  # Tabel lebar: 1 baris per provinsi, kolom = (indikator, periode). Header bertingkat digabung " | " (sel gabungan di-forward-fill).
+  - file: contoh_kemiskinan.xlsx   # relatif ke data/raw_bps/ ; WAJIB tercatat juga di sumber.md
+    sheet: 0
+    format: wide
+    header_rows: [3, 4]            # baris header (indeks 0) — hasil --inspect
+    first_data_row: 5              # opsional; bawaan = baris setelah header terakhir
+    province_col: 0                # indeks kolom, atau teks header persis
+    columns:
+      - { col: 1, kode_indikator: KMS_JUMLAH, periode: "2025-03" }
+      - { col: 2, kode_indikator: KMS_JUMLAH, periode: "2025-09" }
+      # atau pakai teks header gabungan: { header: "Persentase | Maret 2025", kode_indikator: KMS_PERSEN, periode: "2025-03" }
+
+  # Tabel panjang: kolom provinsi, periode, nilai (satu indikator per berkas)
+  # - file: contoh_long.csv
+  #   format: long
+  #   header_rows: [0]
+  #   province_col: "Provinsi"
+  #   period_col: "Periode"
+  #   value_col: "Nilai"
+  #   kode_indikator: TPT_PERSEN

@@ -1,0 +1,181 @@
+question_id,question_text,annotator_id,question_group,decision_reference,interpretation_id,meaning,indicator_code,region_codes,period,operation,reference_sql,rationale,uncertainty_notes,source_refs,verification_status
+KMS-TA-01,Berapa persentase penduduk miskin di Nusa Tenggara Timur pada Maret 2025?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TA-02,Persentase penduduk miskin di Gorontalo sekarang berapa?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TA-03,Jumlah penduduk miskin di Jawa Barat berapa ribu jiwa?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TA-04,Provinsi mana yang persentase penduduk miskinnya paling kecil pada September 2025?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TA-05,Sebutkan tiga provinsi dengan jumlah penduduk miskin terbanyak.,A,,,I1,,,,,,,,,,DRAFT
+KMS-TA-06,Berapa total jumlah penduduk miskin di Pulau Jawa?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TA-07,Rata-rata persentase penduduk miskin di Pulau Jawa berapa?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TA-08,Bandingkan persentase penduduk miskin di Aceh dan Sumatera Utara.,A,,,I1,,,,,,,,,,DRAFT
+KMS-TA-09,Jumlah penduduk miskin di Papua pada September 2025?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TA-10,Lima provinsi dengan persentase penduduk miskin tertinggi apa saja?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TA-11,Berapa tingkat kemiskinan di Bengkulu?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TA-12,Persentase penduduk miskin Kalimantan Selatan Maret 2026?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TA-13,Ada berapa orang miskin di Lampung?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TA-14,Provinsi mana yang jumlah penduduk miskinnya paling sedikit?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TA-15,"Total penduduk miskin di Bali, NTB, dan NTT berapa?",A,,,I1,,,,,,,,,,DRAFT
+KMS-TA-16,persentase penduduk miskin di sulawesi tengah brp?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TA-17,Berapa jumlah penduduk miskin di DKI Jakarta pada Maret 2025?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TA-18,Tingkat kemiskinan Papua Pegunungan tahun 2025 berapa persen?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TA-19,"Rata-rata jumlah penduduk miskin di Kalimantan Barat, Kalimantan Tengah, Kalimantan Selatan, Kalimantan Timur, dan Kalimantan Utara?",A,,,I1,,,,,,,,,,DRAFT
+KMS-TA-20,Persentase penduduk miskin di Maluku Utara saat ini?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TA-01,Berapa tingkat pengangguran terbuka di Banten?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TA-02,TPT Kepulauan Riau Agustus 2025 berapa?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TA-03,Jumlah pengangguran di Jawa Tengah ada berapa orang?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TA-04,Provinsi dengan tingkat pengangguran terbuka tertinggi?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TA-05,Tiga provinsi dengan jumlah pengangguran terbanyak?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TA-06,"Rata-rata TPT di Bali, NTB, dan NTT berapa?",A,,,I1,,,,,,,,,,DRAFT
+KRJ-TA-07,Berapa total jumlah pengangguran di Pulau Jawa?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TA-08,Bandingkan TPT Sulawesi Selatan dan Sulawesi Utara.,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TA-09,Tingkat pengangguran terbuka di Papua Barat Februari 2026?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TA-10,Provinsi mana yang TPT-nya paling tinggi pada Agustus 2025?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TA-11,Jumlah pengangguran di Kalimantan Timur?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TA-12,Berapa persen tingkat pengangguran terbuka di Jambi?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TA-13,Lima provinsi dengan tingkat pengangguran terbuka terendah?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TA-14,tpt sumatera barat brp ya,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TA-15,Total pengangguran di Bali dan NTB berapa orang?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TA-16,Berapa tingkat pengangguran terbuka di Maluku tahun 2025?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TA-17,Provinsi dengan jumlah pengangguran paling sedikit?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TA-18,Rata-rata tingkat pengangguran terbuka seluruh provinsi berapa?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TA-19,Jumlah pengangguran di DI Yogyakarta pada Agustus 2025?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TA-20,Tingkat pengangguran terbuka di Kalimantan Utara sekarang?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TA-01,Berapa APM SMA di Jawa Timur?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TA-02,Angka Partisipasi Kasar SD di Papua berapa?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TA-03,APS umur 16-18 tahun di Sulawesi Barat?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TA-04,Provinsi dengan APM SMP tertinggi?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TA-05,Tiga provinsi dengan APK SMA tertinggi?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TA-06,Rata-rata APM SD di Pulau Jawa?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TA-07,Berapa angka partisipasi sekolah umur 7-12 tahun di NTT?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TA-08,APK SMP Kalimantan Barat?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TA-09,Bandingkan APM SMA Aceh dan Riau.,A,,,I1,,,,,,,,,,DRAFT
+PDK-TA-10,Provinsi mana yang APS 13-15 tahunnya paling tinggi?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TA-11,angka partisipasi murni SD di Gorontalo brp,A,,,I1,,,,,,,,,,DRAFT
+PDK-TA-12,APK SMA di DKI Jakarta pada Maret 2025?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TA-13,Rata-rata APS 16-18 tahun seluruh provinsi?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TA-14,Provinsi dengan angka partisipasi kasar SD terendah?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TA-15,Berapa APM SMP di Maluku?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TK-01,Provinsi mana yang kemiskinannya paling tinggi?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TK-02,Provinsi termiskin di Indonesia apa?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TK-03,Tiga provinsi paling miskin?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TK-04,Provinsi dengan kemiskinan terendah?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TK-05,"Di antara provinsi di Pulau Jawa, mana yang paling miskin?",A,,,I1,,,,,,,,,,DRAFT
+KMS-TK-06,Provinsi mana yang kemiskinannya paling kecil?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TK-07,Lima provinsi dengan kemiskinan tertinggi pada September 2025?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TK-08,"Antara Aceh, Riau, dan Lampung, mana yang paling miskin?",A,,,I1,,,,,,,,,,DRAFT
+KMS-TK-09,"Di antara Kalimantan Barat, Kalimantan Tengah, dan Kalimantan Timur, mana yang paling miskin?",A,,,I1,,,,,,,,,,DRAFT
+KMS-TK-10,Provinsi termiskin pada Maret 2025 apa?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TK-11,Mana provinsi yang paling tidak miskin?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TK-12,Urutkan tiga provinsi dengan kemiskinan terendah.,A,,,I1,,,,,,,,,,DRAFT
+KMS-TK-13,"Antara Papua dan Papua Barat, mana yang lebih miskin?",A,,,I1,,,,,,,,,,DRAFT
+KMS-TK-14,Provinsi dengan angka kemiskinan tertinggi?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TK-15,"Provinsi paling miskin di antara DKI Jakarta, Banten, dan Jawa Barat?",A,,,I1,,,,,,,,,,DRAFT
+KMS-TK-16,"Bali atau NTB, mana yang kemiskinannya lebih rendah?",A,,,I1,,,,,,,,,,DRAFT
+KMS-TK-17,Dua provinsi dengan kemiskinan tertinggi?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TK-18,"Di Pulau Jawa, provinsi mana yang kemiskinannya paling rendah?",A,,,I1,,,,,,,,,,DRAFT
+KMS-TK-19,Provinsi mana yang paling miskin pada September 2025?,A,,,I1,,,,,,,,,,DRAFT
+KMS-TK-20,"Sulawesi Selatan, Sulawesi Tengah, atau Sulawesi Tenggara: mana yang paling miskin?",A,,,I1,,,,,,,,,,DRAFT
+KRJ-TK-01,Provinsi dengan pengangguran tertinggi?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TK-02,Provinsi mana yang penganggurannya paling rendah?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TK-03,Tiga provinsi dengan pengangguran tertinggi?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TK-04,"Di Pulau Jawa, provinsi mana yang penganggurannya paling tinggi?",A,,,I1,,,,,,,,,,DRAFT
+KRJ-TK-05,Provinsi dengan angka pengangguran terendah?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TK-06,Lima provinsi dengan pengangguran paling rendah?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TK-07,"Antara Jawa Barat dan Banten, mana yang penganggurannya lebih tinggi?",A,,,I1,,,,,,,,,,DRAFT
+KRJ-TK-08,Provinsi mana yang penganggurannya paling tinggi pada Agustus 2025?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TK-09,provinsi pengangguran paling parah apa,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TK-10,"Di antara Riau, Jambi, dan Bengkulu, mana yang penganggurannya paling rendah?",A,,,I1,,,,,,,,,,DRAFT
+KRJ-TK-11,Provinsi dengan masalah pengangguran terbesar?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TK-12,Urutkan tiga provinsi dengan pengangguran terendah.,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TK-13,Dua provinsi dengan pengangguran tertinggi?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TK-14,"Papua atau Maluku, mana yang penganggurannya lebih tinggi?",A,,,I1,,,,,,,,,,DRAFT
+KRJ-TK-15,Provinsi mana di Pulau Jawa dengan pengangguran paling rendah?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TK-16,"Di antara Bali, NTB, dan NTT, mana yang penganggurannya paling tinggi?",A,,,I1,,,,,,,,,,DRAFT
+KRJ-TK-17,"Sumatera Utara, Sumatera Barat, atau Sumatera Selatan: mana yang penganggurannya paling tinggi?",A,,,I1,,,,,,,,,,DRAFT
+KRJ-TK-18,Provinsi dengan pengangguran terendah pada Agustus 2025?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-TK-19,"Kalimantan Timur atau Kalimantan Selatan, mana yang penganggurannya lebih tinggi?",A,,,I1,,,,,,,,,,DRAFT
+KRJ-TK-20,Dua provinsi di Pulau Jawa dengan pengangguran tertinggi?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TK-01,Provinsi dengan APK tertinggi?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TK-02,Provinsi mana yang APM-nya paling rendah?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TK-03,Tiga provinsi dengan angka partisipasi sekolah tertinggi?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TK-04,Provinsi dengan partisipasi sekolah terendah?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TK-05,"Di Pulau Jawa, provinsi mana yang APS-nya paling tinggi?",A,,,I1,,,,,,,,,,DRAFT
+PDK-TK-06,"Antara NTB dan NTT, mana yang APK-nya lebih tinggi?",A,,,I1,,,,,,,,,,DRAFT
+PDK-TK-07,Provinsi dengan angka partisipasi murni tertinggi?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TK-08,Lima provinsi dengan partisipasi sekolah paling rendah?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TK-09,provinsi apk paling rendah apa,A,,,I1,,,,,,,,,,DRAFT
+PDK-TK-10,Provinsi mana yang angka partisipasi kasarnya tertinggi pada Maret 2025?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TK-11,"Papua atau Papua Barat, mana yang APM-nya lebih rendah?",A,,,I1,,,,,,,,,,DRAFT
+PDK-TK-12,Dua provinsi dengan APS terendah?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TK-13,"Di antara Kalimantan Barat, Kalimantan Tengah, dan Kalimantan Selatan, mana yang partisipasi sekolahnya paling tinggi?",A,,,I1,,,,,,,,,,DRAFT
+PDK-TK-14,Provinsi dengan angka partisipasi sekolah paling rendah?,A,,,I1,,,,,,,,,,DRAFT
+PDK-TK-15,Provinsi dengan APK paling tinggi di Pulau Jawa?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-01,Berapa APM di Jawa Barat?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-02,APK di Bali berapa?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-03,Angka partisipasi sekolah di Aceh?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-04,Partisipasi sekolah di Papua Tengah bagaimana?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-05,Berapa angka partisipasi murni di Sumatera Utara?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-06,Rata-rata APK di Pulau Jawa?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-07,APS di Kalimantan Timur berapa?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-08,Berapa angka partisipasi kasar di NTT?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-09,apm di sulawesi selatan brp,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-10,Partisipasi sekolah anak di DI Yogyakarta berapa?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-11,Rata-rata APM seluruh provinsi berapa?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-12,Angka partisipasi sekolah di Lampung pada Maret 2025?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-13,Berapa APK di Gorontalo?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-14,APM Kepulauan Riau?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-15,Berapa partisipasi sekolah di Maluku Utara?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-16,APS di Banten?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-17,Rata-rata angka partisipasi sekolah di Bali dan NTB?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-18,Berapa angka partisipasi kasar di Jambi?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-19,APM di Papua Pegunungan berapa persen?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-20,Partisipasi sekolah di Sulawesi Barat tahun 2025?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-21,Berapa APK di Kalimantan Utara?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-22,Angka partisipasi murni di Bengkulu?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-23,APS di Papua Selatan?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-24,berapa partisipasi sekolah di riau,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-25,Rata-rata APK di Kalimantan Barat dan Kalimantan Tengah?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-26,APM di Sumatera Selatan pada Maret 2025 berapa?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-27,Angka partisipasi sekolah di Sulawesi Tenggara?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-28,APK di Maluku berapa?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-29,Partisipasi sekolah di Papua Barat Daya?,A,,,I1,,,,,,,,,,DRAFT
+PDK-AS-30,Berapa APS di Jawa Tengah?,A,,,I1,,,,,,,,,,DRAFT
+KMS-AB-01,Berapa kemiskinan di Aceh?,A,,,I1,,,,,,,,,,DRAFT
+KMS-AB-02,Kemiskinan di Jawa Timur berapa?,A,,,I1,,,,,,,,,,DRAFT
+KMS-AB-03,Berapa angka kemiskinan di NTT?,A,,,I1,,,,,,,,,,DRAFT
+KMS-AB-04,Penduduk miskin di Sumatera Utara berapa?,A,,,I1,,,,,,,,,,DRAFT
+KMS-AB-05,Bagaimana kemiskinan di Papua?,A,,,I1,,,,,,,,,,DRAFT
+KMS-AB-06,Kemiskinan di Bali Maret 2025?,A,,,I1,,,,,,,,,,DRAFT
+KMS-AB-07,Berapa penduduk miskin di Pulau Jawa?,A,,,I1,,,,,,,,,,DRAFT
+KMS-AB-08,kemiskinan di kalimantan selatan brp,A,,,I1,,,,,,,,,,DRAFT
+KMS-AB-09,Angka kemiskinan Sulawesi Tengah?,A,,,I1,,,,,,,,,,DRAFT
+KMS-AB-10,Berapa kemiskinan di Lampung pada September 2025?,A,,,I1,,,,,,,,,,DRAFT
+KMS-AB-11,Penduduk miskin DKI Jakarta?,A,,,I1,,,,,,,,,,DRAFT
+KMS-AB-12,Kemiskinan di Maluku berapa?,A,,,I1,,,,,,,,,,DRAFT
+KMS-AB-13,Seberapa besar kemiskinan di NTB?,A,,,I1,,,,,,,,,,DRAFT
+KMS-AB-14,Data kemiskinan Gorontalo?,A,,,I1,,,,,,,,,,DRAFT
+KMS-AB-15,Kemiskinan di Bengkulu tahun 2025?,A,,,I1,,,,,,,,,,DRAFT
+KMS-AB-16,Berapa angka kemiskinan di Papua Barat?,A,,,I1,,,,,,,,,,DRAFT
+KMS-AB-17,Penduduk miskin di Kalimantan Barat?,A,,,I1,,,,,,,,,,DRAFT
+KMS-AB-18,Kemiskinan di Sumatera Selatan?,A,,,I1,,,,,,,,,,DRAFT
+KMS-AB-19,Bagaimana kondisi kemiskinan di Sulawesi Barat?,A,,,I1,,,,,,,,,,DRAFT
+KMS-AB-20,Kemiskinan di Riau dan Kepulauan Riau berapa?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-AB-01,Berapa pengangguran di Banten?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-AB-02,Pengangguran di Jawa Barat berapa?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-AB-03,Angka pengangguran di Aceh?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-AB-04,Bagaimana pengangguran di Papua?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-AB-05,pengangguran di sumatera utara brp,A,,,I1,,,,,,,,,,DRAFT
+KRJ-AB-06,Pengangguran di Bali Agustus 2025?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-AB-07,Penganggur di Kalimantan Timur bagaimana?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-AB-08,Pengangguran di Pulau Jawa berapa?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-AB-09,Data pengangguran di NTT?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-AB-10,Seberapa tinggi pengangguran di Maluku?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-AB-11,Pengangguran Sulawesi Utara?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-AB-12,Angka pengangguran di DKI Jakarta berapa?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-AB-13,Pengangguran di Jambi tahun 2025?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-AB-14,Penganggur di Kepulauan Bangka Belitung?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-AB-15,Pengangguran di Gorontalo?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-AB-16,Bagaimana kondisi pengangguran di NTB?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-AB-17,Berapa pengangguran di Papua Selatan?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-AB-18,Pengangguran di Sumatera Barat dan Riau?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-AB-19,Angka pengangguran Kalimantan Tengah?,A,,,I1,,,,,,,,,,DRAFT
+KRJ-AB-20,Pengangguran di DI Yogyakarta berapa?,A,,,I1,,,,,,,,,,DRAFT

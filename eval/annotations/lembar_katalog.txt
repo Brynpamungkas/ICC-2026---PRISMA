@@ -1,0 +1,68 @@
+INDIKATOR (kode | nama | satuan | periode tersedia)
+  [kemiskinan] KMS_PERSEN | Persentase Penduduk Miskin | % | 2025-03, 2025-09, 2026-03
+  [kemiskinan] KMS_JUMLAH | Jumlah Penduduk Miskin | ribu jiwa | 2025-03, 2025-09
+  [ketenagakerjaan] TPT_PERSEN | Tingkat Pengangguran Terbuka | % | 2025-02, 2025-08, 2026-02
+  [ketenagakerjaan] PGR_JUMLAH | Jumlah Pengangguran | orang | 2025-08
+  [pendidikan] APK_SD | Angka Partisipasi Kasar (APK) SD | % | 2025-03
+  [pendidikan] APK_SMP | Angka Partisipasi Kasar (APK) SMP | % | 2025-03
+  [pendidikan] APK_SMA | Angka Partisipasi Kasar (APK) SMA | % | 2025-03
+  [pendidikan] APM_SD | Angka Partisipasi Murni (APM) SD | % | 2025-03
+  [pendidikan] APM_SMP | Angka Partisipasi Murni (APM) SMP | % | 2025-03
+  [pendidikan] APM_SMA | Angka Partisipasi Murni (APM) SMA | % | 2025-03
+  [pendidikan] APS_7_12 | Angka Partisipasi Sekolah (APS) Umur 7-12 Tahun | % | 2025-03
+  [pendidikan] APS_13_15 | Angka Partisipasi Sekolah (APS) Umur 13-15 Tahun | % | 2025-03
+  [pendidikan] APS_16_18 | Angka Partisipasi Sekolah (APS) Umur 16-18 Tahun | % | 2025-03
+
+ISTILAH KAMUS YANG MENUNJUK >1 INDIKATOR (sumber ambiguitas)
+  'angka partisipasi kasar' -> APK_SD, APK_SMP, APK_SMA  [angka satuan SAMA; peringkat -> kolom teks]
+  'angka partisipasi murni' -> APM_SD, APM_SMP, APM_SMA  [angka satuan SAMA; peringkat -> kolom teks]
+  'angka partisipasi sekolah' -> APS_7_12, APS_13_15, APS_16_18  [angka satuan SAMA; peringkat -> kolom teks]
+  'apk' -> APK_SD, APK_SMP, APK_SMA  [angka satuan SAMA; peringkat -> kolom teks]
+  'apm' -> APM_SD, APM_SMP, APM_SMA  [angka satuan SAMA; peringkat -> kolom teks]
+  'aps' -> APS_7_12, APS_13_15, APS_16_18  [angka satuan SAMA; peringkat -> kolom teks]
+  'kemiskinan' -> KMS_PERSEN, KMS_JUMLAH  [angka satuan BEDA; peringkat -> kolom teks]
+  'miskin' -> KMS_PERSEN, KMS_JUMLAH  [angka satuan BEDA; peringkat -> kolom teks]
+  'partisipasi sekolah' -> APK_SD, APK_SMP, APK_SMA, APM_SD, APM_SMP, APM_SMA, APS_7_12, APS_13_15, APS_16_18  [angka satuan SAMA; peringkat -> kolom teks]
+  'penganggur' -> TPT_PERSEN, PGR_JUMLAH  [angka satuan BEDA; peringkat -> kolom teks]
+  'pengangguran' -> TPT_PERSEN, PGR_JUMLAH  [angka satuan BEDA; peringkat -> kolom teks]
+
+WILAYAH (kode | nama) dan alias kamus
+  11 | Aceh
+  12 | Sumatera Utara
+  13 | Sumatera Barat
+  14 | Riau
+  15 | Jambi
+  16 | Sumatera Selatan
+  17 | Bengkulu
+  18 | Lampung
+  19 | Kepulauan Bangka Belitung
+  21 | Kepulauan Riau
+  31 | DKI Jakarta
+  32 | Jawa Barat
+  33 | Jawa Tengah
+  34 | DI Yogyakarta
+  35 | Jawa Timur
+  36 | Banten
+  51 | Bali
+  52 | Nusa Tenggara Barat
+  53 | Nusa Tenggara Timur
+  61 | Kalimantan Barat
+  62 | Kalimantan Tengah
+  63 | Kalimantan Selatan
+  64 | Kalimantan Timur
+  65 | Kalimantan Utara
+  71 | Sulawesi Utara
+  72 | Sulawesi Tengah
+  73 | Sulawesi Selatan
+  74 | Sulawesi Tenggara
+  75 | Gorontalo
+  76 | Sulawesi Barat
+  81 | Maluku
+  82 | Maluku Utara
+  91 | Papua
+  92 | Papua Barat
+  93 | Papua Selatan
+  94 | Papua Tengah
+  95 | Papua Pegunungan
+  96 | Papua Barat Daya
+  alias 'pulau jawa' -> 31, 32, 33, 34, 35, 36

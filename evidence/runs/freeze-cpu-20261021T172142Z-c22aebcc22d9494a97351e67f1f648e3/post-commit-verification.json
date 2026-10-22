@@ -1,0 +1,35 @@
+{
+  "checked_at": "2026-10-21T17:29:32.792627+00:00",
+  "argv": [
+    ".venv/bin/python",
+    "-B",
+    "-m",
+    "scripts.run_eval",
+    "run",
+    "--kondisi",
+    "K1",
+    "K2",
+    "K3",
+    "--split",
+    "test",
+    "--split-file",
+    "eval/testset/split_seed-prisma-21okt.json",
+    "--check-only"
+  ],
+  "PRISMA_CONFIG": "config/cpu.eval.yaml",
+  "exit_code": 0,
+  "stdout": "READY: 126 soal test, metode anotasi llm_draft_human_review; model belum dipanggil.\nDraf LLM disetujui manusia menurut pernyataan pengguna; bukan dua label awal independen/kappa paper.\n",
+  "stderr": "",
+  "model_called": false,
+  "test_inference_executed": false,
+  "code_commit": "4d8dfaa64cb2efff3e59239e6515365e4fd88f5c",
+  "freeze_status": "FROZEN_FOR_CPU_TEST",
+  "clean_working_tree": true,
+  "file_count_committed": 64,
+  "changed_refs": [
+    "refs/heads/llama-version"
+  ],
+  "push_performed": false,
+  "merge_performed": false,
+  "all_snapshot_hashes_match": true
+}

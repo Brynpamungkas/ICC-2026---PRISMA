@@ -1,0 +1,31 @@
+{
+  "name": "prisma-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/run.mjs dev",
+    "build": "node scripts/run.mjs build",
+    "start": "node scripts/run.mjs start",
+    "test": "vitest run",
+    "typecheck": "next typegen && tsc --noEmit",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "16.4.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "yaml": "2.9.1"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "10.4.2",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.8",
+    "@types/node": "24.10.0",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "jsdom": "26.1.0",
+    "typescript": "5.9.3",
+    "vitest": "5.0.5"
+  },
+  "type": "module"
+}

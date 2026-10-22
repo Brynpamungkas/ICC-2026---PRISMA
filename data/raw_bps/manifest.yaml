@@ -1,0 +1,92 @@
+# Manifest ETL PRISMA: berkas BPS di data/raw_bps -> data/prisma.sqlite.
+null_symbols: ["-"]     
+decimal: "."
+skip_names: ["INDONESIA"]
+province_aliases:     
+  "Kep. Bangka Belitung": "Kepulauan Bangka Belitung"
+  "Kep. Riau": "Kepulauan Riau"
+
+sources:
+  # ---------------- KEMISKINAN (Susenas) ----------------
+  # Jumlah & persentase penduduk miskin 2025 (Maret, September)
+  - file: Jumlah_dan_Persentase_Penduduk_Miskin_Menurut_Provinsi__2025.csv
+    format: wide
+    header_rows: [0]
+    province_col: 0
+    columns:
+      - { col: 3, kode_indikator: KMS_JUMLAH, periode: "2025-03" }
+      - { col: 4, kode_indikator: KMS_JUMLAH, periode: "2025-09" }
+      - { col: 5, kode_indikator: KMS_PERSEN, periode: "2025-03" }
+      - { col: 6, kode_indikator: KMS_PERSEN, periode: "2025-09" }
+
+  # P0 2026, hanya kolom "Jumlah" (perkotaan+perdesaan) Semester 1 (Maret)
+  - file: Persentase_Penduduk_Miskin__P0__Menurut_Provinsi_dan_Daerah__2026.csv
+    format: wide
+    header_rows: [2, 4]
+    first_data_row: 5
+    province_col: 0
+    columns:
+      - { col: 7, kode_indikator: KMS_PERSEN, periode: "2026-03" }
+
+  # ---------------- KETENAGAKERJAAN (Sakernas) ----------------
+  # TPT 2025 (Februari, Agustus); kolom TPAK tidak dipakai (di luar Tabel VI)
+  - file: Tingkat_Pengangguran_Terbuka__TPT__dan_Tingkat_Partisipasi_Angkatan_Kerja__TPAK__Menurut_Provinsi__2025.csv
+    format: wide
+    header_rows: [0]
+    province_col: 0
+    columns:
+      - { col: 1, kode_indikator: TPT_PERSEN, periode: "2025-02" }
+      - { col: 2, kode_indikator: TPT_PERSEN, periode: "2025-08" }
+
+  # TPT 2026 (hanya Februari yang sudah rilis)
+  - file: Tingkat_Pengangguran_Terbuka_Menurut_Provinsi__2026.csv
+    format: wide
+    header_rows: [3]
+    first_data_row: 4
+    province_col: 0
+    columns:
+      - { col: 1, kode_indikator: TPT_PERSEN, periode: "2026-02" }
+
+  # Jumlah pengangguran (orang) per provinsi, Sakernas Agustus 2025.
+  # Terverifikasi: jumlah pengangguran / angkatan kerja = TPT Agustus 2025 (berkas TPT 2025) untuk semua provinsi.
+  # Hanya kolom "Angkatan Kerja Pengangguran - Jumlah" yang dibaca.
+  - file: "Penduduk Berumur 15 Tahun ke Atas Menurut Provinsi dan Jenis Kegiatan Selama Seminggu Terakhir, 2025.csv"
+    format: wide
+    header_rows: [0]
+    province_col: 0
+    columns:
+      - { header: "Angkatan Kerja Pengangguran - Jumlah", kode_indikator: PGR_JUMLAH, periode: "2025-08" }
+
+  # ---------------- PENDIDIKAN (Susenas 2025) ----------------
+  # Periode 2025-03 = asumsi (Susenas Maret); cocokkan dengan catatan tabel di BPS.
+  # Baris 0 "38 Provinsi", baris 1 judul, baris 2 jenjang, baris 3 tahun; data mulai baris 4.
+  - file: "Angka Partisipasi Kasar (APK) Menurut Provinsi dan Jenjang Pendidikan, 2025.csv"
+    format: wide
+    header_rows: [2, 3]
+    first_data_row: 4
+    province_col: 0
+    columns:
+      - { header: "SD/sederajat | 2025",  kode_indikator: APK_SD,  periode: "2025-03" }
+      - { header: "SMP/sederajat | 2025", kode_indikator: APK_SMP, periode: "2025-03" }
+      - { header: "SM/sederajat | 2025",  kode_indikator: APK_SMA, periode: "2025-03" }
+
+  - file: "Angka Partisipasi Murni (APM) Menurut Provinsi dan Jenjang Pendidikan, 2025.csv"
+    format: wide
+    header_rows: [2, 3]
+    first_data_row: 4
+    province_col: 0
+    columns:
+      - { header: "SD/sederajat | 2025",  kode_indikator: APM_SD,  periode: "2025-03" }
+      - { header: "SMP/sederajat | 2025", kode_indikator: APM_SMP, periode: "2025-03" }
+      - { header: "SM/sederajat | 2025",  kode_indikator: APM_SMA, periode: "2025-03" }
+
+  # Kolom 19-23 tidak dipakai (tidak ada di Tabel VI)
+  - file: "Angka Partisipasi Sekolah (APS) Menurut Provinsi dan Kelompok Umur, 2025.csv"
+    format: wide
+    header_rows: [2, 3]
+    first_data_row: 4
+    province_col: 0
+    columns:
+      - { header: "7-12 | 2025",  kode_indikator: APS_7_12,  periode: "2025-03" }
+      - { header: "13-15 | 2025", kode_indikator: APS_13_15, periode: "2025-03" }
+      - { header: "16-18 | 2025", kode_indikator: APS_16_18, periode: "2025-03" }

@@ -1,0 +1,181 @@
+question_id,domain,target_group,source_kind,source_record_id,author,question_text
+KMS-TA-01,kemiskinan,TAK_AMBIGU,llm,claude-20261020,LLM,Berapa persentase penduduk miskin di Nusa Tenggara Timur pada Maret 2025?
+KMS-TA-02,kemiskinan,TAK_AMBIGU,llm,claude-20261020,LLM,Persentase penduduk miskin di Gorontalo sekarang berapa?
+KMS-TA-03,kemiskinan,TAK_AMBIGU,llm,claude-20261020,LLM,Jumlah penduduk miskin di Jawa Barat berapa ribu jiwa?
+KMS-TA-04,kemiskinan,TAK_AMBIGU,llm,claude-20261020,LLM,Provinsi mana yang persentase penduduk miskinnya paling kecil pada September 2025?
+KMS-TA-05,kemiskinan,TAK_AMBIGU,llm,claude-20261020,LLM,Sebutkan tiga provinsi dengan jumlah penduduk miskin terbanyak.
+KMS-TA-06,kemiskinan,TAK_AMBIGU,llm,claude-20261020,LLM,Berapa total jumlah penduduk miskin di Pulau Jawa?
+KMS-TA-07,kemiskinan,TAK_AMBIGU,llm,claude-20261020,LLM,Rata-rata persentase penduduk miskin di Pulau Jawa berapa?
+KMS-TA-08,kemiskinan,TAK_AMBIGU,llm,claude-20261020,LLM,Bandingkan persentase penduduk miskin di Aceh dan Sumatera Utara.
+KMS-TA-09,kemiskinan,TAK_AMBIGU,llm,claude-20261020,LLM,Jumlah penduduk miskin di Papua pada September 2025?
+KMS-TA-10,kemiskinan,TAK_AMBIGU,llm,claude-20261020,LLM,Lima provinsi dengan persentase penduduk miskin tertinggi apa saja?
+KMS-TA-11,kemiskinan,TAK_AMBIGU,llm,claude-20261020,LLM,Berapa tingkat kemiskinan di Bengkulu?
+KMS-TA-12,kemiskinan,TAK_AMBIGU,llm,claude-20261020,LLM,Persentase penduduk miskin Kalimantan Selatan Maret 2026?
+KMS-TA-13,kemiskinan,TAK_AMBIGU,llm,claude-20261020,LLM,Ada berapa orang miskin di Lampung?
+KMS-TA-14,kemiskinan,TAK_AMBIGU,llm,claude-20261020,LLM,Provinsi mana yang jumlah penduduk miskinnya paling sedikit?
+KMS-TA-15,kemiskinan,TAK_AMBIGU,llm,claude-20261020,LLM,"Total penduduk miskin di Bali, NTB, dan NTT berapa?"
+KMS-TA-16,kemiskinan,TAK_AMBIGU,llm,claude-20261020,LLM,persentase penduduk miskin di sulawesi tengah brp?
+KMS-TA-17,kemiskinan,TAK_AMBIGU,llm,claude-20261020,LLM,Berapa jumlah penduduk miskin di DKI Jakarta pada Maret 2025?
+KMS-TA-18,kemiskinan,TAK_AMBIGU,llm,claude-20261020,LLM,Tingkat kemiskinan Papua Pegunungan tahun 2025 berapa persen?
+KMS-TA-19,kemiskinan,TAK_AMBIGU,llm,claude-20261020,LLM,"Rata-rata jumlah penduduk miskin di Kalimantan Barat, Kalimantan Tengah, Kalimantan Selatan, Kalimantan Timur, dan Kalimantan Utara?"
+KMS-TA-20,kemiskinan,TAK_AMBIGU,llm,claude-20261020,LLM,Persentase penduduk miskin di Maluku Utara saat ini?
+KRJ-TA-01,ketenagakerjaan,TAK_AMBIGU,llm,claude-20261020,LLM,Berapa tingkat pengangguran terbuka di Banten?
+KRJ-TA-02,ketenagakerjaan,TAK_AMBIGU,llm,claude-20261020,LLM,TPT Kepulauan Riau Agustus 2025 berapa?
+KRJ-TA-03,ketenagakerjaan,TAK_AMBIGU,llm,claude-20261020,LLM,Jumlah pengangguran di Jawa Tengah ada berapa orang?
+KRJ-TA-04,ketenagakerjaan,TAK_AMBIGU,llm,claude-20261020,LLM,Provinsi dengan tingkat pengangguran terbuka tertinggi?
+KRJ-TA-05,ketenagakerjaan,TAK_AMBIGU,llm,claude-20261020,LLM,Tiga provinsi dengan jumlah pengangguran terbanyak?
+KRJ-TA-06,ketenagakerjaan,TAK_AMBIGU,llm,claude-20261020,LLM,"Rata-rata TPT di Bali, NTB, dan NTT berapa?"
+KRJ-TA-07,ketenagakerjaan,TAK_AMBIGU,llm,claude-20261020,LLM,Berapa total jumlah pengangguran di Pulau Jawa?
+KRJ-TA-08,ketenagakerjaan,TAK_AMBIGU,llm,claude-20261020,LLM,Bandingkan TPT Sulawesi Selatan dan Sulawesi Utara.
+KRJ-TA-09,ketenagakerjaan,TAK_AMBIGU,llm,claude-20261020,LLM,Tingkat pengangguran terbuka di Papua Barat Februari 2026?
+KRJ-TA-10,ketenagakerjaan,TAK_AMBIGU,llm,claude-20261020,LLM,Provinsi mana yang TPT-nya paling tinggi pada Agustus 2025?
+KRJ-TA-11,ketenagakerjaan,TAK_AMBIGU,llm,claude-20261020,LLM,Jumlah pengangguran di Kalimantan Timur?
+KRJ-TA-12,ketenagakerjaan,TAK_AMBIGU,llm,claude-20261020,LLM,Berapa persen tingkat pengangguran terbuka di Jambi?
+KRJ-TA-13,ketenagakerjaan,TAK_AMBIGU,llm,claude-20261020,LLM,Lima provinsi dengan tingkat pengangguran terbuka terendah?
+KRJ-TA-14,ketenagakerjaan,TAK_AMBIGU,llm,claude-20261020,LLM,tpt sumatera barat brp ya
+KRJ-TA-15,ketenagakerjaan,TAK_AMBIGU,llm,claude-20261020,LLM,Total pengangguran di Bali dan NTB berapa orang?
+KRJ-TA-16,ketenagakerjaan,TAK_AMBIGU,llm,claude-20261020,LLM,Berapa tingkat pengangguran terbuka di Maluku tahun 2025?
+KRJ-TA-17,ketenagakerjaan,TAK_AMBIGU,llm,claude-20261020,LLM,Provinsi dengan jumlah pengangguran paling sedikit?
+KRJ-TA-18,ketenagakerjaan,TAK_AMBIGU,llm,claude-20261020,LLM,Rata-rata tingkat pengangguran terbuka seluruh provinsi berapa?
+KRJ-TA-19,ketenagakerjaan,TAK_AMBIGU,llm,claude-20261020,LLM,Jumlah pengangguran di DI Yogyakarta pada Agustus 2025?
+KRJ-TA-20,ketenagakerjaan,TAK_AMBIGU,llm,claude-20261020,LLM,Tingkat pengangguran terbuka di Kalimantan Utara sekarang?
+PDK-TA-01,pendidikan,TAK_AMBIGU,llm,claude-20261020,LLM,Berapa APM SMA di Jawa Timur?
+PDK-TA-02,pendidikan,TAK_AMBIGU,llm,claude-20261020,LLM,Angka Partisipasi Kasar SD di Papua berapa?
+PDK-TA-03,pendidikan,TAK_AMBIGU,llm,claude-20261020,LLM,APS umur 16-18 tahun di Sulawesi Barat?
+PDK-TA-04,pendidikan,TAK_AMBIGU,llm,claude-20261020,LLM,Provinsi dengan APM SMP tertinggi?
+PDK-TA-05,pendidikan,TAK_AMBIGU,llm,claude-20261020,LLM,Tiga provinsi dengan APK SMA tertinggi?
+PDK-TA-06,pendidikan,TAK_AMBIGU,llm,claude-20261020,LLM,Rata-rata APM SD di Pulau Jawa?
+PDK-TA-07,pendidikan,TAK_AMBIGU,llm,claude-20261020,LLM,Berapa angka partisipasi sekolah umur 7-12 tahun di NTT?
+PDK-TA-08,pendidikan,TAK_AMBIGU,llm,claude-20261020,LLM,APK SMP Kalimantan Barat?
+PDK-TA-09,pendidikan,TAK_AMBIGU,llm,claude-20261020,LLM,Bandingkan APM SMA Aceh dan Riau.
+PDK-TA-10,pendidikan,TAK_AMBIGU,llm,claude-20261020,LLM,Provinsi mana yang APS 13-15 tahunnya paling tinggi?
+PDK-TA-11,pendidikan,TAK_AMBIGU,llm,claude-20261020,LLM,angka partisipasi murni SD di Gorontalo brp
+PDK-TA-12,pendidikan,TAK_AMBIGU,llm,claude-20261020,LLM,APK SMA di DKI Jakarta pada Maret 2025?
+PDK-TA-13,pendidikan,TAK_AMBIGU,llm,claude-20261020,LLM,Rata-rata APS 16-18 tahun seluruh provinsi?
+PDK-TA-14,pendidikan,TAK_AMBIGU,llm,claude-20261020,LLM,Provinsi dengan angka partisipasi kasar SD terendah?
+PDK-TA-15,pendidikan,TAK_AMBIGU,llm,claude-20261020,LLM,Berapa APM SMP di Maluku?
+KMS-TK-01,kemiskinan,AMBIGU_TEKS,llm,claude-20261020,LLM,Provinsi mana yang kemiskinannya paling tinggi?
+KMS-TK-02,kemiskinan,AMBIGU_TEKS,llm,claude-20261020,LLM,Provinsi termiskin di Indonesia apa?
+KMS-TK-03,kemiskinan,AMBIGU_TEKS,llm,claude-20261020,LLM,Tiga provinsi paling miskin?
+KMS-TK-04,kemiskinan,AMBIGU_TEKS,llm,claude-20261020,LLM,Provinsi dengan kemiskinan terendah?
+KMS-TK-05,kemiskinan,AMBIGU_TEKS,llm,claude-20261020,LLM,"Di antara provinsi di Pulau Jawa, mana yang paling miskin?"
+KMS-TK-06,kemiskinan,AMBIGU_TEKS,llm,claude-20261020,LLM,Provinsi mana yang kemiskinannya paling kecil?
+KMS-TK-07,kemiskinan,AMBIGU_TEKS,llm,claude-20261020,LLM,Lima provinsi dengan kemiskinan tertinggi pada September 2025?
+KMS-TK-08,kemiskinan,AMBIGU_TEKS,llm,claude-20261020,LLM,"Antara Aceh, Riau, dan Lampung, mana yang paling miskin?"
+KMS-TK-09,kemiskinan,AMBIGU_TEKS,llm,claude-20261020,LLM,"Di antara Kalimantan Barat, Kalimantan Tengah, dan Kalimantan Timur, mana yang paling miskin?"
+KMS-TK-10,kemiskinan,AMBIGU_TEKS,llm,claude-20261020,LLM,Provinsi termiskin pada Maret 2025 apa?
+KMS-TK-11,kemiskinan,AMBIGU_TEKS,llm,claude-20261020,LLM,Mana provinsi yang paling tidak miskin?
+KMS-TK-12,kemiskinan,AMBIGU_TEKS,llm,claude-20261020,LLM,Urutkan tiga provinsi dengan kemiskinan terendah.
+KMS-TK-13,kemiskinan,AMBIGU_TEKS,llm,claude-20261020,LLM,"Antara Papua dan Papua Barat, mana yang lebih miskin?"
+KMS-TK-14,kemiskinan,AMBIGU_TEKS,llm,claude-20261020,LLM,Provinsi dengan angka kemiskinan tertinggi?
+KMS-TK-15,kemiskinan,AMBIGU_TEKS,llm,claude-20261020,LLM,"Provinsi paling miskin di antara DKI Jakarta, Banten, dan Jawa Barat?"
+KMS-TK-16,kemiskinan,AMBIGU_TEKS,llm,claude-20261020,LLM,"Bali atau NTB, mana yang kemiskinannya lebih rendah?"
+KMS-TK-17,kemiskinan,AMBIGU_TEKS,llm,claude-20261020,LLM,Dua provinsi dengan kemiskinan tertinggi?
+KMS-TK-18,kemiskinan,AMBIGU_TEKS,llm,claude-20261020,LLM,"Di Pulau Jawa, provinsi mana yang kemiskinannya paling rendah?"
+KMS-TK-19,kemiskinan,AMBIGU_TEKS,llm,claude-20261020,LLM,Provinsi mana yang paling miskin pada September 2025?
+KMS-TK-20,kemiskinan,AMBIGU_TEKS,llm,claude-20261020,LLM,"Sulawesi Selatan, Sulawesi Tengah, atau Sulawesi Tenggara: mana yang paling miskin?"
+KRJ-TK-01,ketenagakerjaan,AMBIGU_TEKS,llm,claude-20261020,LLM,Provinsi dengan pengangguran tertinggi?
+KRJ-TK-02,ketenagakerjaan,AMBIGU_TEKS,llm,claude-20261020,LLM,Provinsi mana yang penganggurannya paling rendah?
+KRJ-TK-03,ketenagakerjaan,AMBIGU_TEKS,llm,claude-20261020,LLM,Tiga provinsi dengan pengangguran tertinggi?
+KRJ-TK-04,ketenagakerjaan,AMBIGU_TEKS,llm,claude-20261020,LLM,"Di Pulau Jawa, provinsi mana yang penganggurannya paling tinggi?"
+KRJ-TK-05,ketenagakerjaan,AMBIGU_TEKS,llm,claude-20261020,LLM,Provinsi dengan angka pengangguran terendah?
+KRJ-TK-06,ketenagakerjaan,AMBIGU_TEKS,llm,claude-20261020,LLM,Lima provinsi dengan pengangguran paling rendah?
+KRJ-TK-07,ketenagakerjaan,AMBIGU_TEKS,llm,claude-20261020,LLM,"Antara Jawa Barat dan Banten, mana yang penganggurannya lebih tinggi?"
+KRJ-TK-08,ketenagakerjaan,AMBIGU_TEKS,llm,claude-20261020,LLM,Provinsi mana yang penganggurannya paling tinggi pada Agustus 2025?
+KRJ-TK-09,ketenagakerjaan,AMBIGU_TEKS,llm,claude-20261020,LLM,provinsi pengangguran paling parah apa
+KRJ-TK-10,ketenagakerjaan,AMBIGU_TEKS,llm,claude-20261020,LLM,"Di antara Riau, Jambi, dan Bengkulu, mana yang penganggurannya paling rendah?"
+KRJ-TK-11,ketenagakerjaan,AMBIGU_TEKS,llm,claude-20261020,LLM,Provinsi dengan masalah pengangguran terbesar?
+KRJ-TK-12,ketenagakerjaan,AMBIGU_TEKS,llm,claude-20261020,LLM,Urutkan tiga provinsi dengan pengangguran terendah.
+KRJ-TK-13,ketenagakerjaan,AMBIGU_TEKS,llm,claude-20261020,LLM,Dua provinsi dengan pengangguran tertinggi?
+KRJ-TK-14,ketenagakerjaan,AMBIGU_TEKS,llm,claude-20261020,LLM,"Papua atau Maluku, mana yang penganggurannya lebih tinggi?"
+KRJ-TK-15,ketenagakerjaan,AMBIGU_TEKS,llm,claude-20261020,LLM,Provinsi mana di Pulau Jawa dengan pengangguran paling rendah?
+KRJ-TK-16,ketenagakerjaan,AMBIGU_TEKS,llm,claude-20261020,LLM,"Di antara Bali, NTB, dan NTT, mana yang penganggurannya paling tinggi?"
+KRJ-TK-17,ketenagakerjaan,AMBIGU_TEKS,llm,claude-20261020,LLM,"Sumatera Utara, Sumatera Barat, atau Sumatera Selatan: mana yang penganggurannya paling tinggi?"
+KRJ-TK-18,ketenagakerjaan,AMBIGU_TEKS,llm,claude-20261020,LLM,Provinsi dengan pengangguran terendah pada Agustus 2025?
+KRJ-TK-19,ketenagakerjaan,AMBIGU_TEKS,llm,claude-20261020,LLM,"Kalimantan Timur atau Kalimantan Selatan, mana yang penganggurannya lebih tinggi?"
+KRJ-TK-20,ketenagakerjaan,AMBIGU_TEKS,llm,claude-20261020,LLM,Dua provinsi di Pulau Jawa dengan pengangguran tertinggi?
+PDK-TK-01,pendidikan,AMBIGU_TEKS,llm,claude-20261020,LLM,Provinsi dengan APK tertinggi?
+PDK-TK-02,pendidikan,AMBIGU_TEKS,llm,claude-20261020,LLM,Provinsi mana yang APM-nya paling rendah?
+PDK-TK-03,pendidikan,AMBIGU_TEKS,llm,claude-20261020,LLM,Tiga provinsi dengan angka partisipasi sekolah tertinggi?
+PDK-TK-04,pendidikan,AMBIGU_TEKS,llm,claude-20261020,LLM,Provinsi dengan partisipasi sekolah terendah?
+PDK-TK-05,pendidikan,AMBIGU_TEKS,llm,claude-20261020,LLM,"Di Pulau Jawa, provinsi mana yang APS-nya paling tinggi?"
+PDK-TK-06,pendidikan,AMBIGU_TEKS,llm,claude-20261020,LLM,"Antara NTB dan NTT, mana yang APK-nya lebih tinggi?"
+PDK-TK-07,pendidikan,AMBIGU_TEKS,llm,claude-20261020,LLM,Provinsi dengan angka partisipasi murni tertinggi?
+PDK-TK-08,pendidikan,AMBIGU_TEKS,llm,claude-20261020,LLM,Lima provinsi dengan partisipasi sekolah paling rendah?
+PDK-TK-09,pendidikan,AMBIGU_TEKS,llm,claude-20261020,LLM,provinsi apk paling rendah apa
+PDK-TK-10,pendidikan,AMBIGU_TEKS,llm,claude-20261020,LLM,Provinsi mana yang angka partisipasi kasarnya tertinggi pada Maret 2025?
+PDK-TK-11,pendidikan,AMBIGU_TEKS,llm,claude-20261020,LLM,"Papua atau Papua Barat, mana yang APM-nya lebih rendah?"
+PDK-TK-12,pendidikan,AMBIGU_TEKS,llm,claude-20261020,LLM,Dua provinsi dengan APS terendah?
+PDK-TK-13,pendidikan,AMBIGU_TEKS,llm,claude-20261020,LLM,"Di antara Kalimantan Barat, Kalimantan Tengah, dan Kalimantan Selatan, mana yang partisipasi sekolahnya paling tinggi?"
+PDK-TK-14,pendidikan,AMBIGU_TEKS,llm,claude-20261020,LLM,Provinsi dengan angka partisipasi sekolah paling rendah?
+PDK-TK-15,pendidikan,AMBIGU_TEKS,llm,claude-20261020,LLM,Provinsi dengan APK paling tinggi di Pulau Jawa?
+PDK-AS-01,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,Berapa APM di Jawa Barat?
+PDK-AS-02,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,APK di Bali berapa?
+PDK-AS-03,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,Angka partisipasi sekolah di Aceh?
+PDK-AS-04,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,Partisipasi sekolah di Papua Tengah bagaimana?
+PDK-AS-05,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,Berapa angka partisipasi murni di Sumatera Utara?
+PDK-AS-06,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,Rata-rata APK di Pulau Jawa?
+PDK-AS-07,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,APS di Kalimantan Timur berapa?
+PDK-AS-08,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,Berapa angka partisipasi kasar di NTT?
+PDK-AS-09,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,apm di sulawesi selatan brp
+PDK-AS-10,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,Partisipasi sekolah anak di DI Yogyakarta berapa?
+PDK-AS-11,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,Rata-rata APM seluruh provinsi berapa?
+PDK-AS-12,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,Angka partisipasi sekolah di Lampung pada Maret 2025?
+PDK-AS-13,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,Berapa APK di Gorontalo?
+PDK-AS-14,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,APM Kepulauan Riau?
+PDK-AS-15,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,Berapa partisipasi sekolah di Maluku Utara?
+PDK-AS-16,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,APS di Banten?
+PDK-AS-17,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,Rata-rata angka partisipasi sekolah di Bali dan NTB?
+PDK-AS-18,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,Berapa angka partisipasi kasar di Jambi?
+PDK-AS-19,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,APM di Papua Pegunungan berapa persen?
+PDK-AS-20,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,Partisipasi sekolah di Sulawesi Barat tahun 2025?
+PDK-AS-21,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,Berapa APK di Kalimantan Utara?
+PDK-AS-22,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,Angka partisipasi murni di Bengkulu?
+PDK-AS-23,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,APS di Papua Selatan?
+PDK-AS-24,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,berapa partisipasi sekolah di riau
+PDK-AS-25,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,Rata-rata APK di Kalimantan Barat dan Kalimantan Tengah?
+PDK-AS-26,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,APM di Sumatera Selatan pada Maret 2025 berapa?
+PDK-AS-27,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,Angka partisipasi sekolah di Sulawesi Tenggara?
+PDK-AS-28,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,APK di Maluku berapa?
+PDK-AS-29,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,Partisipasi sekolah di Papua Barat Daya?
+PDK-AS-30,pendidikan,AMBIGU_ANGKA_SAMA,llm,claude-20261020,LLM,Berapa APS di Jawa Tengah?
+KMS-AB-01,kemiskinan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Berapa kemiskinan di Aceh?
+KMS-AB-02,kemiskinan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Kemiskinan di Jawa Timur berapa?
+KMS-AB-03,kemiskinan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Berapa angka kemiskinan di NTT?
+KMS-AB-04,kemiskinan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Penduduk miskin di Sumatera Utara berapa?
+KMS-AB-05,kemiskinan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Bagaimana kemiskinan di Papua?
+KMS-AB-06,kemiskinan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Kemiskinan di Bali Maret 2025?
+KMS-AB-07,kemiskinan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Berapa penduduk miskin di Pulau Jawa?
+KMS-AB-08,kemiskinan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,kemiskinan di kalimantan selatan brp
+KMS-AB-09,kemiskinan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Angka kemiskinan Sulawesi Tengah?
+KMS-AB-10,kemiskinan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Berapa kemiskinan di Lampung pada September 2025?
+KMS-AB-11,kemiskinan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Penduduk miskin DKI Jakarta?
+KMS-AB-12,kemiskinan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Kemiskinan di Maluku berapa?
+KMS-AB-13,kemiskinan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Seberapa besar kemiskinan di NTB?
+KMS-AB-14,kemiskinan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Data kemiskinan Gorontalo?
+KMS-AB-15,kemiskinan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Kemiskinan di Bengkulu tahun 2025?
+KMS-AB-16,kemiskinan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Berapa angka kemiskinan di Papua Barat?
+KMS-AB-17,kemiskinan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Penduduk miskin di Kalimantan Barat?
+KMS-AB-18,kemiskinan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Kemiskinan di Sumatera Selatan?
+KMS-AB-19,kemiskinan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Bagaimana kondisi kemiskinan di Sulawesi Barat?
+KMS-AB-20,kemiskinan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Kemiskinan di Riau dan Kepulauan Riau berapa?
+KRJ-AB-01,ketenagakerjaan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Berapa pengangguran di Banten?
+KRJ-AB-02,ketenagakerjaan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Pengangguran di Jawa Barat berapa?
+KRJ-AB-03,ketenagakerjaan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Angka pengangguran di Aceh?
+KRJ-AB-04,ketenagakerjaan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Bagaimana pengangguran di Papua?
+KRJ-AB-05,ketenagakerjaan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,pengangguran di sumatera utara brp
+KRJ-AB-06,ketenagakerjaan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Pengangguran di Bali Agustus 2025?
+KRJ-AB-07,ketenagakerjaan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Penganggur di Kalimantan Timur bagaimana?
+KRJ-AB-08,ketenagakerjaan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Pengangguran di Pulau Jawa berapa?
+KRJ-AB-09,ketenagakerjaan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Data pengangguran di NTT?
+KRJ-AB-10,ketenagakerjaan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Seberapa tinggi pengangguran di Maluku?
+KRJ-AB-11,ketenagakerjaan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Pengangguran Sulawesi Utara?
+KRJ-AB-12,ketenagakerjaan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Angka pengangguran di DKI Jakarta berapa?
+KRJ-AB-13,ketenagakerjaan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Pengangguran di Jambi tahun 2025?
+KRJ-AB-14,ketenagakerjaan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Penganggur di Kepulauan Bangka Belitung?
+KRJ-AB-15,ketenagakerjaan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Pengangguran di Gorontalo?
+KRJ-AB-16,ketenagakerjaan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Bagaimana kondisi pengangguran di NTB?
+KRJ-AB-17,ketenagakerjaan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Berapa pengangguran di Papua Selatan?
+KRJ-AB-18,ketenagakerjaan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Pengangguran di Sumatera Barat dan Riau?
+KRJ-AB-19,ketenagakerjaan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Angka pengangguran Kalimantan Tengah?
+KRJ-AB-20,ketenagakerjaan,AMBIGU_ANGKA_BEDA,llm,claude-20261020,LLM,Pengangguran di DI Yogyakarta berapa?

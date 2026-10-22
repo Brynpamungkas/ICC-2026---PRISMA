@@ -1,0 +1,183 @@
+{
+  "status": "FINAL-CANDIDATE",
+  "started_utc": "2026-10-18T04:43:01+00:00",
+  "errors": [],
+  "warnings": [],
+  "sources": [
+    {
+      "file": "Jumlah_dan_Persentase_Penduduk_Miskin_Menurut_Provinsi__2025.csv",
+      "sha256": "4c7c037b2c2d073c0e7a6ac755854fbae3ccc6fb6d54a4f7e9329d5dd0c28b35",
+      "rows_read": 39,
+      "facts": 152,
+      "null_values": 0,
+      "skipped_names": 1,
+      "footer_rows": 0
+    },
+    {
+      "file": "Persentase_Penduduk_Miskin__P0__Menurut_Provinsi_dan_Daerah__2026.csv",
+      "sha256": "379a99b231fb340d22099659c136b9c7f3a2330212a1b3aa8d41ee33db0dcee1",
+      "rows_read": 39,
+      "facts": 38,
+      "null_values": 0,
+      "skipped_names": 1,
+      "footer_rows": 0
+    },
+    {
+      "file": "Tingkat_Pengangguran_Terbuka__TPT__dan_Tingkat_Partisipasi_Angkatan_Kerja__TPAK__Menurut_Provinsi__2025.csv",
+      "sha256": "8b5fc75efa69fb7cb7b94938ac50195b7be2555abedfb7a6b10addfb7d75dc8f",
+      "rows_read": 39,
+      "facts": 76,
+      "null_values": 0,
+      "skipped_names": 1,
+      "footer_rows": 0
+    },
+    {
+      "file": "Tingkat_Pengangguran_Terbuka_Menurut_Provinsi__2026.csv",
+      "sha256": "399c60af356eb5b07c713e07c86ecd3f16f1e232b4060c6db726ac03ba91f4cd",
+      "rows_read": 39,
+      "facts": 38,
+      "null_values": 0,
+      "skipped_names": 1,
+      "footer_rows": 0
+    },
+    {
+      "file": "Penduduk Berumur 15 Tahun ke Atas Menurut Provinsi dan Jenis Kegiatan Selama Seminggu Terakhir, 2025.csv",
+      "sha256": "ae6976b15a585260522b15eb1955141638464cd653880a30aa16bd40a2505389",
+      "rows_read": 39,
+      "facts": 38,
+      "null_values": 0,
+      "skipped_names": 1,
+      "footer_rows": 0
+    },
+    {
+      "file": "Angka Partisipasi Kasar (APK) Menurut Provinsi dan Jenjang Pendidikan, 2025.csv",
+      "sha256": "f8ee6efccab2f5d20143767d2a20bfbd76c2f96cc7b25bb7af8ab6316ed08396",
+      "rows_read": 39,
+      "facts": 114,
+      "null_values": 0,
+      "skipped_names": 1,
+      "footer_rows": 0
+    },
+    {
+      "file": "Angka Partisipasi Murni (APM) Menurut Provinsi dan Jenjang Pendidikan, 2025.csv",
+      "sha256": "5fee8a59ee3041efeeeb11033e53df33aaa39d50e6f1314a5a39d1314183356d",
+      "rows_read": 39,
+      "facts": 114,
+      "null_values": 0,
+      "skipped_names": 1,
+      "footer_rows": 0
+    },
+    {
+      "file": "Angka Partisipasi Sekolah (APS) Menurut Provinsi dan Kelompok Umur, 2025.csv",
+      "sha256": "1f8599571e292273329d1d18d691eedec7122a1570be563658e269ca386a8e5c",
+      "rows_read": 39,
+      "facts": 114,
+      "null_values": 0,
+      "skipped_names": 1,
+      "footer_rows": 0
+    }
+  ],
+  "catalog_version": {
+    "algorithm": "sha256",
+    "files": {
+      "indikator.csv": "96dbf8e3f25253b8bbbaed903d788d0568e41b050358976ff953df156f668dfb",
+      "kamus_istilah.csv": "fd10740b5bee5d18618cb6e3f21eccfc29a60c088c895600429a4051aaec2923",
+      "operasi.csv": "2019c29bb6b400f1175850acd36dd297668c708570d00bf2e377ea21b49b2aa0",
+      "provinsi.csv": "2ab48e36e0c11d8cdd3ed9aa602d532800ffb69c6831d35a2311c2d197dbd521"
+    },
+    "catalog_hash": "e8c837dd009c85f6584cfd2fcf3e96ceb75131fa105309d888327f0cd42b12e4"
+  },
+  "catalog_rows": {
+    "provinsi": 38,
+    "indikator": 13,
+    "kamus_istilah": 114
+  },
+  "fact_rows": 684,
+  "logical_hash": "f04d7137dd25cc48ff9ad1e9145a67f7297ca1e81e31505ed2874c07da416dda",
+  "observed_coverage": {
+    "APK_SD": {
+      "n_provinsi": 38,
+      "periode": [
+        "2025-03"
+      ]
+    },
+    "APK_SMA": {
+      "n_provinsi": 38,
+      "periode": [
+        "2025-03"
+      ]
+    },
+    "APK_SMP": {
+      "n_provinsi": 38,
+      "periode": [
+        "2025-03"
+      ]
+    },
+    "APM_SD": {
+      "n_provinsi": 38,
+      "periode": [
+        "2025-03"
+      ]
+    },
+    "APM_SMA": {
+      "n_provinsi": 38,
+      "periode": [
+        "2025-03"
+      ]
+    },
+    "APM_SMP": {
+      "n_provinsi": 38,
+      "periode": [
+        "2025-03"
+      ]
+    },
+    "APS_13_15": {
+      "n_provinsi": 38,
+      "periode": [
+        "2025-03"
+      ]
+    },
+    "APS_16_18": {
+      "n_provinsi": 38,
+      "periode": [
+        "2025-03"
+      ]
+    },
+    "APS_7_12": {
+      "n_provinsi": 38,
+      "periode": [
+        "2025-03"
+      ]
+    },
+    "KMS_JUMLAH": {
+      "n_provinsi": 38,
+      "periode": [
+        "2025-03",
+        "2025-09"
+      ]
+    },
+    "KMS_PERSEN": {
+      "n_provinsi": 38,
+      "periode": [
+        "2025-03",
+        "2025-09",
+        "2026-03"
+      ]
+    },
+    "PGR_JUMLAH": {
+      "n_provinsi": 38,
+      "periode": [
+        "2025-08"
+      ]
+    },
+    "TPT_PERSEN": {
+      "n_provinsi": 38,
+      "periode": [
+        "2025-02",
+        "2025-08",
+        "2026-02"
+      ]
+    }
+  },
+  "not_listed_in_sumber_md": []
+}

@@ -1,0 +1,307 @@
+{
+  "run_id": "engine",
+  "purpose": "PAPER_A4_LOCAL_INTEGRATION_NOT_FINAL_EVALUATION",
+  "recorded_at": "2026-10-21T15:52:45.523992+00:00",
+  "python": "3.11.17",
+  "platform": "Linux-6.12.113+deb13-amd64-x86_64-with-glibc2.41",
+  "backend": "llama_cpp",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-Q4_K_M",
+  "model_sha256": "cc324af070c2ecbfd324a30884d2f951a7ff756aba85cb811a6ec436933bb046",
+  "sampling": {
+    "n_samples": 8,
+    "max_output_tokens": 256,
+    "temperature": 0.7,
+    "top_p": 0.95,
+    "seed": 42,
+    "ablation_n": [
+      1,
+      8,
+      16,
+      32,
+      64
+    ]
+  },
+  "prompt_version": "0.3.0-cpu.1-no-reviewed-examples",
+  "catalog_hash": "8b111d78c89a43bbf24f5304e898512e41a123168cdb8afcc3a3ee77545f3d8c",
+  "baseline_gate_passed": false,
+  "results": [
+    {
+      "case_id": "GOLD-01",
+      "question": "Provinsi mana yang paling miskin?",
+      "expected": "TANYA",
+      "passed": true,
+      "references": {
+        "KMS_PERSEN": [
+          [
+            "Papua Tengah",
+            29.45
+          ]
+        ],
+        "KMS_JUMLAH": [
+          [
+            "Jawa Timur",
+            3804.29
+          ]
+        ]
+      },
+      "transport_trace": "/home/bryan/prisma-icc2026/eval/runs/verify-cpu-20261021T155147Z-f0d3dfd53d3a491bb63bf62b34bc2a07/engine/transport/512ca673-0a2c-4d26-890e-bc14646e1519.json",
+      "decision": {
+        "decision": "TANYA",
+        "answer": null,
+        "evidence": [
+          {
+            "candidate": {
+              "code": "KMS_PERSEN",
+              "canonical_name": "Persentase Penduduk Miskin",
+              "unit": "%"
+            },
+            "result": {
+              "candidate_code": "KMS_PERSEN",
+              "columns": [
+                "wilayah",
+                "nilai"
+              ],
+              "rows": [
+                [
+                  "Papua Tengah",
+                  29.45
+                ]
+              ],
+              "structure": "TEXT",
+              "unit": "%",
+              "error": null
+            }
+          },
+          {
+            "candidate": {
+              "code": "KMS_JUMLAH",
+              "canonical_name": "Jumlah Penduduk Miskin",
+              "unit": "ribu jiwa"
+            },
+            "result": {
+              "candidate_code": "KMS_JUMLAH",
+              "columns": [
+                "wilayah",
+                "nilai"
+              ],
+              "rows": [
+                [
+                  "Jawa Timur",
+                  3804.29
+                ]
+              ],
+              "structure": "TEXT",
+              "unit": "ribu jiwa",
+              "error": null
+            }
+          }
+        ],
+        "reason_code": null,
+        "suggestion": null,
+        "period_used": "2025-09"
+      },
+      "pipeline_trace": "/home/bryan/prisma-icc2026/eval/runs/verify-cpu-20261021T155147Z-f0d3dfd53d3a491bb63bf62b34bc2a07/engine/pipeline/a9eec08bfda841f99a2bd238a7a43992.trace.jsonl",
+      "errors": [],
+      "received_skeletons": 8,
+      "valid_skeletons": 8,
+      "clarifications": [
+        {
+          "decision": "JAWAB",
+          "answer": {
+            "candidate": {
+              "code": "KMS_PERSEN",
+              "canonical_name": "Persentase Penduduk Miskin",
+              "unit": "%"
+            },
+            "result": {
+              "candidate_code": "KMS_PERSEN",
+              "columns": [
+                "wilayah",
+                "nilai"
+              ],
+              "rows": [
+                [
+                  "Papua Tengah",
+                  29.45
+                ]
+              ],
+              "structure": "TEXT",
+              "unit": "%",
+              "error": null
+            }
+          },
+          "evidence": [],
+          "reason_code": null,
+          "suggestion": null,
+          "period_used": "2025-09"
+        },
+        {
+          "decision": "JAWAB",
+          "answer": {
+            "candidate": {
+              "code": "KMS_JUMLAH",
+              "canonical_name": "Jumlah Penduduk Miskin",
+              "unit": "ribu jiwa"
+            },
+            "result": {
+              "candidate_code": "KMS_JUMLAH",
+              "columns": [
+                "wilayah",
+                "nilai"
+              ],
+              "rows": [
+                [
+                  "Jawa Timur",
+                  3804.29
+                ]
+              ],
+              "structure": "TEXT",
+              "unit": "ribu jiwa",
+              "error": null
+            }
+          },
+          "evidence": [],
+          "reason_code": null,
+          "suggestion": null,
+          "period_used": "2025-09"
+        }
+      ],
+      "duration_s": 15.295078491000822
+    },
+    {
+      "case_id": "GOLD-02",
+      "question": "Berapa total penduduk miskin di Pulau Jawa?",
+      "expected": "JAWAB",
+      "passed": true,
+      "references": {
+        "KMS_JUMLAH": [
+          [
+            12322.58
+          ]
+        ]
+      },
+      "transport_trace": "/home/bryan/prisma-icc2026/eval/runs/verify-cpu-20261021T155147Z-f0d3dfd53d3a491bb63bf62b34bc2a07/engine/transport/c5077751-7513-4485-ba0a-f4a28f818a0e.json",
+      "decision": {
+        "decision": "JAWAB",
+        "answer": {
+          "candidate": {
+            "code": "KMS_JUMLAH",
+            "canonical_name": "Jumlah Penduduk Miskin",
+            "unit": "ribu jiwa"
+          },
+          "result": {
+            "candidate_code": "KMS_JUMLAH",
+            "columns": [
+              "nilai"
+            ],
+            "rows": [
+              [
+                12322.58
+              ]
+            ],
+            "structure": "NUMBER",
+            "unit": "ribu jiwa",
+            "error": null
+          }
+        },
+        "evidence": [],
+        "reason_code": null,
+        "suggestion": null,
+        "period_used": "2025-09"
+      },
+      "pipeline_trace": "/home/bryan/prisma-icc2026/eval/runs/verify-cpu-20261021T155147Z-f0d3dfd53d3a491bb63bf62b34bc2a07/engine/pipeline/b9097be15a47440595419d825967c108.trace.jsonl",
+      "errors": [],
+      "received_skeletons": 8,
+      "valid_skeletons": 5,
+      "duration_s": 15.346212086000378
+    },
+    {
+      "case_id": "GOLD-03",
+      "question": "Berapa IPM Jawa Barat?",
+      "expected": "TAHAN",
+      "passed": true,
+      "references": {},
+      "transport_trace": null,
+      "decision": {
+        "decision": "TAHAN",
+        "answer": null,
+        "evidence": [],
+        "reason_code": "T1",
+        "suggestion": "Contoh istilah yang dikenali: persentase penduduk miskin, tingkat pengangguran terbuka, angka partisipasi kasar (apk) smp, angka partisipasi murni (apm) sd, angka partisipasi sekolah (aps) umur 7-12 tahun.",
+        "period_used": null
+      },
+      "pipeline_trace": "/home/bryan/prisma-icc2026/eval/runs/verify-cpu-20261021T155147Z-f0d3dfd53d3a491bb63bf62b34bc2a07/engine/pipeline/e438cc938d924cd2a11be402a54b7ec8.trace.jsonl",
+      "errors": [],
+      "received_skeletons": 0,
+      "valid_skeletons": 0,
+      "duration_s": 0.0025790560011955677
+    }
+  ],
+  "limitations": [
+    "CPU fallback is separate from vLLM/AWQ/N64",
+    "Not an API/UI test",
+    "API/UI projection of the diagnostic sidecar is not tested here",
+    "Not p50/p95 or research accuracy",
+    "No final gate is accepted automatically"
+  ],
+  "code_commit": "961af4c2bf509c60103bc43a73f63dbb03d308b1",
+  "code_dirty": true,
+  "source_sha256": {
+    "backend/app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/app/api/__init__.py": "6918e4848b8daf475047dd950af78cf8f2ce73ce35ef430eccb13c7e55773c2e",
+    "backend/app/api/routes.py": "c2f24fc9a2ad1945d44b715ea7e7b43d9fbaf093d56857d051e7996f322a780c",
+    "backend/app/catalog.py": "641e64a2b859d8753f629bedf1338a5538818d39eca15e3890dd3b8d0707d1b4",
+    "backend/app/conditions.py": "11b365344add218a3ca17c1c4a3ecc55a06781893d4f5fa8d40623764bb7fb92",
+    "backend/app/config.py": "ebf9dba1e4bc9a20d17a6f7c182c711a5f9443f12ce8135df7edf37c82ee20d8",
+    "backend/app/eval_metrics.py": "bf6fa115d527f6b9dc486ad238600c68a5155c86c37d25092ac29141cb52e997",
+    "backend/app/llm/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/app/llm/client.py": "9ff80321d55a123b0c46f1526624a03c00e33a0d6bcaace37ad38782c8995d96",
+    "backend/app/llm/examples.py": "f2b867b9e68b853b6c6bdfbba1da79b57804f4da0aa547a5f684cb4134b682bc",
+    "backend/app/llm/mock.py": "ca4d30b548adf72b146609a15dbc9ea8bccbfc8b8123052c1341295b66a23317",
+    "backend/app/llm/prompt.py": "a797c332b218e5e9e4b9b5a4598a0f34caffd82265e5aa5c3cfac16ba65ec97e",
+    "backend/app/logging/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/app/logging/jsonl.py": "07455e323fa3100e2dd87adb713e76e894a445ecd3d50a31845eab2ee8f88e9b",
+    "backend/app/logging/trace.py": "5af0cca496d9df3435007c86ab1bdf70619194d04c81a33df1c1523779a7073c",
+    "backend/app/main.py": "912b6ac73c48dbca41586ed5f4377327c5a53e6638879af973f4e6fa816a878b",
+    "backend/app/orchestrator.py": "353874583531acc060e03ef1bc8323aed74b85a4addce8342ee5b7a294438c64",
+    "backend/app/schemas/__init__.py": "cd9c46bde32449601a1931ccb096031cfe13430c44ef1eadabed36d9afa35ed6",
+    "backend/app/schemas/api.py": "1df7c3905615ed7c52479155d4760c73e21e2b2dc18b961a4432940d6411861f",
+    "backend/app/schemas/models.py": "0d6f897e5859398f1ae50fd40246690bb192263e3da5e5cf35e7330e54708d66",
+    "backend/app/sqlguard/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/app/sqlguard/executor.py": "d711d9f6aaa16291eebd6c284e456226e7cbf6e3309b3aa830a7aa7ecb9091d8",
+    "backend/app/sqlguard/schema.py": "386630c857250f5139e7e2c29b509211ee71ddc0473857d2194e0f84652f3312",
+    "backend/app/sqlguard/validator.py": "39427bb24b2c30926a04535031493455bb8966fbf58ebba7b94c94893da13108",
+    "backend/app/steps/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/app/steps/s1_extract.py": "11511f431d05fb82d8fd1f0af15d03593f2bcf45ffbf7104fa65c6832ee6ea44",
+    "backend/app/steps/s2_resolve.py": "ce4ecafdbdfb78b7bcda8ca471b2865742220835c7da1c8b53e4d96e170ea39e",
+    "backend/app/steps/s3_checks.py": "56fd397610f6eeb9bb706a489a4e5994f8efd3666d69ae4a5512e81e34c4f5af",
+    "backend/app/steps/s4_sample.py": "478ff9e0e1a802e6a919d8a5018cd6f6f18c6dd1d4134dd4c5d5bab0e610716e",
+    "backend/app/steps/s5_execute.py": "a60dbc99b0ff84ce55502a61ae5bbd2fcb1e65228e8eddbe0f236514b5cb64e3",
+    "backend/app/steps/s6_vote.py": "f4f5243ac21e25fd4f452b81ba97ffbc838ddfc0667ae9c7e3b6ee3c2727673d",
+    "backend/app/steps/s7_decide.py": "b69db13533c908f50992c54c0a01f6546628bb7087001af289d6977cb7dc8808",
+    "backend/app/suggest.py": "ea090e3f74191fe89589405999ae97cec6847e88bfc6bd2027ab48e266e767eb",
+    "backend/app/text.py": "614830e183b227dc1a3928e6c45992c22f5fcc83523d795562b9c974e49a5f3f",
+    "scripts/build_catalog.py": "f337ccaa14f38bd7cff7099e170cd78c0de9f4982acc03ad4fbebdddf40bb696",
+    "scripts/catalog_lib.py": "27f3864616a9c55be3176c409e1a3356e459a353469be137f7657b30eb28b180",
+    "scripts/check_env.py": "0f19fefbd33af2051a3ed4280302a4d348aceb87f15d99856131367a6b4237f6",
+    "scripts/dataset_tools.py": "72b3f4fa9590f8cc18418bcd472a25739ce923de59cf54048ed7744cf082bf3b",
+    "scripts/etl.py": "39d01da5939ae9acd6cca7d92796a1bb49b54bdb449716243272f8742a515d7a",
+    "scripts/eval_protocol.py": "7b05bc4b2ecf1cd3cb5734eed5ddb7973471688d1e4b22c7e537bbe43f70050e",
+    "scripts/probe_m3.py": "197bbb9e6829b2c55a932905cebfbf831d77c97473955a1c8d925e71ec4978b0",
+    "scripts/run_eval.py": "67f418ba2044962d570d5af2e3dfb8260f3fa89fd5e5f91fdb7bab8fbd6cf445",
+    "scripts/setup_local.py": "4c94cb6600128b4fdf0d8b523c7d3af128bc9049ce2bd370df4948947e8343c4",
+    "scripts/smoke_http.py": "baeca96bf91cb4a0b46a106797cfb7943d4ce981af2b0dc13535d32e37f6a49f",
+    "scripts/smoke_pipeline.py": "09ad6407c470517dd57970cf16d3f57162f829c0e09732f0699c03b216eaf964",
+    "scripts/smoke_vllm.py": "3d1f6fd5bd881dcdd14508285bbd552f7676871fffdad40457e0748b80dd2af1",
+    "scripts/verify_local.py": "74563b0b861eeae17d8d1e45d80779c7e80557fe5fed7d183c916707ad4cb7d8"
+  },
+  "resolved_config_sha256": "05ec1a3ec6046234511d9a7e5faaf86daff1e28717f7c61401cb145dd9f0336e",
+  "software_versions": {
+    "pydantic": "2.14.1",
+    "sqlglot": "30.23.0",
+    "pandas": "3.0.6",
+    "requests": "2.34.2",
+    "pyyaml": "6.0.3"
+  },
+  "database_sha256": "f85ebad0d2c72dc88273222639be8570b7a3ada2649c769fa1959d1a64779d1c"
+}

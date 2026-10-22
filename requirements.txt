@@ -1,0 +1,14 @@
+# Kunci versi (pip freeze > requirements.lock) setelah semua berjalan.
+pydantic>=2,<3
+pyyaml
+sqlglot
+pandas
+requests
+streamlit
+pytest
+ruff
+
+# M4.1 API and offline contract tests; versions verified against PyPI.
+fastapi==0.146.0
+uvicorn==0.54.0
+httpx==0.28.1

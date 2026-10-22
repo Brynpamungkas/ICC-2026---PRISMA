@@ -1,0 +1,22 @@
+{
+  "status": "TEMPLATE_NOT_EVIDENCE",
+  "reviewer": null,
+  "initial_labels_locked_before_reconciliation": false,
+  "llm_draft_opened_after_initial_lock": false,
+  "initial_a": {
+    "path": null,
+    "sha256": null
+  },
+  "initial_b": {
+    "path": null,
+    "sha256": null
+  },
+  "agreement_report": {
+    "path": null,
+    "sha256": null
+  },
+  "reconciliation_log": {
+    "path": null,
+    "sha256": null
+  }
+}

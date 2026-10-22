@@ -1,0 +1,25 @@
+{
+  "sequence": 13,
+  "method": "POST",
+  "url": "http://127.0.0.1:3000/api/tanya",
+  "body": {
+    "pertanyaan": "Berapa IPM Jawa Barat?",
+    "id_sesi": "cde7c5f8-7c65-475d-ba1d-fafd875ca548"
+  },
+  "headers": null,
+  "status_code": 200,
+  "response_text": "{\"id_sesi\":\"cde7c5f8-7c65-475d-ba1d-fafd875ca548\",\"id_log\":\"fa000c27-a741-417b-8eab-790cea383738\",\"decision\":{\"decision\":\"TAHAN\",\"answer\":null,\"evidence\":[],\"reason_code\":\"T1\",\"suggestion\":\"Contoh istilah yang dikenali: persentase penduduk miskin, tingkat pengangguran terbuka, angka partisipasi kasar (apk) smp, angka partisipasi murni (apm) sd, angka partisipasi sekolah (aps) umur 7-12 tahun.\",\"period_used\":null}}",
+  "response_json": {
+    "id_sesi": "cde7c5f8-7c65-475d-ba1d-fafd875ca548",
+    "id_log": "fa000c27-a741-417b-8eab-790cea383738",
+    "decision": {
+      "decision": "TAHAN",
+      "answer": null,
+      "evidence": [],
+      "reason_code": "T1",
+      "suggestion": "Contoh istilah yang dikenali: persentase penduduk miskin, tingkat pengangguran terbuka, angka partisipasi kasar (apk) smp, angka partisipasi murni (apm) sd, angka partisipasi sekolah (aps) umur 7-12 tahun.",
+      "period_used": null
+    }
+  },
+  "duration_s": 0.01951867800016771
+}

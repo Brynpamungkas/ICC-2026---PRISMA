@@ -1,0 +1,198 @@
+{
+  "model": {
+    "backend": "llama_cpp",
+    "name": "Qwen2.5-Coder-1.5B-Instruct-Q4_K_M",
+    "url": "http://127.0.0.1:8000/v1/chat/completions",
+    "digest": "cc324af070c2ecbfd324a30884d2f951a7ff756aba85cb811a6ec436933bb046",
+    "fallback": {
+      "backend": "llama_cpp",
+      "name": "Qwen2.5-Coder-1.5B-Instruct-Q4_K_M",
+      "url": "http://127.0.0.1:8000/v1/chat/completions",
+      "n_samples": 8,
+      "digest": null
+    }
+  },
+  "vllm": {
+    "quantization": "awq",
+    "dtype": "half",
+    "max_model_len": 4096,
+    "gpu_memory_utilization": 0.8,
+    "enforce_eager": true,
+    "port": 8000
+  },
+  "sampling": {
+    "n_samples": 8,
+    "max_output_tokens": 256,
+    "temperature": 0.7,
+    "top_p": 0.95,
+    "seed": 42,
+    "ablation_n": [
+      1,
+      8,
+      16,
+      32,
+      64
+    ]
+  },
+  "prompt": {
+    "version": "0.3.0-cpu.1-no-reviewed-examples",
+    "few_shot_k": 4,
+    "examples_file": null
+  },
+  "execution": {
+    "db_path": "data/prisma.sqlite",
+    "mode": "ro",
+    "timeout_s": 2,
+    "max_rows": 1000
+  },
+  "decision": {
+    "default_period": "latest_intersection",
+    "vote_tie_break": "first_seen",
+    "k2_basis": "K",
+    "tau_u_file": "config/tau_u.yaml",
+    "year_only_period": "latest_in_year_intersection"
+  },
+  "catalog": {
+    "dir": "data/katalog",
+    "operation_lexicon": "data/katalog/operasi.csv",
+    "non_additive_units": [
+      "%"
+    ]
+  },
+  "evaluation": {
+    "test_set_size": 180,
+    "dev_fraction": 0.3,
+    "split_seed": 42,
+    "latency_percentiles": [
+      50,
+      95
+    ],
+    "user_study_participants": 15,
+    "tau_grid": {
+      "%": [
+        0.0,
+        0.01,
+        0.05,
+        0.1,
+        0.5,
+        1.0
+      ],
+      "ribu jiwa": [
+        0.0,
+        0.1,
+        1.0,
+        10.0,
+        100.0
+      ],
+      "orang": [
+        0.0,
+        1.0,
+        100.0,
+        1000.0,
+        10000.0
+      ]
+    },
+    "tau_objective": "max_F1_TANYA_lalu_min_TKS_lalu_min_tau",
+    "annotation_protocol": "eval/annotations/protocol.json",
+    "freeze_file": "eval/freeze/cpu-freeze.json",
+    "annotation_method": "llm_draft_human_review",
+    "annotation_review": "eval/annotations/review_final.json"
+  },
+  "logging": {
+    "path": "eval/runs/log.jsonl",
+    "trace_dir": "/home/bryan/prisma-icc2026/eval/runs/dev_K3_20261021T164852Z_54298/pipeline"
+  },
+  "transport": {
+    "timeout_s": 120.0,
+    "trace_dir": "/home/bryan/prisma-icc2026/eval/runs/dev_K3_20261021T164852Z_54298/transport"
+  },
+  "llama_cpp": {
+    "binary": ".local/llama/bin/llama-server",
+    "model_file": ".local/models/qwen2.5-coder-1.5b-instruct-q4_k_m.gguf",
+    "model_url": "https://huggingface.co/Qwen/Qwen2.5-Coder-1.5B-Instruct-GGUF/resolve/main/qwen2.5-coder-1.5b-instruct-q4_k_m.gguf",
+    "expected_sha256": "cc324af070c2ecbfd324a30884d2f951a7ff756aba85cb811a6ec436933bb046",
+    "host": "127.0.0.1",
+    "port": 8000,
+    "gpu_layers": 0
+  },
+  "local_setup": {
+    "node_version": "24.11.0"
+  },
+  "extraction": {
+    "strip_enclitic_nya": true,
+    "suppress_covered_terms": true,
+    "rank_words": {
+      "highest": [
+        "paling",
+        "tertinggi",
+        "terbanyak",
+        "terbesar",
+        "paling tinggi",
+        "paling banyak",
+        "paling besar",
+        "lebih tinggi",
+        "lebih banyak",
+        "lebih besar",
+        "termiskin",
+        "lebih miskin"
+      ],
+      "lowest": [
+        "terendah",
+        "tersedikit",
+        "terkecil",
+        "paling rendah",
+        "paling sedikit",
+        "paling kecil",
+        "lebih rendah",
+        "lebih sedikit",
+        "lebih kecil",
+        "paling tidak miskin",
+        "kurang miskin"
+      ]
+    },
+    "number_words": {
+      "satu": 1,
+      "dua": 2,
+      "tiga": 3,
+      "empat": 4,
+      "lima": 5,
+      "enam": 6,
+      "tujuh": 7,
+      "delapan": 8,
+      "sembilan": 9,
+      "sepuluh": 10
+    },
+    "place_stop_words": [
+      "pada",
+      "tahun",
+      "untuk",
+      "yang",
+      "dan",
+      "dengan",
+      "saja",
+      "sekarang",
+      "kini",
+      "periode",
+      "bulan",
+      "semester",
+      "antara",
+      "indonesia"
+    ],
+    "place_preposition": "di"
+  },
+  "api": {
+    "version": "0.1.0",
+    "host": "127.0.0.1",
+    "port": 8001,
+    "log_dir": "eval/runs/local-cpu/api",
+    "health_timeout_s": 5.0,
+    "model_health_url": "http://127.0.0.1:8000/health",
+    "model_list_url": "http://127.0.0.1:8000/v1/models"
+  },
+  "frontend": {
+    "host": "127.0.0.1",
+    "port": 3000,
+    "telemetry": false
+  },
+  "purpose": "LOCAL_CPU_FEASIBILITY_NOT_RESEARCH"
+}

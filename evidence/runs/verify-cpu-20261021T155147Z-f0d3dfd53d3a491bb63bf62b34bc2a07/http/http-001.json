@@ -1,0 +1,22 @@
+{
+  "sequence": 1,
+  "method": "GET",
+  "url": "http://127.0.0.1:3000/api/kesehatan",
+  "body": null,
+  "headers": null,
+  "status_code": 200,
+  "response_text": "{\"model\":{\"status\":\"AVAILABLE\",\"checked_at\":\"2026-10-21T15:53:16.641993+00:00\",\"diagnostic_code\":null},\"database\":{\"status\":\"AVAILABLE\",\"checked_at\":\"2026-10-21T15:53:16.662116+00:00\",\"diagnostic_code\":null}}",
+  "response_json": {
+    "model": {
+      "status": "AVAILABLE",
+      "checked_at": "2026-10-21T15:53:16.641993+00:00",
+      "diagnostic_code": null
+    },
+    "database": {
+      "status": "AVAILABLE",
+      "checked_at": "2026-10-21T15:53:16.662116+00:00",
+      "diagnostic_code": null
+    }
+  },
+  "duration_s": 0.051437864000035916
+}

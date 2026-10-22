@@ -1,0 +1,12 @@
+# CPU API/ETL/test input, not a final lock. Preserve existing M4 API pins.
+# Streamlit and GPU packages are not required by the approved Next.js frontend.
+pydantic>=2,<3
+pyyaml
+sqlglot
+pandas
+requests
+pytest
+ruff
+fastapi==0.146.0
+uvicorn==0.54.0
+httpx==0.28.1

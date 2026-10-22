@@ -1,0 +1,31 @@
+{
+  "_catatan": "Contoh few-shot prompt v0.3.0 (PRM-09/PRM-10). Hanya soal DEV kelompok TAK_AMBIGU (tanpa tau); satu per bentuk SQL. Konteks ekstraksi dihitung ulang oleh S1 saat dimuat (format sama dengan EXTRACTION_CONTEXT). SQL ditulis mengikuti RESOLVED_SQL_CONTRACT dan lolos validate_sql dengan bentuk S1-nya (dicek tes). Ditinjau manusia: BELUM — isi nama peninjau sebelum eval_lengkap.sh dev.",
+  "split": "eval/testset/split_seed-prisma-21okt.json",
+  "ditinjau_oleh": "",
+  "contoh": [
+    {
+      "id": "KMS-TA-09",
+      "indicator": "KMS_JUMLAH",
+      "question": "Jumlah penduduk miskin di Papua pada September 2025?",
+      "sql": "SELECT p.nama AS wilayah, n.nilai AS nilai FROM nilai_indikator AS n JOIN provinsi AS p ON p.kode = n.kode_provinsi WHERE n.kode_indikator = :indikator AND n.periode = :periode AND n.kode_provinsi IN (:wilayah_0)"
+    },
+    {
+      "id": "KRJ-TA-13",
+      "indicator": "TPT_PERSEN",
+      "question": "Lima provinsi dengan tingkat pengangguran terbuka terendah?",
+      "sql": "SELECT p.nama AS wilayah, n.nilai AS nilai FROM nilai_indikator AS n JOIN provinsi AS p ON p.kode = n.kode_provinsi WHERE n.kode_indikator = :indikator AND n.periode = :periode ORDER BY nilai ASC LIMIT 5"
+    },
+    {
+      "id": "KRJ-TA-04",
+      "indicator": "TPT_PERSEN",
+      "question": "Provinsi dengan tingkat pengangguran terbuka tertinggi?",
+      "sql": "SELECT p.nama AS wilayah, n.nilai AS nilai FROM nilai_indikator AS n JOIN provinsi AS p ON p.kode = n.kode_provinsi WHERE n.kode_indikator = :indikator AND n.periode = :periode ORDER BY nilai DESC LIMIT 1"
+    },
+    {
+      "id": "PDK-TA-13",
+      "indicator": "APS_16_18",
+      "question": "Rata-rata APS 16-18 tahun seluruh provinsi?",
+      "sql": "SELECT AVG(n.nilai) AS nilai FROM nilai_indikator AS n WHERE n.kode_indikator = :indikator AND n.periode = :periode"
+    }
+  ]
+}
