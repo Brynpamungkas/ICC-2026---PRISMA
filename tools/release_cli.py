@@ -130,11 +130,90 @@ def check_api_lock(py):
     run_cmd([py, "-c", code, ROOT / "requirements-api.lock"], cwd=ROOT)
 
 
+def reuse_frontend_build(origin):
+    """Copy an existing local build explicitly; record reuse rather than a fresh build."""
+    source = origin / "frontend/.next"
+    if not (source / "BUILD_ID").is_file():
+        raise RuntimeError(
+            "Build sumber belum ada; jalankan build dari terminal biasa."
+        )
+    manifest = json.loads((ROOT / "release/source_manifest.json").read_text())
+    checked = []
+    for entry in manifest["files"]:
+        path = entry["path"]
+        if (
+            not path.startswith("frontend/")
+            or path.endswith((".test.ts", ".test.tsx"))
+            or path == "frontend/scripts/run.mjs"
+        ):
+            continue
+        if not (origin / path).is_file() or digest(origin / path) != entry["sha256"]:
+            raise RuntimeError("Source frontend build berbeda: " + path)
+        checked.append(path)
+    py = python_path()
+    read_settings = "import yaml,json,sys; c=yaml.safe_load(open(sys.argv[1]));print(json.dumps({k:c[k] for k in ('api','frontend')}))"
+    current = json.loads(
+        subprocess.check_output(
+            [str(py), "-c", read_settings, str(ROOT / profile()["config"])], text=True
+        )
+    )
+    previous = json.loads(
+        subprocess.check_output(
+            [str(py), "-c", read_settings, str(origin / "config/local.cpu.yaml")],
+            text=True,
+        )
+    )
+    for area, keys in [
+        ("api", ("host", "port")),
+        ("frontend", ("host", "port", "telemetry")),
+    ]:
+        if any(current[area][key] != previous[area][key] for key in keys):
+            raise RuntimeError(
+                "Pengaturan frontend/proxy berbeda; build lama tidak dipakai."
+            )
+    routes = json.loads((source / "routes-manifest.json").read_text())
+    expected = "http://%s:%s/api/:path*" % (
+        current["api"]["host"],
+        current["api"]["port"],
+    )
+    if not any(
+        r.get("destination") == expected for r in routes["rewrites"]["afterFiles"]
+    ):
+        raise RuntimeError("Proxy build sumber tidak cocok.")
+    target = ROOT / "frontend/.next"
+    if target.exists():
+        shutil.rmtree(target)
+    shutil.copytree(source, target, symlinks=True)
+    output = ROOT / "eval/runs" / ("release-build-reuse-" + str(time.time_ns()))
+    output.mkdir(parents=True)
+    (output / "report.json").write_text(
+        json.dumps(
+            {
+                "status": "EXISTING_LOCAL_BUILD_REUSED_NOT_FRESH_BUILD",
+                "source": str(source),
+                "build_id": (source / "BUILD_ID").read_text().strip(),
+                "checked_source_files": checked,
+                "proxy_destination": expected,
+            },
+            indent=2,
+        )
+        + "\n"
+    )
+    print(
+        "Build lokal disalin setelah pemeriksaan source/proxy; bukan build baru. Bukti:",
+        output,
+    )
+
+
 def setup(args):
     verify_sources()
     prof = profile()
+    if args.reuse_build and not args.reuse:
+        raise RuntimeError("--reuse-build memerlukan --reuse yang eksplisit.")
     if args.reuse:
         origin = Path(args.reuse).resolve()
+        if origin == ROOT.resolve():
+            raise RuntimeError("Folder --reuse harus berbeda dari folder rilis.")
         py = origin / ".venv/bin/python"
         if not py.is_file():
             raise RuntimeError("Environment sumber tidak ditemukan.")
@@ -330,7 +409,9 @@ def setup(args):
     env = environment()
     py = python_path()
     run_cmd([py, "-m", "pip", "check"], cwd=ROOT, env=env)
-    run_cmd([node_bin() / "npm", "run", "build"], cwd=ROOT / "frontend", env=env)
+    reuse_frontend_build(Path(args.reuse).resolve()) if args.reuse_build else run_cmd(
+        [node_bin() / "npm", "run", "build"], cwd=ROOT / "frontend", env=env
+    )
     print(
         "Setup aplikasi selesai. Model/live demo belum diuji oleh setup. Jalankan bash run.sh."
     )
@@ -534,6 +615,7 @@ def main():
     sub = parser.add_subparsers(dest="command", required=True)
     s = sub.add_parser("setup")
     s.add_argument("--reuse")
+    s.add_argument("--reuse-build", action="store_true")
     s.add_argument("--python")
     s.add_argument("--app-only", action="store_true")
     s = sub.add_parser("run")

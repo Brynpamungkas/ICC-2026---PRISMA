@@ -1066,6 +1066,13 @@
       "source_commit": "4d8dfaa64cb2efff3e59239e6515365e4fd88f5c",
       "sha256": "993ef2cfe1faab09c3033e8ea41a25ea19ce6fc3eaf3918e1b3946753a9d4598",
       "type": "unchanged_required_frontend_asset"
+    },
+    {
+      "path": "config/local.cpu.yaml",
+      "source_path": "config/local.cpu.yaml",
+      "source_commit": null,
+      "sha256": "fe535e5905743c6e089857496031875e4e31b5933ec908332b222f17db19c46e",
+      "type": "existing_local_profile_required_by_original_checks"
     }
   ],
   "excluded_source_paths": [

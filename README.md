@@ -8,11 +8,11 @@ Branch ini **release/llama**, diekspor dari `4d8dfaa64cb2efff3e59239e6515365e4fd
 
 ```bash
 cd /home/bryan/prisma-release
-bash setup.sh --reuse /home/bryan/prisma-icc2026
+bash setup.sh --reuse /home/bryan/prisma-icc2026 --reuse-build
 bash run.sh
 ```
 
-Reuse memverifikasi GGUF dan commit llama.cpp, memakai environment/Node lokal melalui symlink yang diabaikan Git, menyalin dependensi frontend agar repo lama tidak disentuh, lalu membuat build baru.
+Reuse memverifikasi GGUF dan commit llama.cpp, memakai environment/Node lokal melalui symlink yang diabaikan Git, menyalin dependensi frontend agar repo lama tidak disentuh, serta menyalin build lokal setelah hash source dan proxy dicocokkan. Ini bukan build baru.
 
 Buka **http://127.0.0.1:3000**. Tunggu model dan database tersedia lalu klik **Periksa lagi**. Ctrl+C menghentikan proses yang dimulai sesi launcher ini. Jangan menjalankan kedua versi sekaligus pada port yang sama.
 
@@ -58,3 +58,7 @@ Dokumen D00–D18, riwayat prompt/chat, cache, entrypoint/bundle frontend statis
 Belum ada push/submit. Paket ini tidak otomatis meluluskan G7/G8 atau membuktikan semua laptop mampu menjalankan model.
 
 CSS dan font pada frontend/src/style.css serta frontend/dist/ tetap disertakan karena diimpor Next.js; berkas tersebut bukan cache yang boleh dibuang.
+
+`--reuse-build` menyalin build lokal yang telah ada setelah hash source UI, lock dan pengaturan proxy dicocokkan. Ini bukan klaim build baru. Tanpa flag tersebut setup melakukan build dari source.
+
+Pemeriksaan rilis di shell AI: 44 tes frontend lulus per branch; build baru terhalang pembacaan stdout subproses TypeScript. Build lokal lama dipakai secara eksplisit hanya di laptop ini. Arsip Git tidak berisi build itu; mesin bersih tetap harus menjalankan setup/build.
