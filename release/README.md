@@ -17,3 +17,10 @@ README tambahan tidak mengubah daftar hash artefak asli. Verifikasi: `.venv/bin/
 - `source_manifest.json`
 
 [Panduan utama](../README.md) · [Evaluasi dan reproduksibilitas](../EVALUATION.md)
+
+## Pemetaan branch persiapan ke repositori final
+
+- `release/vllm` → `main`: versi utama vLLM/AWQ/N64.
+- `release/llama` → `llama-version`: alternatif CPU llama.cpp/GGUF/N8.
+
+Ini rencana penamaan yang dipilih pemilik proyek. README tidak mengganti branch atau field commit pada metadata. SHA-256 model dan parameter masing-masing profil tetap mengikuti sumbernya.
