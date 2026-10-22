@@ -82,7 +82,7 @@ Untuk runtime model yang sudah dinyalakan secara terpisah: `bash run.sh --extern
 
 Dokumen D00–D18, riwayat prompt/chat, cache, entrypoint/bundle frontend statis lama dan folder environment tidak masuk ekspor ini. Repo pengembangan dan arsip lengkap tetap dipertahankan. Asal label LLM dan keterbatasan anotasi tetap dicatat; pembersihan tidak mengubah provenance penelitian atau kewajiban pernyataan penggunaan AI pada naskah.
 
-Belum ada push/submit. Paket ini tidak otomatis meluluskan G7/G8 atau membuktikan semua laptop mampu menjalankan model.
+Status unggahan GitHub dan pengumpulan lomba diperiksa terpisah. Paket ini tidak otomatis meluluskan G7/G8 atau membuktikan semua laptop mampu menjalankan model.
 
 CSS dan font pada frontend/src/style.css serta frontend/dist/ tetap disertakan karena diimpor Next.js; berkas tersebut bukan cache yang boleh dibuang.
 
