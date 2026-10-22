@@ -64,3 +64,22 @@ CSS dan font pada frontend/src/style.css serta frontend/dist/ tetap disertakan k
 Pemeriksaan rilis di shell AI: 44 tes frontend lulus per branch; build baru terhalang pembacaan stdout subproses TypeScript. Build lokal lama dipakai secara eksplisit hanya di laptop ini. Arsip Git tidak berisi build itu; mesin bersih tetap harus menjalankan setup/build.
 
 `evidence/environment/` menyimpan inventaris, smoke dan hash model historis dari mesin NVIDIA tim, diekspor tanpa perubahan. Inventaris tersebut bukan pengukuran laptop ini atau bukti peak VRAM run test.
+
+## Panduan setiap folder
+
+Tiap folder source dan arsip yang dilacak kini memiliki README. Folder dependensi, environment, cache/build dan output run baru yang diabaikan Git tidak diberi README manual. README tambahan di arsip menjelaskan bukti; tidak mengubah artefak aslinya.
+
+| Folder | Panduan |
+|---|---|
+| `backend/` | [Backend PRISMA](backend/README.md) |
+| `frontend/` | [Frontend Next.js](frontend/README.md) |
+| `config/` | [Konfigurasi runtime dan evaluasi](config/README.md) |
+| `data/` | [Snapshot data BPS](data/README.md) |
+| `eval/` | [Evaluasi penelitian](eval/README.md) |
+| `evidence/` | [Arsip bukti penelitian](evidence/README.md) |
+| `paper/` | [Paper dan status naskah](paper/README.md) |
+| `release/` | [Metadata rilis](release/README.md) |
+| `scripts/` | [Utilitas data dan eksperimen](scripts/README.md) |
+| `tools/` | [Alat penyiapan rilis](tools/README.md) |
+
+`release/vllm` adalah profil baseline runtime paper; `release/llama` adalah alternatif CPU. Nama branch belum diubah menjadi `main`. Kesesuaian runtime tidak membuktikan seluruh evaluasi, anotasi, studi pengguna atau gerbang paper sudah lengkap.
