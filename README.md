@@ -2,20 +2,34 @@
 
 Aplikasi lokal tanya jawab data BPS berbahasa Indonesia. Keluaran JAWAB, TANYA dan TAHAN; Next.js + FastAPI + SQLite read-only.
 
-Branch ini **release/vllm**, diekspor dari `c1e0900b26dfcd1f86c439cc96724d30ac0b45aa`. Versi lain tersedia pada branch `release/llama`. Dua versi dipisah karena prompt, SQL guard, T5, trace dan evaluator berbeda. Kode inti masing-masing dipertahankan; tidak ada penggabungan metode.
+Branch ini **main**, diekspor dari `c1e0900b26dfcd1f86c439cc96724d30ac0b45aa`. Alternatif CPU tersedia pada branch `llama-version`. Dua versi dipisah karena prompt, SQL guard, T5, trace dan evaluator berbeda. Kode inti masing-masing dipertahankan; tidak ada penggabungan metode.
 
-## Susunan branch yang akan digunakan
+## Susunan branch
 
-Repositori final direncanakan memakai susunan berikut:
+Repository menggunakan susunan berikut:
 
-| Branch final | Runtime | Kedudukan |
+| Branch | Runtime | Kedudukan |
 |---|---|---|
 | `main` | vLLM + Qwen2.5-Coder-1.5B-Instruct AWQ, N=64 | Versi utama; baseline runtime paper |
 | `llama-version` | llama.cpp + Qwen2.5-Coder-1.5B-Instruct GGUF Q4_K_M, N=8 | Alternatif CPU untuk laptop tanpa NVIDIA; hasil dilaporkan terpisah |
 
 Versi CPU memakai **llama.cpp**, bukan Ollama. Kedua versi mempertahankan kode, konfigurasi dan bukti sumber masing-masing; perbedaan prompt, validasi SQL, T5, trace dan evaluator tidak disatukan diam-diam. Angka hasil kedua profil bukan ablasi runtime/N terkontrol.
 
-Paket persiapan lokal saat ini masih bernama `release/vllm` dan `release/llama`. Pemetaan menuju repositori final adalah `release/vllm` → `main`, serta `release/llama` → `llama-version`. Nama branch belum diubah oleh pembaruan README ini. Jangan memakai perintah checkout nama final sebelum branch tersebut benar-benar tersedia.
+Nama branch lokal sudah ditetapkan: `main` untuk vLLM dan `llama-version` untuk CPU. Kedua branch berbagi repository Git baru dan dipertahankan dalam working tree terpisah pada laptop penyiapan. URL tujuan: https://github.com/Brynpamungkas/ICC-2026---PRISMA. Ketersediaan online bergantung pada keberhasilan push; commit lokal bukan bukti unggahan.
+
+## Mengambil versi ini dari GitHub
+
+Setelah kedua branch berhasil diunggah:
+
+```bash
+git clone --branch main https://github.com/Brynpamungkas/ICC-2026---PRISMA.git
+cd ICC-2026---PRISMA
+bash setup.sh --python /path/ke/python3.11
+bash check.sh
+bash run.sh
+```
+
+Ganti path interpreter dengan Python 3.11 yang terpasang. Baca prasyarat Linux/WSL2 dan runtime di bawah. `main` memerlukan NVIDIA/vLLM; `llama-version` menjalankan model melalui CPU llama.cpp. Keduanya memakai port layanan yang sama sehingga dijalankan bergantian.
 
 ## Cepat di laptop Bryan yang sudah terpasang
 
@@ -95,4 +109,4 @@ Tiap folder source dan arsip yang dilacak kini memiliki README. Folder dependens
 | `scripts/` | [Utilitas data dan eksperimen](scripts/README.md) |
 | `tools/` | [Alat penyiapan rilis](tools/README.md) |
 
-Susunan final yang direncanakan: `main` = vLLM, `llama-version` = alternatif CPU. Paket persiapan masih memakai `release/vllm` dan `release/llama` sampai penamaan final diterapkan. Kesesuaian runtime tidak membuktikan seluruh evaluasi, anotasi, studi pengguna atau gerbang paper sudah lengkap.
+Susunan branch: `main` = vLLM, `llama-version` = alternatif CPU. Kesesuaian runtime tidak membuktikan seluruh evaluasi, anotasi, studi pengguna atau gerbang paper sudah lengkap.

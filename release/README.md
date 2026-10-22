@@ -18,9 +18,9 @@ README tambahan tidak mengubah daftar hash artefak asli. Verifikasi: `.venv/bin/
 
 [Panduan utama](../README.md) · [Evaluasi dan reproduksibilitas](../EVALUATION.md)
 
-## Pemetaan branch persiapan ke repositori final
+## Susunan branch repository
 
-- `release/vllm` → `main`: versi utama vLLM/AWQ/N64.
-- `release/llama` → `llama-version`: alternatif CPU llama.cpp/GGUF/N8.
+- `main`: versi utama vLLM/AWQ/N64.
+- `llama-version`: alternatif CPU llama.cpp/GGUF/N8.
 
-Ini rencana penamaan yang dipilih pemilik proyek. README tidak mengganti branch atau field commit pada metadata. SHA-256 model dan parameter masing-masing profil tetap mengikuti sumbernya.
+Nama branch lokal sudah diterapkan untuk repository tujuan Brynpamungkas/ICC-2026---PRISMA. Penggantian nama tidak mengubah commit sumber, SHA-256 model atau parameter profil. Status unggahan diperiksa terpisah; remote yang dikonfigurasi belum berarti push berhasil.
