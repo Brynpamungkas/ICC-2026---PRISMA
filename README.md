@@ -111,7 +111,7 @@ Hasil ini bisa dihitung ulang dari berkas tersimpan tanpa model:
 
 Tiap folder punya `README.md` sendiri.
 
-## Perintah berguna
+## Command lain
 
 ```bash
 make test      # jalankan tes backend dan rilis
