@@ -1,112 +1,125 @@
-# PRISMA — vLLM NVIDIA
+# PRISMA
 
-Aplikasi lokal tanya jawab data BPS berbahasa Indonesia. Keluaran JAWAB, TANYA dan TAHAN; Next.js + FastAPI + SQLite read-only.
+**PRISMA** adalah aplikasi tanya jawab data BPS berbahasa Indonesia yang berjalan sepenuhnya di komputer sendiri. Pengguna mengetik pertanyaan biasa, misalnya *"Berapa persentase penduduk miskin di Papua?"*, dan PRISMA menjawab dari basis data resmi BPS. Tidak ada layanan awan dan tidak ada data yang keluar dari mesin.
 
-Branch ini **main**, diekspor dari `c1e0900b26dfcd1f86c439cc96724d30ac0b45aa`. Alternatif CPU tersedia pada branch `llama-version`. Dua versi dipisah karena prompt, SQL guard, T5, trace dan evaluator berbeda. Kode inti masing-masing dipertahankan; tidak ada penggabungan metode.
+Keistimewaannya ada pada pertanyaan yang **ambigu**. Kalau sebuah pertanyaan punya beberapa tafsir yang sah *dan* tafsir-tafsir itu menghasilkan jawaban yang berbeda, PRISMA bertanya balik. Kalau semua tafsir menghasilkan jawaban yang sama, PRISMA langsung menjawab tanpa menanyai pengguna.
 
-## Susunan branch
+## 3 Outputs
 
-Repository menggunakan susunan berikut:
+| Keluaran | Arti |
+|---|---|
+| **JAWAB** | Pertanyaan jelas, atau semua tafsirnya menghasilkan angka yang sama. Jawaban ditampilkan beserta sumbernya. |
+| **TANYA** | Ada tafsir yang jawabannya berbeda. PRISMA meminta pengguna memilih tafsir mana yang dimaksud. |
+| **TAHAN** | PRISMA tidak cukup yakin atau kuerinya tidak lolos pemeriksaan keamanan, sehingga tidak memberi jawaban. Diberi kode alasan (T0–T5). |
 
-| Branch | Runtime | Kedudukan |
-|---|---|---|
-| `main` | vLLM + Qwen2.5-Coder-1.5B-Instruct AWQ, N=64 | Versi utama; baseline runtime paper |
-| `llama-version` | llama.cpp + Qwen2.5-Coder-1.5B-Instruct GGUF Q4_K_M, N=8 | Alternatif CPU untuk laptop tanpa NVIDIA; hasil dilaporkan terpisah |
+Basis data hanya dibaca (read-only). Model bahasa tidak mengarang angka. Ia hanya menyusun kueri SQL, yang diperiksa dulu oleh validator sebelum dijalankan.
 
-Versi CPU memakai **llama.cpp**, bukan Ollama. Kedua versi mempertahankan kode, konfigurasi dan bukti sumber masing-masing; perbedaan prompt, validasi SQL, T5, trace dan evaluator tidak disatukan diam-diam. Angka hasil kedua profil bukan ablasi runtime/N terkontrol.
+## Cakupan data
 
-Nama branch lokal sudah ditetapkan: `main` untuk vLLM dan `llama-version` untuk CPU. Kedua branch berbagi repository Git baru dan dipertahankan dalam working tree terpisah pada laptop penyiapan. URL tujuan: https://github.com/Brynpamungkas/ICC-2026---PRISMA. Ketersediaan online bergantung pada keberhasilan push; commit lokal bukan bukti unggahan.
+Data bersumber dari tabel BPS (disertakan di `data/raw_bps/`) untuk 38 provinsi, dalam tiga domain:
 
-## Mengambil versi ini dari GitHub
+- **Kemiskinan**: persentase dan jumlah penduduk miskin.
+- **Ketenagakerjaan**: tingkat pengangguran terbuka (TPT) dan jumlah pengangguran.
+- **Pendidikan**: APK dan APM (SD, SMP, SMA) serta APS (7–12, 13–15, 16–18 tahun).
 
-Setelah kedua branch berhasil diunggah:
+Contoh pertanyaan yang bisa dicoba:
+
+- "Jumlah penduduk miskin di Papua pada September 2025?"
+- "Lima provinsi dengan jumlah pengangguran terbanyak?"
+- "Provinsi mana yang paling miskin?"
+- "Bandingkan APK SMA di Jawa Barat dan Jawa Timur."
+
+## Kebutuhan sistem
+
+| Komponen | Keterangan |
+|---|---|
+| OS | Linux atau WSL2 (Windows). Setup tidak memakai `sudo`. |
+| Python | 3.11 beserta `venv` dan `pip` |
+| GPU | NVIDIA dengan VRAM sekitar 8 GB (model dilayani vLLM) |
+| Lainnya | Git, koneksi internet saat setup (mengunduh model dan dependensi) |
+| Node.js | 24.11.0, diunduh dan diverifikasi checksum-nya oleh setup |
+
+Branch `main` memerlukan GPU NVIDIA. Untuk laptop tanpa GPU, tersedia alternatif CPU berbasis llama.cpp pada branch `llama-version`. Keduanya memakai port yang sama, jadi jangan dijalankan bersamaan.
+
+## Memulai
 
 ```bash
 git clone --branch main https://github.com/Brynpamungkas/ICC-2026---PRISMA.git
 cd ICC-2026---PRISMA
-bash setup.sh --python /path/ke/python3.11
-bash check.sh
-bash run.sh
+
+bash setup.sh --python /path/ke/python3.11   # membuat .venv, memasang dependensi, mengunduh model
+bash check.sh                                # tes backend, lint, tes dan build frontend
+bash run.sh                                  # menjalankan model, backend, dan frontend
 ```
 
-Ganti path interpreter dengan Python 3.11 yang terpasang. Baca prasyarat Linux/WSL2 dan runtime di bawah. `main` memerlukan NVIDIA/vLLM; `llama-version` menjalankan model melalui CPU llama.cpp. Keduanya memakai port layanan yang sama sehingga dijalankan bergantian.
+Ganti `/path/ke/python3.11` dengan lokasi Python 3.11 di mesin kamu (cek dengan `which python3.11`). Model dan lingkungan tidak ada di Git, tapi diunduh oleh setup, dan kegagalan pencocokan hash menghentikan proses.
 
-## Cepat di laptop Bryan yang sudah terpasang
+Setelah `run.sh` berjalan, buka **http://127.0.0.1:3000**. Kalau halaman menyatakan model belum tersedia, tunggu model selesai dimuat lalu klik **Periksa lagi**. Tekan `Ctrl+C` untuk menghentikan semua proses yang dimulai oleh `run.sh`.
 
-```bash
-cd /home/bryan/prisma-release-vllm
-bash setup.sh --reuse /home/bryan/prisma-icc2026 --reuse-build --app-only
-bash run.sh --external-model
-```
-
-Branch vLLM di laptop tanpa NVIDIA hanya dapat memeriksa API/UI/offline. --external-model tidak menyediakan model; model asli harus dilayani tersendiri pada alamat config. Health akan menyatakan tidak tersedia bila model belum hidup.
-
-Buka **http://127.0.0.1:3000**. Tunggu model dan database tersedia lalu klik **Periksa lagi**. Ctrl+C menghentikan proses yang dimulai sesi launcher ini. Jangan menjalankan kedua versi sekaligus pada port yang sama.
-
-## Mesin Linux atau WSL2 bersih
-
-Prasyarat: Git, Python 3.11 beserta venv/pip, compiler C++ dan Make untuk build CPU, akses unduhan saat setup. Node 24.11.0 disediakan dan checksum diverifikasi. GPU membutuhkan driver NVIDIA yang sesuai; setup model memakai environment terpisah agar paket FastAPI model dan API tidak saling menimpa.
-
-```bash
-bash setup.sh --python /path/ke/python3.11
-bash check.sh
-bash run.sh
-```
-
-`/path/ke/python3.11` diganti path interpreter 3.11 yang benar. Setup tidak memakai sudo atau mengganti Python sistem. DB resmi yang cocok manifest sudah disertakan. Model dan environment tidak disertakan dalam Git; model diunduh/dibangun oleh setup saat diperlukan. Kegagalan hash menghentikan proses.
-
-GPU: vLLM 0.32.0 dari snapshot lock model; AWQ revision 867d050da8a1af36b04fde627402656b3f918511, N64, empat contoh dev dan tau 0 sesuai run sumber. Setup lengkap/model hanya untuk mesin NVIDIA.
-
-Pemisahan dependensi: `requirements-api.lock` adalah snapshot API/ETL/test Linux Python 3.11 yang diperiksa pada laptop ini; `requirements-model.lock` hanya ada pada branch GPU. Snapshot asal tim di `release/environment/` disimpan untuk penelusuran. `requirements-core.lock` historis Windows bukan lock lintas platform dan tidak dipakai entrypoint setup baru.
-
-## Perintah penting
-
-```bash
-bash run.sh --check-only                 # preflight berkas; belum uji layanan hidup
-bash check.sh                            # source parity, backend/tes rilis, lint, frontend/types/build
-.venv/bin/python -B tools/release_cli.py replay  # hitung ulang hasil tersimpan tanpa model
-```
-
-Untuk runtime model yang sudah dinyalakan secara terpisah: `bash run.sh --external-model`. Pemeriksaan berkas tidak menggantikan demo nyata. Makna dan batas bukti: [EVALUATION.md](EVALUATION.md); hasil verifikasi penyiapan rilis ada pada laporan luar working tree yang diberikan bersama paket.
-
-## Isi
-
-- `backend/`, `frontend/`: implementasi dan tes dari versi sumber.
-- `config/`: parameter asli; launcher memilih profil dari `release/profile.json`.
-- `data/`: SQLite snapshot resmi, katalog, data mentah dan sumber BPS.
-- `eval/annotations/`, `eval/testset/`: label, provenance, rujukan dan split yang diperlukan evaluator.
-- `evidence/`: run dev/test/terputus serta bukti terkait yang dipertahankan; berkas bukan keluaran run baru.
-- `paper/`: draf Bab IV–V untuk review, belum karya ilmiah final Bab I–V.
-- `release/`: commit asal, checksum sumber, runtime dan snapshot dependensi.
-- `tools/`: setup, launcher dan penghitungan ulang metrik. Tidak mengubah algoritma riset.
-
-Dokumen D00–D18, riwayat prompt/chat, cache, entrypoint/bundle frontend statis lama dan folder environment tidak masuk ekspor ini. Repo pengembangan dan arsip lengkap tetap dipertahankan. Asal label LLM dan keterbatasan anotasi tetap dicatat; pembersihan tidak mengubah provenance penelitian atau kewajiban pernyataan penggunaan AI pada naskah.
-
-Status unggahan GitHub dan pengumpulan lomba diperiksa terpisah. Paket ini tidak otomatis meluluskan G7/G8 atau membuktikan semua laptop mampu menjalankan model.
-
-CSS dan font pada frontend/src/style.css serta frontend/dist/ tetap disertakan karena diimpor Next.js; berkas tersebut bukan cache yang boleh dibuang.
-
-`--reuse-build` menyalin build lokal yang telah ada setelah hash source UI, lock dan pengaturan proxy dicocokkan. Ini bukan klaim build baru. Tanpa flag tersebut setup melakukan build dari source.
-
-Pemeriksaan rilis di shell AI: 44 tes frontend lulus per branch; build baru terhalang pembacaan stdout subproses TypeScript. Build lokal lama dipakai secara eksplisit hanya di laptop ini. Arsip Git tidak berisi build itu; mesin bersih tetap harus menjalankan setup/build.
-
-`evidence/environment/` menyimpan inventaris, smoke dan hash model historis dari mesin NVIDIA tim, diekspor tanpa perubahan. Inventaris tersebut bukan pengukuran laptop ini atau bukti peak VRAM run test.
-
-## Panduan setiap folder
-
-Tiap folder source dan arsip yang dilacak kini memiliki README. Folder dependensi, environment, cache/build dan output run baru yang diabaikan Git tidak diberi README manual. README tambahan di arsip menjelaskan bukti; tidak mengubah artefak aslinya.
-
-| Folder | Panduan |
+| Layanan | Alamat |
 |---|---|
-| `backend/` | [Backend PRISMA](backend/README.md) |
-| `frontend/` | [Frontend Next.js](frontend/README.md) |
-| `config/` | [Konfigurasi runtime dan evaluasi](config/README.md) |
-| `data/` | [Snapshot data BPS](data/README.md) |
-| `eval/` | [Evaluasi penelitian](eval/README.md) |
-| `evidence/` | [Arsip bukti penelitian](evidence/README.md) |
-| `paper/` | [Paper dan status naskah](paper/README.md) |
-| `release/` | [Metadata rilis](release/README.md) |
-| `scripts/` | [Utilitas data dan eksperimen](scripts/README.md) |
-| `tools/` | [Alat penyiapan rilis](tools/README.md) |
+| Antarmuka (frontend) | http://127.0.0.1:3000 |
+| API (backend) | http://127.0.0.1:8001 |
+| Model (vLLM) | http://localhost:8000 |
 
-Susunan branch: `main` = vLLM, `llama-version` = alternatif CPU. Kesesuaian runtime tidak membuktikan seluruh evaluasi, anotasi, studi pengguna atau gerbang paper sudah lengkap.
+Kalau model sudah dilayani secara terpisah, pakai `bash run.sh --external-model`. Untuk memeriksa berkas tanpa menyalakan layanan: `bash run.sh --check-only`.
+
+## Cara memakai
+
+1. Ketik pertanyaan pada kolom input.
+2. Kalau hasilnya **JAWAB**, angka tampil beserta indikator, wilayah, dan periodenya.
+3. Kalau hasilnya **TANYA**, pilih tafsir yang kamu maksud, lalu jawaban ditampilkan.
+4. Kalau hasilnya **TAHAN**, baca kode alasannya, lalu ubah pertanyaan agar lebih spesifik (sebut indikator, provinsi, dan periode).
+
+## Hasil evaluasi
+
+Evaluasi memakai 180 pertanyaan (54 dev dan 126 test) dengan 404 interpretasi berlabel. Angka berikut dari split **test** (126 pertanyaan), konfigurasi dibekukan sebelum test dibuka.
+
+| Kondisi | Perilaku | TKS ↓ | PBT ↓ | F1 TANYA ↑ | EX ↑ | TAHAN |
+|---|---|---|---|---|---|---|
+| K1 | selalu menjawab, tanpa klarifikasi | 14,3% | 0% | 0,00 | 2,6% | 84,9% |
+| K2 | selalu bertanya saat ada tafsir ganda | 0,8% | 18,2% | 0,95 | 71,1% | 6,3% |
+| **K3 (PRISMA)** | bertanya hanya jika jawaban berbeda | **1,6%** | **0%** | **0,94** | **76,3%** | 14,3% |
+
+- **TKS**: proporsi pertanyaan yang dijawab sistem padahal seharusnya ditanya, atau jawabannya salah.
+- **PBT**: proporsi pertanyaan yang sebenarnya cukup dijawab tapi malah ditanya balik.
+- **F1 TANYA**: ketepatan memutuskan kapan harus bertanya.
+- **EX**: ketepatan jawaban pada pertanyaan yang tidak ambigu.
+- Latensi K3: median sekitar 2,8 detik, persentil ke-95 sekitar 5,6 detik per pertanyaan.
+
+K3 mempertahankan PBT 0% (tidak menanyai pengguna tanpa perlu) dengan TKS yang hampir setara K2. Harga yang dibayar adalah 14,3% keputusan TAHAN, yang sebagian besar (12,7% dari seluruh pertanyaan) disebabkan validator SQL menolak kerangka kueri yang tidak sesuai bentuk yang diizinkan. Untuk membaca batas klaim, lihat bagian berikut.
+
+Hasil ini bisa dihitung ulang dari berkas tersimpan tanpa model:
+
+```bash
+.venv/bin/python -B tools/release_cli.py replay
+```
+
+## Struktur repositori
+
+| Folder | Isi |
+|---|---|
+| `backend/` | API FastAPI, pipeline tujuh langkah (S1–S7), validator SQL, dan tes |
+| `frontend/` | Antarmuka Next.js |
+| `config/` | `config.yaml` (parameter) dan `tau_u.yaml` (ambang kedekatan angka per satuan) |
+| `data/` | Basis data SQLite, katalog indikator dan kamus istilah, data mentah BPS |
+| `eval/` | Pertanyaan, label, dan pembagian dev/test |
+| `evidence/` | Run evaluasi yang sudah selesai beserta metriknya |
+| `paper/` | Draf Bab IV–V |
+| `scripts/` | ETL, pembuatan katalog, dan alat evaluasi |
+| `tools/`, `release/` | Setup, launcher, dan metadata rilis |
+
+Tiap folder punya `README.md` sendiri.
+
+## Perintah berguna
+
+```bash
+make test      # jalankan tes backend dan rilis
+make lint      # ruff
+make check     # tes + lint + tes dan build frontend
+make replay    # hitung ulang metrik dari bukti tersimpan
+```
+
+## Sumber data dan lisensi komponen
+
+Angka berasal dari tabel resmi BPS dan tidak diubah. Ketentuan pemakaian data mengikuti sumber BPS (lihat `data/raw_bps/sumber.md`). Model Qwen2.5-Coder-1.5B-Instruct-AWQ, vLLM, llama.cpp, Next.js, dan dependensi lain mengikuti lisensi masing-masing. Rincian ada di [THIRD_PARTY.md](THIRD_PARTY.md).
